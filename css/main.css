@@ -1,0 +1,62 @@
+@charset "utf-8";
+html,body{height: 100%}
+
+#skip a{position: absolute;top: 0;left: -9999px;z-index: 1000}
+#skip a:focus{display: block;left: 0; right: 0; height: 40px;line-height: 40px;font-family: NanumSqB;background: #fff;color:#164556;text-align: center}
+
+#header{top: 0;left: 0;right: 0;z-index: 600}
+#header .logo{position: absolute;top: 20px;left: 18px}
+#header .logo a{display: block;width: 220px; height: 90px;background: url("../images/index/m_index_logo.png") no-repeat 0 0}
+
+#header .btn_gnb{position: absolute;top: 55px;right: 70px}
+/* pc에서 숨길 컨텐츠 */
+#header .logo, #header .btn_gnb .mbtn_open, #header #gnb .mbtn_close{display: none}
+
+.head_top .btn_gnb button{width: 64px; height: 50px;background: url("../images/index/gnb_btn.png") no-repeat 100% 50%}
+
+/* gnb */
+#gnb{position: fixed;top:0;left: 0;right: 0;bottom: 0;background: #164556;text-align: center;z-index: 800;display: none;}
+#gnb .gnb_open{padding-top: 150px}
+#gnb > .area > .gnb_open > li{float: left;}
+#gnb > .area > .gnb_open li a{display: block;width: 240px;}
+#gnb > .area > .gnb_open > li > a{height: 90px;line-height: 90px;font-size: 36px;}
+#gnb .gnb_open li ul li a{height: 63px;line-height: 63px;font-size: 25px}
+#gnb img{padding: 55px 0 25px}
+#gnb .sns{height: 65px;text-align: center}
+#gnb .sns li{display: inline-block;text-indent: -9999px}
+#gnb .sns li + li{padding-left: 55px}
+#gnb .sns li a{display: block;width: 65px; height: 65px;background: no-repeat 0 0}
+#gnb .sns li:nth-child(1) a{background-image: url("../images/index/gnb_sns_kakao.png")}
+#gnb .sns li:nth-child(2) a{background-image: url("../images/index/gnb_sns_naver.png")}
+#gnb .sns li:nth-child(3) a{background-image: url("../images/index/gnb_sns_insta.png")}
+#gnb .sns li:nth-child(1) a:hover,#gnb .sns li:nth-child(1) a:focus{background-position: -65px 0}
+#gnb .sns li:nth-child(2) a:hover,#gnb .sns li:nth-child(2) a:focus{background-position: -65px 0}
+#gnb .sns li:nth-child(3) a:hover,#gnb .sns li:nth-child(3) a:focus{background-position: -65px 0}
+#gnb .sns + p{padding: 30px 0;font-size: 40px;font-family: NanumSqB}
+#gnb p + p{font-size: 25px}
+#header #gnb .pcbtn_close{position: absolute;top: 60px; right: 66px;width: 45px; height: 45px;background: url("../images/index/btn_close.png") no-repeat 50% 0}
+
+/* indicator */
+#indicator, #footer{position: fixed;z-index: 400}
+#indicator{bottom: 0;left: 0; right: 0; background: url("../images/index/indic_bg.png") no-repeat 50% 100%;height: 99px}
+#indicator img{position: absolute;top: -20px;left: 50%;margin-left: -283px;}
+#indicator ul{width: 566px;height: 42px;margin: 0 auto}
+#indicator ul li{float: left;}
+#indicator ul li + li{padding-left: 126px}
+#indicator ul li a, #indicator ul li a .indic_icon{display: block}
+#indicator ul li a{width: 47px;height: 42px}
+#indicator ul li a .indic_icon{width: 47px;height: 24px;background: url("../images/index/indic_float.png") no-repeat 50% 50%}
+#indicator ul li a .indic_txt{display: none;text-align: center;width: 47px;height: 15px;line-height: 15px;font-size: 12px;padding-top: 3px;}
+#indicator ul li.on a .indic_icon{background: none}
+#indicator ul li.on a .indic_txt{display: block}
+
+#footer{bottom: 10px;left: 0;right: 0;font-size: 12px;text-align: center}
+#footer p span{position: relative;padding: 0 16px}
+#footer p span:before, #footer p span:after{content: "";position: absolute;width: 1px; height: 12px;background: #fff}
+#footer p span:before{left: 8px}
+#footer p span:after{right: 9px}
+#footer p + p{padding-top: 5px}
+#container{height: 100%}
+#container .cntwrap{height: 100%}
+#container section{float: left;}
+#content1{background: url("../images/index/main_bg.jpg") no-repeat 50% 50%}

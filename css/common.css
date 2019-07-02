@@ -1,0 +1,33 @@
+@charset "utf-8";
+@font-face{
+    font-family: NanumSqR;
+    src: url("../../../fonts/NanumSquareR.eot");
+    src: local("※"),
+        url("../../../fonts/NanumSquareR.woff") format("woff"),
+        url("../../../fonts/NanumSquareR.ttf") format("truetype");
+}
+@font-face{
+    font-family: NanumSqB;
+    src: url('../../../fonts/NanumSquareB.eot');
+    src: local('※'),
+        url('../../../fonts/NanumSquareB.woff') format('woff'),
+        url('../../../fonts/NanumSquareB.ttf') format('truetype')
+}
+
+body,nav,h1,h2,h3,p,ul{padding: 0;margin: 0;}
+body{font-family: NanumSqR, "나눔고딕", NanumGothic, "맑은 고딕", "Malgun Gothic";font-size: 1em;color: #fff}
+ul{list-style: none}
+a:link, a:visited, a:hover, a:active{text-decoration: none;color: inherit}
+h1,h2,h3{font-size: inherit;font-weight: normal;font-family: NanumSqB}
+strong{font-weight: normal;font-family: NanumSqB}
+img{vertical-align: top;border: none;max-width: 100%;height: auto}
+button{cursor: pointer;border: none;background: none;font-family: inherit;font-size: inherit;color: inherit}
+header, section, footeR{display: block}
+
+.area{width: 1200px;margin: 0 auto}
+.blind{font-size: 0;width: 1px;height: 1px;line-height: 0;overflow: hidden;position: absolute;top: 0;left: -9999px;text-indent: -9999px;}
+.p_r{position: relative}
+.p_a{position: absolute}
+.f_l{float: left}
+.f_r{float: right}
+.clearfix:after{content: "";display: block;clear: both}
