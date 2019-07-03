@@ -3,16 +3,33 @@
 <head>
     <meta charset="utf-8">
     <title> Let's Surf </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css/swiper.css"> -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!--[if lt IE 9]>
         <script type="text/javascript" src="js/html5shiv.min.js"></script>
     <![endif]-->
     <script src="js/jquery-1.12.4.min.js"></script>
+    <!-- <script src="js/swiper.min.js"></script> -->
     <script>
         $(document).ready(function() {
+            /* var swiper = new Swiper('.swiper-container', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + (index + 1) + '</span>';
+                    },
+                },
+            }); */
+            var $btnGnb = $('#header .head_top .btn_gnb')
+            var $gnb = $('#gnb');
             var $indicList = $('#indicator ul li');
             var $cntwrap = $('#container .cntwrap');
+            var $pcLesson = $('#container #content2 .pclesson');
+            var $facility = $('#container #content3 .facility');            
             var total = $cntwrap.children('section').size();
             var tgIdx = 0;
             var windowWid;
@@ -30,6 +47,19 @@
             });
             $(window).trigger('resize');
 
+            $btnGnb.children('.pcbtn_open').on('click', function (e) {
+                e.preventDefault();
+                $gnb.css({display: 'block'});
+                /* 파도처럼 내려오기
+                    depth1 메뉴 위에서 아래로 보여지기, depth2 보여지기
+                    img로고 .sns 전화번호 주소 opacity값 */
+            });
+
+            $gnb.find('.pcbtn_close').on('click', function (e) {
+                e.preventDefault();
+                $gnb.css({display: 'none'})
+            });
+
             $indicList.children().on('click', function (e) {
                 e.preventDefault();
                 if($cntwrap.is(':animated')) return false;
@@ -42,6 +72,33 @@
                 $('#indicator img').stop().animate({marginLeft: -283+tgIdx*174});
             })
 
+            $pcLesson.find('> div > .brief').hide();
+            $facility.siblings('.summary').hide();
+
+            $pcLesson.find('> div > a').on('mouseenter focus', function () {
+                $(this).parent().siblings().removeClass('show').children('.brief').slideUp();
+                $(this).parent().addClass('show').children('.brief').slideDown();
+            });
+            
+            $pcLesson.find('> div > a').on('mouseleave', function () {
+                $(this).parent().removeClass('show').children('.brief').slideUp();
+            });
+
+            $facility.find('> .gh_img').on('mouseenter focusin', function () {
+                $facility.find('> .shop_img').css({backgroundImage: 'url("images/index/facility_shop2.png")'}).parents('#content3').find('.guesthouse').show();
+            });
+
+            $facility.find('> .shop_img').on('mouseenter focusin', function () {
+                $facility.find('> .gh_img').css({backgroundImage: 'url("images/index/facility_guesthouse2.png")'}).parents('#content3').find('.shop').show();
+            });
+
+            $facility.find('> .gh_img').on('mouseleave focusout', function () {
+                $facility.find('> .shop_img').css({backgroundImage: 'url("images/index/facility_shop1.png")'}).parents('#content3').find('.guesthouse').hide();
+            });
+
+            $facility.find('> .shop_img').on('mouseleave focusout', function () {
+                $facility.find('> .gh_img').css({backgroundImage: 'url("images/index/facility_guesthouse1.png")'}).parents('#content3').find('.shop').hide();
+            });
         });
     </script>
 </head>
@@ -103,7 +160,9 @@
                     <li><a href="http://www.instagram.com">인스타그램</a></li>
                 </ul>
                 <p><span class="blind">전화번호</span>070-1234-5678</p>
-                <p><span class="blind">주소</span>강원도 양양군 현남면 인구 중앙길 93 렛츠서프</p>
+                <p class="address"><span class="blind">주소</span>강원도 양양군 현남면 인구 중앙길 93 렛츠서프</p>
+                <p class="foot">사업자등록번호 123-45-67890  <span>통신판매업신고번호</span>   수상레저사업등록증</p>
+                <p class="foot">Copyright &copy; Lets Serf All Rights Reserved</p>
             </div>
             <button type="button" class="mbtn_close"><!-- 모바일 -->
                 <span class="blind">주메뉴 닫기</span>                    
@@ -113,7 +172,7 @@
             </button>
         </nav>
     </header>
-    
+    <div class="swiper-pagination"></div>
     <div id="indicator">
         <img src="images/index/indic_surf.png" alt="">
         <ul>
@@ -144,20 +203,19 @@
         </ul>
     </div>
 
-    <div id="container">
-        <div class="cntwrap">
-            <section id="content1">
+    <div id="container" class="swiper-container">
+        <div class="cntwrap swiper-wrapper">
+            <section id="content1" class="swiper-slide">
                 <h2 class="blind">메인페이지</h2>
                 <span class="blind">안녕하세요 렛츠서프 홈페이지 입니다.</span>
             </section>
-            <section id="content2">
-                <h2>강습안내</h2>
-                <div class="pclesson">
+            <section id="content2" class="swiper-slide">
+                <h2 class="cnt_tit">강습 안내</h2>
+                <div class="pclesson p_r">
                     <div class="basic">
                         <a href="lesson/lesson.html">
                             <img src="images/index/lesson_basic.png" alt="입문 과정" width="240" height="136">                      
                         </a>
-                        <span class="line"></span>
                         <div class="brief">
                             <strong aria-hidden="true">입문 과정</strong>
                             <p>안전 / 이론교육<br>지상교육<br>수상교육<br>강습 이후 프리서핑<br>장비렌탈 및 샤워 포함</p>
@@ -167,7 +225,6 @@
                         <a href="lesson/lesson.html">
                             <img src="images/index/lesson_advanced.png" alt="중급 과정" width="70" height="131">                      
                         </a>
-                        <span class="line"></span>
                         <div class="brief">
                             <strong aria-hidden="true">중급 과정</strong>
                             <p>이론교육<br>지상교육<br>수상교육<br>강습 이후 프리서핑<br>장비렌탈 및 샤워 포함</p>
@@ -177,7 +234,6 @@
                         <a href="lesson/lesson.html">
                             <img src="images/index/lesson_package.png" alt="패키지상품" width="144" height="136">                      
                         </a>
-                        <span class="line"></span>
                         <div class="brief">
                             <strong aria-hidden="true">패키지상품</strong>
                             <p>1박2일A<br>(강습1회 + 숙박 1박)<br>1박2일B<br>(강습2회 + 숙박 1박)<br>2박3일A<br>(강습2회 + 숙박 2박)</p>
@@ -187,7 +243,6 @@
                         <a href="lesson/lesson.html">
                             <img src="images/index/lesson_season.png" alt="시즌권" width="118" height="88">                      
                         </a>
-                        <span class="line"></span>
                         <div class="brief">
                             <strong aria-hidden="true">시즌권</strong>
                             <p>6개월 기준<br>장비렌탈<br>(보드렌탈 / 개인보드보관 + 수트)<br>장비렌탈+숙박</p>
@@ -223,35 +278,33 @@
                     </a>
                 </div>
             </section>
-            <section id="content3">
-                <h2>시설 안내</h2>
-                <img src="images/index/facility_floor.png" alt="" width="795" height="606">
-                <div class="gh_img"></div>
-                <span class="line"></span>
+            <section id="content3" class="swiper-slide">
+                <h2 class="cnt_tit">시설 안내</h2>
+                <div class="facility p_r">
+                    <!-- <img src="images/index/facility_floor.png" alt="" width="795" height="606"> -->
+                    <div class="gh_img"></div>
+                    <div class="shop_img"></div>
+                </div>
                 <div class="guesthouse summary">
-                    <strong>Guesthouse</strong>
-                    <p>숙박 / 샤워시설<br>체크인: 오후 2시 / 체크아웃: 오전11시</p>
-                    <a href="#">
-                        자세히보기
-                        <span class="arrow"></span>
-                    </a>
+                    <div class="sum_txt">
+                        <strong>Guesthouse</strong>
+                        <p>숙박 / 샤워시설<br>체크인: 오후 2시 / 체크아웃: 오전11시</p>
+                        <a href="#">자세히보기</a>
+                    </div>
                     <img src="images/index/facility_guesthouse1.jpg" alt="2층침대 3개로 구성된 6인실 게스트하우스 방" width="288" height="187">
                     <img src="images/index/facility_guesthouse2.jpg" alt="해바라기샤워기가 설치되어 있으며 칸막이로 나누어진 공동 샤워장" width="288" height="192">
                 </div>
-                <div class="shop_img"></div>
-                <span class="line"></span>            
                 <div class="shop summary">
-                    <strong>Shop</strong>
-                    <p>장비 렌탈 / 이론 교육<br>이용시간 : 오전 8시 ~ 오후 7시</p>
-                    <a href="#">
-                        자세히보기
-                        <span class="arrow"></span>
-                    </a>
+                    <div class="sum_txt">
+                        <strong>Shop</strong>
+                        <p>장비 렌탈 / 이론 교육<br>이용시간 : 오전 8시 ~ 오후 7시</p>
+                        <a href="#">자세히보기</a>
+                    </div>
                     <img src="images/index/facility_shop1.jpg" alt="렌탈 가능한 각종 서프보드와 다양한 장비들이 전시되어 있는 센터 내부모습" width="288" height="192">
                     <img src="images/index/facility_shop2.jpg" alt="최대 10명이 둘러 앉을 수 있는 테이블이 비치된 서핑 이론수업이 진행되는 공간" width="288" height="204">
                 </div>
             </section>
-            <section id="content4">
+            <section id="content4" class="swiper-slide">
                 <h2 class="blind">위치 안내</h2>
                 <div class="map">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -336,10 +389,20 @@
                 <div class="info_txt">
                     <img src="images/index/info_logo.png" alt=""width="321" height="76">
                     <strong>렛츠서프</strong>
-                    <p><span class="blind">전화번호</span>070-1234-5678</p>
-                    <p><span class="blind">주소</span>강원도 양양군 현남면 인구 중앙길93 렛츠서프</p>
-                    <p><span class="blind">대중교통 이용방법</span>주문진 고속버스터미널 - 322번 버스, 두창시변리 정류장 하차</p>
-                    <div>
+                    <div class="phone">
+                        <i class="fas fa-phone"></i>
+                        <p><span class="blind">전화번호</span>070-1234-5678</p>
+                    </div>
+                    <div class="address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p><span class="blind">주소</span>강원도 양양군 현남면 인구 중앙길93 렛츠서프</p>
+                    </div>
+                    <div class="bus">
+                        <i class="fas fa-bus-alt"></i>
+                        <p><span class="blind">대중교통 이용방법</span>주문진 고속버스터미널 - 322번 버스, 두창시변리 정류장 하차</p>
+                    </div>
+                    <div class="time">
+                        <i class="fas fa-clock"></i>
                         <span class="blind">시간 안내</span>
                         <p><span>이용시간</span>오전 8시 ~ 일몰 후 30분까지</p>
                         <p><span>강습시간</span>오전10시  /  오후 1시  /  오후 3시 30분</p>
@@ -349,9 +412,5 @@
             </section>
         </div>
     </div>
-    <footer id="footer" class="area">
-        <p>사업자등록번호 123-45-67890  <span>통신판매업신고번호</span>   수상레저사업등록증</p>
-        <p>Copyright &copy; Lets Serf All Rights Reserved</p>
-    </footer>
 </body>
 </html>
