@@ -1,17 +1,17 @@
 @charset "utf-8";
 @font-face{
     font-family: NanumSqR;
-    src: url("../../../fonts/NanumSquareR.eot");
+    src: url("../fonts/NanumSquareR.eot");
     src: local("※"),
-        url("../../../fonts/NanumSquareR.woff") format("woff"),
-        url("../../../fonts/NanumSquareR.ttf") format("truetype");
+        url("../fonts/NanumSquareR.woff") format("woff"),
+        url("../fonts/NanumSquareR.ttf") format("truetype");
 }
 @font-face{
     font-family: NanumSqB;
-    src: url('../../../fonts/NanumSquareB.eot');
+    src: url('../fonts/NanumSquareB.eot');
     src: local('※'),
-        url('../../../fonts/NanumSquareB.woff') format('woff'),
-        url('../../../fonts/NanumSquareB.ttf') format('truetype')
+        url('../fonts/NanumSquareB.woff') format('woff'),
+        url('../fonts/NanumSquareB.ttf') format('truetype')
 }
 
 html,body{height: 100%}
