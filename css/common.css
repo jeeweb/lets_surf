@@ -14,6 +14,7 @@
         url('../../../fonts/NanumSquareB.ttf') format('truetype')
 }
 
+html,body{height: 100%}
 body,nav,h1,h2,h3,p,ul{padding: 0;margin: 0;}
 body{font-family: NanumSqR, "나눔고딕", NanumGothic, "맑은 고딕", "Malgun Gothic";font-size: 1em;color: #fff}
 ul{list-style: none}
@@ -31,3 +32,7 @@ header, section, footeR{display: block}
 .f_l{float: left}
 .f_r{float: right}
 .clearfix:after{content: "";display: block;clear: both}
+
+#skip a{position: absolute;top: 0;left: -9999px;z-index: 1000}
+#skip a:focus{display: block;left: 0; right: 0; height: 40px;line-height: 40px;font-family: NanumSqB;background: #fff;color:#164556;text-align: center}
+

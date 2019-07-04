@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+/* common */
+#header{display: none;position: absolute; top: 0;left: 0;width: 100%;height: 80px;background: #164556;z-index: 800}
+#header .logo a{display: block;width: 267px; height: 80px;}
+#header .logo a img{padding: 8px 0}
+
+#gnb{text-align: center}
+#gnb > ul{position: absolute;top: 0;right: 0;width: 600px;height: 80px}
+#gnb > ul > li{position: relative;float: left;width: 120px;}
+#gnb > ul > li:after{content:"";position: absolute;top: 0;left: 0;width: 120px;height: 0;background: #fff}
+#gnb  ul li a{display: block;width: 120px;}
+#gnb > ul > li > a{height: 80px;line-height: 80px;font-size: 20px}
+#gnb > ul li:hover:after a,#gnb ul li:after a:focus{height: 20px}
+#gnb > ul > li > div{position: absolute;left: 0; top: 80px;right: 0;height: 100px;background: #164556}
+#gnb > ul > li > div > ul > li > a{height: 25px;line-height: 25px}
+.sns{background: #164556;height: 100px;}
+.sns li{float: left;padding-top: 23px;}
+.sns li+li{padding-left: 15px}
+.sns li a{display: block;width: 45px;height: 45px;text-indent: -9999px;background: no-repeat 0 50%;}
+.sns li:nth-child(1) a{background-image: url("../images/common/sns_kakao.png")}
+.sns li:nth-child(2) a{background-image: url("../images/common/sns_naver.png")}
+.sns li:nth-child(3) a{background-image: url("../images/common/sns_instagram.png")}
+.sns li:nth-child(1):hover a, .sns li:nth-child(1) a:focus, .sns li:nth-child(2):hover a, .sns li:nth-child(2) a:focus, .sns li:nth-child(3):hover a, .sns li:nth-child(3) a:focus{background-position: -45px 0 }
+
+section{position: relative;}
+
+#footer{height: 260px;width: 100%;padding: 70px 0;background: #164556}
+#footer img + p{font-size: 25px}
+
+
+/* lesson.html */
+section#cntLesson{background: #164556}
+
+#lesson div .sub_bg{background: no-repeat 50% 50%;background-size: cover;text-align: center}
+#lesson div .sub_bg.sub_basic{background-image: url("../images/lesson/basic_bg.jpg")}
+#lesson div .sub_bg.sub_advanced{background-image: url("../images/lesson/advanced_bg.jpg")}
+#lesson div .sub_bg.sub_package{background-image: url("../images/lesson/package_bg.jpg")}
+#lesson div .sub_bg.sub_season{background-image: url("../images/lesson/season_bg.jpg")}
+
+#lesson .btnwrap .sub_bg .sub_tit, #lesson .cntwrap .sub_cnt .sub_bg .sub_tit{transition: all 0.5s}/* .btnwrap .titlePC : resize 시에 자연스런 위치 이동, : left좌표값, Mobile : translateY() */
+
+#lesson .btnwrap{position: relative;z-index: 500}
+#lesson .btnwrap ul, #lesson .btnwrap ul li{height: 100%}
+#lesson .btnwrap ul li{float: left;width: 25%;overflow: hidden;transition: transform 0.5s}/* PC : translateY(-100%),  Mobile : translateX(-100%)*/
+
+#lesson .cntwrap .{}
