@@ -129,7 +129,7 @@
             });
             $(window).trigger('resize');
 
-            
+            //네비게이션_PC
             $btnGnb.children('.pcbtn_open').on('click', function (e) {
                 e.preventDefault();
                 $gnb.css({display: 'block'}).find('.area').addClass('open');
@@ -149,7 +149,55 @@
                 $gnb.find('>.area > *').css({opacity: 0,filter: 'Alpha(opacity=0)'});
             });
 
-                       $pcLesson.find('> div > .brief').hide();
+            //네비게이션_모바일
+            var $first;
+            var $last;
+            $btnGnb.children('.mbtn_open').on('click', function (e) {
+                e.preventDefault();
+                $first = $gnb.find('[data-link="first"]');
+                $last = $gnb.find('[data-link="last"]')
+                $gnb.css({display: 'block'}).find('.area').addClass('open');
+
+                $gnb.stop().slideDown(function () {
+                    $first.focus();
+                    $gnb.find('> .area > *').each(function (idx) {
+                        if ( $(this).parent().hasClass('open') ) {
+                            setTimeout(function() {
+                                $gnb.find('>.area > *').eq(idx).css({opacity: 1,filter: 'Alpha(opacity=100)'})
+                            }, 300*(idx+1))
+                        }          
+                    });
+                });
+
+                focusControl();
+
+                $gnb.find('.mbtn_close').on('click', function (e) {
+                    e.preventDefault();
+                    $gnb.stop().slideUp(500, function () {
+                        $gnb.css({display: 'none'}).find('.area').removeClass('open');
+                        $gnb.find('>.area > *').css({opacity: 0,filter: 'Alpha(opacity=0)'});
+                    });
+                });
+
+            });
+
+            function focusControl () {
+                $first.on('keydown', function (e) {
+                    //console.log(e.keyCode);
+                    if (e.keyCode == 9 && e.shiftKey) {
+                        e.preventDefault();
+                        $last.focus();
+                    }
+                });
+                $last.on('keydown', function (e) {
+                    if (e.keycode == 9 && !e.shiftKey) {
+                        e.preventDefault();
+                        $first.focus();
+                    }
+                });
+            }
+
+            $pcLesson.find('> div > .brief').hide();
             $facility.siblings('.summary').hide();
 
             $pcLesson.find('> div > a').on('mouseenter focus', function () {
@@ -184,7 +232,7 @@
         <a href="#container">본문 바로가기</a>
     </div>
     <header id="header">
-        <div id="modal-nav-overlay"></div>
+        <!-- <div id="modal-nav-overlay"></div> -->
         <div class="head_top">
             <h1 class="logo"><!-- 모바일 -->
                 <a href="index.html">
@@ -205,6 +253,9 @@
         <nav id="gnb">
             <h2 class="blind">주메뉴 영역</h2>
             <div class="area">
+                <a href="index.html" data-link="first"><!-- 모바일 -->
+                    <img src="images/index/m_index_logo.png" alt="렛츠서프" width="220" height="55">
+                </a>
                 <ul class="gnb_open clearfix">
                     <li>
                         <a href="lesson/lesson.html">강습 안내</a>
@@ -231,7 +282,7 @@
                         </ul>
                     </li>
                 </ul>
-                <img src="images/index/gnb_logo.png" alt="렛츠서프" width="490" height="120">
+                <img src="images/index/gnb_logo.png" alt="렛츠서프" width="490" height="120"><!-- pc -->
                 <ul class="sns">
                     <li><a href="#">카카오플러스 렛츠서프</a></li>
                     <li><a href="http://www.naver.com">네이버톡톡 렛츠서프</a></li>
@@ -244,7 +295,7 @@
                     <p>Copyright &copy; Lets Serf All Rights Reserved</p>
                 </div>
             </div>
-            <button type="button" class="mbtn_close"><!-- 모바일 -->
+            <button type="button" class="mbtn_close" data-link="last"><!-- 모바일 -->
                 <span class="blind">주메뉴 닫기</span>                    
             </button>
             <button type="button" class="pcbtn_close"><!-- pc, tablet -->
@@ -252,36 +303,6 @@
             </button>
         </nav>
     </header>
-    <!-- <div id="indicator">
-        <img src="images/index/indic_surf.png" alt="">
-        <ul>
-            <li class="">
-                <a href="">
-                    <span class="indic_icon"></span>
-                    <span class="indic_txt">Main</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <span class="indic_icon"></span>
-                    <span class="indic_txt">강습 안내</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <span class="indic_icon"></span>
-                    <span class="indic_txt">시설 안내</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <span class="indic_icon"></span>
-                    <span class="indic_txt">위치 안내</span>
-                </a>
-            </li>
-        </ul>
-    </div> -->
-
     <div class="swiper-pagination"></div>
     <div id="container" class="swiper-container">
         <div class="cntwrap swiper-wrapper">
