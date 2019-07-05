@@ -23,9 +23,8 @@ h1,h2,h3{font-size: inherit;font-weight: normal;font-family: NanumSqB}
 strong{font-weight: normal;font-family: NanumSqB}
 img{vertical-align: top;border: none;max-width: 100%;height: auto}
 button{cursor: pointer;border: none;background: none;font-family: inherit;font-size: inherit;color: inherit}
-header, section, footeR{display: block}
+header, section, footer{display: block}
 
-.area{width: 1200px;margin: 0 auto}
 .blind{font-size: 0;width: 1px;height: 1px;line-height: 0;overflow: hidden;position: absolute;top: 0;left: -9999px;text-indent: -9999px;}
 .p_r{position: relative}
 .p_a{position: absolute}
