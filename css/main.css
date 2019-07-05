@@ -19,9 +19,9 @@
 #gnb{position: fixed;top:0;left: 0;right: 0;bottom: 0;background: #164556;text-align: center;z-index: 800;display: none;}
 #gnb .area > a{display: none}
 #gnb .gnb_open{padding-top: 150px}
-#gnb > .area > .gnb_open > li{float: left;}
+#gnb > .area > .gnb_open > li{float: left;width: 240px}
 #gnb .area > * {opacity: 0;filter: Alpha(opacity=0);transition: all 1s}
-#gnb > .area > .gnb_open li a{display: block;width: 100%;}
+#gnb > .area > .gnb_open > li > a{display: block;width: 100%;}
 #gnb > .area > .gnb_open > li > a{height: 90px;line-height: 90px;font-size: 36px;}
 #gnb .gnb_open li ul li a{height: 63px;line-height: 63px;font-size: 25px}
 #gnb .gnb_open + img{padding: 55px 0 25px}
@@ -135,7 +135,7 @@
  .head_top .btn_gnb button{width: 45px; height: 40px;background: url("../images/index/m_gnb_btn.png") no-repeat 100% 50%;}
  #gnb .area > a{display: block;padding-top: 24px}
  #gnb .gnb_open{position: absolute;top: 120px;left: 50%;width: 200px;margin-left: -100px;padding-top: 0}
- #gnb > .area > .gnb_open > li{float: none;}
+ #gnb > .area > .gnb_open > li{float: none;width: 200px}
  #gnb .area > * {opacity: 0;filter: Alpha(opacity=0);transition: all 1s}
  #gnb > .area > .gnb_open > li > a{display: block;width: 100%;height: 55px;line-height: 55px;font-size: 20px}
  #gnb .gnb_open li ul{display: none;padding: 3px 0;width: 200px;margin: 0 auto}
