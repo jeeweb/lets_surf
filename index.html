@@ -69,6 +69,8 @@
         }*/
 
         $(document).ready(function() {
+            
+            //swiper_PC
             var swiper = new Swiper('.swiper-container', {
                 pagination: {
                     el: '.swiper-pagination',
@@ -81,6 +83,8 @@
 
             var indicTxt = ['Main', '강습 안내', '시설 안내', '위치안내'];
             var tgIdx = 0;
+            var mobileSize = 767;
+            var isMobile = $(window).width() <= mobileSize? true : false;
             
             $('.swiper-pagination .swiper-pagination-bullet .indic_txt').each(function (idx) {
 				$(this).text(indicTxt[idx]);
@@ -99,7 +103,8 @@
 
             $('.swiper-pagination .swiper-pagination-bullet').on('click', function () {
                 tgIdx = $(this).index();
-                $('#indiIcon').stop().animate({marginLeft: -283+tgIdx*174});
+                if ($(window).width() > mobileSize && isMobile == false) $('#indiIcon').stop().animate({marginLeft: -283+tgIdx*174});
+                else if ($(window).width() > mobileSize && isMobile == true) $('#indiIcon').stop().animate({marginLeft: -140+tgIdx*60});
             });
 
             swiper.on('slideChange', function () {
@@ -107,6 +112,12 @@
                 //console.log(choiceNum);
                 $('#indiIcon').stop().animate({marginLeft: -283+choiceNum*174});
             }); 
+
+            /* //swiper_모바일
+                #indiCon 움직임 제어
+                slideChange 제어
+                .swiper-pagination .indic_txt 계속 보이게
+             */
 
             var $btnGnb = $('#header .head_top .btn_gnb');
             var $gnb = $('#gnb');
@@ -170,6 +181,11 @@
                 });
 
                 focusControl();
+
+                $gnb.find('.gnb_open li a').on('click', function (e) {
+                    if ($(this).next().css({display: 'none'})) $(this).next().show();
+                    else $(this).next().hide();
+                });
 
                 $gnb.find('.mbtn_close').on('click', function (e) {
                     e.preventDefault();
@@ -254,7 +270,7 @@
             <h2 class="blind">주메뉴 영역</h2>
             <div class="area">
                 <a href="index.html" data-link="first"><!-- 모바일 -->
-                    <img src="images/index/m_index_logo.png" alt="렛츠서프" width="220" height="55">
+                    <img src="images/common/m_index_logo.png" alt="렛츠서프" width="220" height="55">
                 </a>
                 <ul class="gnb_open clearfix">
                     <li>
@@ -282,7 +298,7 @@
                         </ul>
                     </li>
                 </ul>
-                <img src="images/index/gnb_logo.png" alt="렛츠서프" width="490" height="120"><!-- pc -->
+                <img src="images/index/gnb_logo.png" alt="렛츠서프" width="450" height="110"><!-- pc -->
                 <ul class="sns">
                     <li><a href="#">카카오플러스 렛츠서프</a></li>
                     <li><a href="http://www.naver.com">네이버톡톡 렛츠서프</a></li>
