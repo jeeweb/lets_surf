@@ -3,19 +3,23 @@
 <head>
     <meta charset="utf-8">
     <title> 예약 및 위치 : 렛츠서프 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/sub.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="icon" href="../images/common/favicon.ico">
     <!--[if lt IE 9]>
         <script type="text/javascript" src="js/html5shiv.min.js"></script>
     <![endif]-->
+    <script src="../js/jquery-1.12.4.min.js"></script>    
+    <script src="../js/sub.js"></script>
 </head>
 <body data-dep-one="4" data-dep-two="1">
     <div id="skip">
         <a href="#content">본문 바로가기</a>
     </div>
     <header id="header">
-        <div class="area p_r">
+        <div class="pcheader area p_r"><!-- pc -->
             <h1 class="logo">
                 <a href="../index.html" data-link="first">
                     <img src="../images/common/nav_logo.png" alt="렛츠서프" width="267" height="64">
@@ -25,7 +29,7 @@
                 <h2 class="blind">주메뉴</h2>
                 <ul>
                     <li>
-                        <a href="../lesson.html">강습 안내</a>
+                        <a href="lesson.html">강습 안내</a>
                     </li>
                     <li>
                         <a href="#">장비 렌탈</a>
@@ -40,7 +44,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="info.html">예약 및 위치</a>
+                        <a href="../info/info.html">예약 및 위치</a>
                     </li>
                     <li>
                         <a href="#">커뮤니티</a>
@@ -60,17 +64,172 @@
                 <li><a href="http://www.instagram.com" data-link="last">인스타그램</a></li>
             </ul>
         </div>
+        <div class="mheader area p_r"><!-- 모바일 -->
+            <div class="mhead_top p_r">
+                <h1 class="logo">
+                    <a href="../index.html">
+                        <img src="../images/common/nav_logo.png" alt="렛츠서프" width="267" height="64">
+                    </a>
+                </h1>
+                <h2></h2>
+                <!-- section h2 스크립트로 가져오기, position: absolute -->
+                <button type="button" class="mbtn_open"><!-- 모바일 -->
+                    <span class="blind">주메뉴 열기</span>
+                </button>        
+            </div>
+            <nav id="mgnb">
+                <h2 class="blind">주메뉴</h2>
+                <a href="../index.html" data-link="first"><!-- 모바일 -->
+                    <img src="../images/common/m_index_logo.png" alt="렛츠서프" width="220" height="55">
+                </a>
+                <ul class="gnb_open">
+                    <li>
+                        <a href="lesson.html">강습 안내</a>
+                    </li>
+                    <li>
+                        <a href="#">장비 렌탈</a>
+                    </li>
+                    <li>
+                        <a href="#">시설 안내</a>
+                        <div>
+                            <ul>
+                                <li><a href="#">센터 안내</a></li>
+                                <li><a href="#">게스트하우스</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../info/info.html">예약 및 위치</a>
+                    </li>
+                    <li>
+                        <a href="#">커뮤니티</a>
+                        <div>
+                            <ul>
+                                <li><a href="#">문의하기</a></li>
+                                <li><a href="#">이용후기</a></li>
+                                <li><a href="#">포토갤러리</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="sns">
+                    <li><a href="#">카카오플러스 렛츠서프</a></li>
+                    <li><a href="http://www.naver.com">네이버톡톡 렛츠서프</a></li>
+                    <li><a href="http://www.instagram.com">인스타그램</a></li>
+                </ul>
+                <p><span class="blind">전화번호</span>070-1234-5678</p>
+                <p class="address"><span class="blind">주소</span>강원도 양양군 현남면 인구 중앙길 93 렛츠서프</p>
+                <button type="button" class="mbtn_close" data-link="last">
+                    <span class="blind">주메뉴 닫기</span>                    
+                </button>
+            </nav>
+        </div>
     </header>
-
+    
     <section id="cntInfo">
         <div class="top_tit">
-            <h2>예약 및 위치</h3>
+            <h2>예약 및 위치</h2>
         </div>
-        <div class="reservation">
-
+        <div class="reservation area clearfix">
+            <h3 class="blind">예약 날짜 및 강습선택</h3>
+            <div id="calendar">
+                <div class="yymm">
+                    <div class="btn">
+                        <button type="button" class="prev">
+                            <i class="fas fa-angle-left"></i>
+                            <span class="blind">이전 달</span>
+                        </button>
+                        <button type="button" class="next">
+                            <i class="fas fa-angle-right"></i>
+                            <span class="blind">다음 달</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="select">
+                <form action="reservation.html" id="selection">
+                    <ul>
+                        <li>
+                            <label for="course">강습 선택</label>
+                            <select name="course" id="course">
+                                <option value="입문">입문 과정</option>
+                                <option value="중급">중급 과정</option>
+                                <option value="패키지">패키지 상품</option>
+                                <option value="시즌권">시즌권</option>
+                            </select>
+                            <select name="csOpt" id="csOpt" title="선택한 강습에 따른 추가옵션 선택">
+                                <option value="그룹" class="opt1">그룹 강습</option>
+                                <option value="소수" class="opt1">개인 및 소수 강습</option>
+                                <option value="1박2일A" class="opt2">1박2일A</option>
+                                <option value="1박2일B" class="opt2">1박2일B</option>
+                                <option value="2박3일" class="opt2">2박3일</option>
+                                <option value="개인장비" class="opt3">개인장비</option>
+                                <option value="장비렌탈" class="opt3">장비렌탈</option>
+                                <option value="개인장비숙박" class="opt3">개인장비+게스트하우스</option>
+                                <option value="장비렌탈숙박" class="opt3">장비렌탈+게스트하우스</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="days">기간</label>
+                            <select name="days" id="days">
+                                <option value="1일">1일</option>
+                                <option value="1박2일">1박2일</option>
+                                <option value="2박3일">2박3일</option>
+                            </select>
+                            <label for="numPl">인원 수</label>
+                            <select name="numPl" id="numPl">
+                                <option value="1">1인</option>
+                                <option value="2">2인</option>
+                                <option value="3">3인</option>
+                                <option value="more4">4인 이상</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="guesthouse">게스트하우스</label>
+                            <input type="checkbox" id="guesthouse" name="guesthouse" value="게스트하우스">
+                            <label for="rental">장비 렌탈</label>
+                            <input type="checkbox" id="rental" name="rental" value="장비렌탈">
+                        </li>
+                        <li>
+                            <label for="request">기타 요청 사항</label>
+                            <textarea name="request" id="request" cols="30" rows="10"></textarea>
+                        </li>
+                    </ul>
+                    <div class="total">
+                        <div></div>
+                        <p>총 합계<span></span></p>
+                    </div>
+                    <button type="submit">예약하기</button>
+                </form>
+            </div>
         </div>
         <div class="location">
-
+            <div class="map">
+                <iframe title="렛츠서프 위치" width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=ko&amp;coord=37.9728634,128.7591391&amp;q=강원도 양양군 현남면 인구 중앙길93&amp;ie=UTF8&amp;t=&amp;z=16&amp;iwloc=B&amp;output=embed"></iframe>
+            </div>
+            <div class="mapinfo">
+                <img src="../images/index/info_logo.png" alt="" width="321" height="76">
+                <strong>렛츠서프</strong>
+                <div class="phone">
+                    <i class="fas fa-phone"></i>
+                    <p><span class="blind">전화번호</span>070-1234-5678</p>
+                </div>
+                <div class="address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p><span class="blind">주소</span>강원도 양양군 현남면 인구 중앙길93 렛츠서프</p>
+                </div>
+                <div class="bus">
+                    <i class="fas fa-bus-alt"></i>
+                    <p><span class="blind">대중교통 이용방법</span>주문진 고속버스터미널 - 322번 버스, 두창시변리 정류장 하차</p>
+                </div>
+                <div class="time">
+                    <i class="fas fa-clock"></i>
+                    <span class="blind">시간 안내</span>
+                    <p><span>이용시간</span>오전 8시 ~ 일몰 후 30분까지</p>
+                    <p><span>강습시간</span>오전10시  /  오후 1시  /  오후 3시 30분</p>
+                    <p>단체강습의 경우 전화상담을 통해 강습 시간 조정이 가능합니다.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -84,7 +243,7 @@
         <p><span class="blind">전화번호</span>070-1234-5678</p>
         <p class="address"><span class="blind">주소</span>강원도 양양군 현남면 인구 중앙길 93 렛츠서프</p>
         <div class="copyright">
-            <p>사업자등록번호 123-45-67890  <span>통신판매업신고번호</span>   수상레저사업등록증</p>
+            <p>사업자등록번호 <span class="mhide">123-45-67890</span> <span class="line">통신판매업신고번호</span>   수상레저사업등록증</p>
             <p>Copyright &copy; Lets Serf All Rights Reserved</p>
         </div>
     </footer>
