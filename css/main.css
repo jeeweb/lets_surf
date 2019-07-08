@@ -14,8 +14,6 @@
 .head_top .btn_gnb button:hover, .head_top .btn_gnb button:focus{-webkit-animation: waveMove 4s linear 0s infinite normal;-moz-animation: waveMove 4s linear 0s infinite normal;-o-animation: waveMove 4s linear 0s infinite normal;animation: waveMove 4s linear 0s infinite normal}
 
 /* gnb */
-#modal-nav-overlay{width: 100%;height: 100%;display: block;overflow: hidden;transform: translate3d(0, 0, 0);text-align: center;opacity: 1;filter: Alpha(opacity=100);z-index: 2;}
-
 #gnb{position: fixed;top:0;left: 0;right: 0;bottom: 0;background: #164556;text-align: center;z-index: 800;display: none;}
 #gnb .area > a{display: none}
 #gnb .gnb_open{padding-top: 130px}
