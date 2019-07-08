@@ -1,9 +1,13 @@
 @charset "utf-8";
 
 /* common */
+.area{width: 1200px;margin: 0 auto}
 #header{position: absolute; top: 0;left: 0;width: 100%;height: 80px;background: #164556;z-index: 800}
 #header .logo a{display: block;width: 267px; height: 80px;}
 #header .logo a img{padding: 8px 0}
+#header .mbtn_open,#header .mbtn_close,#header #gnb > a{display: none}
+#header:after{content: "";position: absolute;left: 0; right: 0; top: 80px;height: 0;background: #164556;opacity: 0;filter: Alpha(opacity=0);z-index: -1}
+#header.on:after{height: 100px;opacity: 1;filter: Alpha(opacity=100);}
 
 #gnb{text-align: center}
 #gnb > ul{position: absolute;top: 0;right: 0;width: 600px;height: 80px}
@@ -13,8 +17,8 @@
 #gnb ul li a{display: block;width: 120px;}
 #gnb > ul > li > a{height: 80px;line-height: 80px;font-size: 20px}
 #gnb > ul > li > div{position: absolute;left: 0; top: 80px;right: 0;height: 100px;}
-#gnb > ul > li > div > ul > li > a{height: 25px;line-height: 25px}
-.sns{height: 100px;}/* background: #164556 */
+#gnb > ul > li > div > ul > li > a{height: 30px;line-height: 30px}
+.sns{height: 100px;}
 .sns li{float: left;padding-top: 23px;}
 .sns li+li{padding-left: 15px}
 .sns li a{display: block;width: 45px;height: 45px;text-indent: -9999px;background: no-repeat 0 50%;}
@@ -22,11 +26,12 @@
 .sns li:nth-child(2) a{background-image: url("../images/common/sns_naver.png")}
 .sns li:nth-child(3) a{background-image: url("../images/common/sns_instagram.png")}
 .sns li:nth-child(1):hover a, .sns li:nth-child(1) a:focus, .sns li:nth-child(2):hover a, .sns li:nth-child(2) a:focus, .sns li:nth-child(3):hover a, .sns li:nth-child(3) a:focus{background-position: -45px 0 }
-.dep2_bg{content:"";position: absolute;left: 0; right: 0; top: 80px;height: 100px;background: #164556;z-index: -1}
 
-section{position: relative;}
 
-#footer{height: 250px;width: 100%;padding: 40px 0;;text-align: center;background: #164556}
+section{position: relative;padding-top: 80px}
+
+/* footer 위치 지정필요 #cntwrap이 position:absolute를 가져서 footer가 위로 올라와있는 상황 */
+#footer{display: none;height: 250px;width: 100%;padding: 40px 0;;text-align: center;background: #164556}
 #footer .sns{width: 165px;height: 45px;margin: 0 auto 15px}
 #footer .sns li{padding-top: 0}
 #footer img + p{font-size: 25px;padding: 15px 0 8px}
@@ -39,20 +44,19 @@ section{position: relative;}
 #footer .copyright p span:after{right: 7px}
 
 /* lesson.html */
-
-
-#lesson div .sub_bg{background: no-repeat 50% 50%;background-size: cover;text-align: center}
+#lesson div .sub_bg{position: relative;background: no-repeat 50% 50%;background-size: cover;text-align: center}
 #lesson div .sub_basic{background-image: url("../images/lesson/basic_bg.jpg")}
 #lesson div .sub_advanced{background-image: url("../images/lesson/advanced_bg.jpg")}
 #lesson div .sub_package{background-image: url("../images/lesson/package_bg.jpg")}
 #lesson div .sub_season{background-image: url("../images/lesson/season_bg.jpg")}
-#lesson div .sub_bg .sub_tit{position: absolute;height: 100%;width: 25%;background: rgba(22, 69, 86, 0.5)}
-#lesson div .sub_bg .sub_tit h3{font-size: 1.5rem;padding-bottom: 10px;margin-top: 450px;}
+#lesson div .sub_bg:before{content: "";position: absolute;top: 0; left: 0;width: 100%;height: 100%;background: rgba(22, 69, 86, 0.5)}
+#lesson div .sub_bg .sub_tit{position: absolute;top: 50vh;margin-top: 10px;width: 25%;}
+#lesson div .sub_bg .sub_tit h3{font-size: 1.5rem;padding-bottom: 13px}
 
 #lesson .btnwrap .sub_bg .sub_tit, #lesson .cntwrap .sub_cnt .sub_bg .sub_tit{transition: all 0.5s}
 
-#lesson .btnwrap{position: relative;z-index: 500;background: #164556}
-#lesson .btnwrap ul, #lesson .btnwrap ul li{height: 100%}
+#lesson .btnwrap{position: relative;z-index: 500;}
+/* #lesson .btnwrap ul, #lesson .btnwrap ul li{height: 100%} */
 #lesson .btnwrap ul li{float: left;width: 25%;overflow: hidden;transition: transform 0.5s}/* PC : translateY(-100%),  Mobile : translateX(-100%)*/
 
 #lesson .btnwrap ul .show{transform: translateY(-100%)}
@@ -71,16 +75,15 @@ section{position: relative;}
 #lesson .btnwrap ul .btn_season a .sub_tit{transform: translateX(300%)}
 
 #lesson .cntwrap{position: absolute;top: 0;left: 0;width: 100%;z-index: 400;line-height: 1.5}
-/* #lesson .cntwrap .sub_cnt{display: none;} */
-#lesson .cntwrap .sub_cnt{background: #fff}
-/* #lesson .cntwrap .sub_cnt.show{display: block;} */
+#lesson .cntwrap .sub_cnt{display: none;background: #fff}
+#lesson .cntwrap .sub_cnt.show{display: block;}
 
 #lesson .cntwrap .sub_cnt .sub_bg{height: 100vh}
 #lesson .cntwrap #subCnt1 .sub_bg .sub_tit{left: 0%;}
 #lesson .cntwrap #subCnt2 .sub_bg .sub_tit{left: 25%;}
 #lesson .cntwrap #subCnt3 .sub_bg .sub_tit{left: 50%;}
 #lesson .cntwrap #subCnt4 .sub_bg .sub_tit{left: 75%;}
-#lesson .cntwrap .cnt.on .sub_bg .sub_tit.active{left: 37.5% !important}
+#lesson .cntwrap .sub_cnt.show .sub_bg .sub_tit.active{left: 37.5% !important}
 
 #lesson .cntwrap .sub_cnt .detail{height: 100%}
 #lesson .cntwrap .sub_cnt .detail .detail_pic{float: left;width: 50%}
@@ -89,16 +92,25 @@ section{position: relative;}
 #lesson .cntwrap #subCnt1 .detail .detail_pic .step2{height: 505px;background-image: url("../images/lesson/detail_basic2.jpg")}
 #lesson .cntwrap #subCnt1 .detail .detail_pic .step3{height: 640px;background-image: url("../images/lesson/detail_basic3.jpg")}
 #lesson .cntwrap #subCnt1 .detail .detail_pic .step4{height: 540px;background-image: url("../images/lesson/detail_basic4.jpg")}
+#lesson .cntwrap #subCnt2 .detail .detail_pic .step1{height: 640px;background-image: url("../images/lesson/detail_advanced1.jpg")}
+#lesson .cntwrap #subCnt2 .detail .detail_pic .step2{height: 613px;background-image: url("../images/lesson/detail_advanced2.jpg")}
+#lesson .cntwrap #subCnt2 .detail .detail_pic .step3{height: 640px;background-image: url("../images/lesson/detail_advanced3.jpg")}
+#lesson .cntwrap #subCnt2 .detail .detail_pic .step4{height: 640px;background-image: url("../images/lesson/detail_advanced4.jpg")}
+#lesson .cntwrap #subCnt3 .detail .detail_pic .step1{height: 614px;background-image: url("../images/lesson/detail_package1.jpg")}
+#lesson .cntwrap #subCnt3 .detail .detail_pic .step2{height: 573px;background-image: url("../images/lesson/detail_package2.jpg")}
+#lesson .cntwrap #subCnt4 .detail .detail_pic .step1{height: 640px;background-image: url("../images/lesson/detail_season1.jpg")}
+#lesson .cntwrap #subCnt4 .detail .detail_pic .step2{height: 571px;background-image: url("../images/lesson/detail_season2.jpg")}
+#lesson .cntwrap #subCnt4 .detail .detail_pic .step3{height: 605px;background-image: url("../images/lesson/detail_season3.jpg")}
 
-#lesson .cntwrap .sub_cnt .detail .detail_pic div > div{position: absolute;bottom: 0;right: 0;display: inline-block;background: #fff;color: #164556;padding: 40px 80px}
+#lesson .cntwrap .sub_cnt .detail .detail_pic div > div{position: absolute;bottom: 0;right: 0;display: inline-block;background: #fff;color: #164556;padding: 30px 60px}
 #lesson .cntwrap .sub_cnt .detail .detail_pic div > div strong{font-family: NanumSqB;font-size: 25px}
 #lesson .cntwrap .sub_cnt .detail .detail_pic div > div strong + p{padding:20px 0}
 
-/* #lesson .cntwrap .sub_cnt .detail .detail_txt
-height: .detail_pic 컨텐츠 높이에서 가져오기 
-윈도우창 상단에 걸리면 position: fixed로 조정 */
-#lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box{margin-left: 50%;width: 50%;padding: 100px 0 0 115px;background: #164556;line-height: 1.5}
+/* 윈도우창 상단에 걸리면 position: fixed로 조정 */
+#lesson .cntwrap .sub_cnt .detail .detail_txt{height: 100%}
+#lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box{margin-left: 50%;width: 50%;padding: 100px 0 0 100px;background: #164556;line-height: 1.5;box-sizing: border-box;height: 100%}
 #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box .dt_tit{font-family: NanumSqB;font-size: 25px;margin-bottom: 75px}
+#lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box .dt_tit+p{width: 500px}
 #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box ul{position: absolute;top: 107px; left: 70%;}
 #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box ul li{float: left;font-size: 18px}
 #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box ul li + li{padding-left:15px}
@@ -106,9 +118,8 @@ height: .detail_pic 컨텐츠 높이에서 가져오기
 #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box div > p:nth-child(1){font-size: 20px}
 #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box div > p span{font-size: 22px;padding-left: 100px}
 
-#lesson .cntwrap .sub_cnt .detail .btm_btn{margin-top: 100px;}
 #lesson .cntwrap .sub_cnt .detail .btm_btn{height: 300px;}
-#lesson .cntwrap .sub_cnt .detail .btm_btn li{float: left;width: 33.333333333333%;background: no-repeat 50% 50%;background-size: cover}
+#lesson .cntwrap .sub_cnt .detail .btm_btn li{float: left;height: 300px;width: 33.333333333333%;background: no-repeat 50% 50%;background-size: cover}
 #lesson .cntwrap .sub_cnt .detail .btm_btn li:nth-child(1){background-image: url("../images/lesson/btm_btn1.jpg")}
 #lesson .cntwrap .sub_cnt .detail .btm_btn li:nth-child(2){background-image: url("../images/lesson/btm_btn2.jpg")}
 #lesson .cntwrap .sub_cnt .detail .btm_btn li:nth-child(3){background-image: url("../images/lesson/btm_btn3.jpg")}
@@ -116,3 +127,49 @@ height: .detail_pic 컨텐츠 높이에서 가져오기
 #lesson .cntwrap .sub_cnt .detail .btm_btn li a{display: block;text-align:center;padding: 111px 0}
 #lesson .cntwrap .sub_cnt .detail .btm_btn li a strong{font-family: NanumSqB;font-size: 30px;}
 #lesson .cntwrap .sub_cnt .detail .btm_btn li a p{padding-top: 25px}
+
+/* info.html */
+#cntInfo .top_tit{height: 500px;background: url("../images/info/top_bg.jpg") no-repeat 50% 50%;background-size: cover}
+#cntInfo .top_tit h2{font-size: 50px; font-family: NanumSqB;color: #164556}
+
+
+
+@media screen and (max-width: 1023px) {
+    .area{width: 100%}
+}
+
+@media screen and (max-width: 767px) {
+    /* common */
+    #header .logo a{width: 228px; height: auto;}
+    #header .logo a img{padding: 10px 0}
+    #header .mbtn_open{display: block;width: 45px; height: 40px;background: url("../images/common/m_gnb_btn.png") no-repeat 100% 50%; background-size: cover;z-index: 700}
+    #gnb{display: none;position: fixed;top: 0; left: 0; width: 100%;height: 100%;background: #164556}
+    #header #gnb > a{display: block;padding-top: 20px}
+    #gnb > ul{top: 120px;left: 50%;width: 200px;margin-left: -100px;}
+    #gnb > ul > li{float: none;width: 200px;}
+    #gnb ul li.on:after{content: "";position: static;bottom: 0; left: 0; width: 0;height: 0;background: none;}
+    #gnb ul li a{width: 100%;}
+    #gnb > ul > li > a{height: 55px;line-height: 55px;}
+    #gnb > ul > li > div{position: static;padding: 3px 0;width: 200px; margin: 0 auto;border-top: 1px solid #fff;border-bottom: 1px solid #fff;}/* display: none */
+
+    .sns{height: 40px;margin-top:440px;text-align: center;}
+    .sns li{padding-top: 0;}
+    .sns li+li{padding-left: 20px}
+    .sns li a{width: 40px;height: 40px;background-size: cover}
+    .sns li:nth-child(1):hover a, .sns li:nth-child(1) a:focus, .sns li:nth-child(2):hover a, .sns li:nth-child(2) a:focus, .sns li:nth-child(3):hover a, .sns li:nth-child(3) a:focus{background-position: -40px 0 }
+    #header .mbtn_close{display: none;position: absolute;top: 27px;right: 20px;width: 35px;height: 35px;background: url("../images/index/btn_close.png") no-repeat 50% 50%; background-size: cover}
+
+    #lesson .btnwrap ul li{float: none;width: 100%;height: calc((100vh - 300px) / 4)}
+    #lesson .btnwrap ul .show{transform: translateX(-100%)}
+    #lesson .btnwrap ul li a{width: 100%;height: calc(100vh - 300px)}/* footer높이 300px */
+    #lesson .btnwrap ul .btn_basic a, #lesson .btnwrap ul .btn_advanced a, #lesson .btnwrap ul .btn_package a, #lesson .btnwrap ul .btn_package a{transform: translateX(0%)}
+    #lesson .btnwrap ul .btn_basic a{transform: translateY(0%)}
+    #lesson .btnwrap ul .btn_advanced a{transform: translateY(-25%)}
+    #lesson .btnwrap ul .btn_package a{transform: translateY(-50%)}
+    #lesson .btnwrap ul .btn_package a{transform: translateY(-75%)}
+
+
+}
+
+
+

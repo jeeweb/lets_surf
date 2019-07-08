@@ -18,23 +18,23 @@
 
 #gnb{position: fixed;top:0;left: 0;right: 0;bottom: 0;background: #164556;text-align: center;z-index: 800;display: none;}
 #gnb .area > a{display: none}
-#gnb .gnb_open{padding-top: 150px}
+#gnb .gnb_open{padding-top: 130px}
 #gnb > .area > .gnb_open > li{float: left;width: 240px}
 #gnb .area > * {opacity: 0;filter: Alpha(opacity=0);transition: all 1s}
 #gnb > .area > .gnb_open > li > a{display: block;width: 100%;}
 #gnb > .area > .gnb_open > li > a{height: 90px;line-height: 90px;font-size: 36px;}
 #gnb .gnb_open li ul li a{height: 63px;line-height: 63px;font-size: 25px}
-#gnb .gnb_open + img{padding: 55px 0 25px}
-#gnb .sns{height: 65px;text-align: center}
+#gnb .gnb_open + img{padding: 40px 0 10px}
+#gnb .sns{height: 60px;text-align: center}
 #gnb .sns li{display: inline-block;text-indent: -9999px}
-#gnb .sns li + li{padding-left: 55px}
-#gnb .sns li a{display: block;width: 65px; height: 65px;background: no-repeat 0 0;background-size: cover}
+#gnb .sns li + li{padding-left: 50px}
+#gnb .sns li a{display: block;width: 60px; height: 60px;background: no-repeat 0 0;background-size: cover}
 #gnb .sns li:nth-child(1) a{background-image: url("../images/index/gnb_sns_kakao.png")}
 #gnb .sns li:nth-child(2) a{background-image: url("../images/index/gnb_sns_naver.png")}
 #gnb .sns li:nth-child(3) a{background-image: url("../images/index/gnb_sns_insta.png")}
-#gnb .sns li:nth-child(1):hover a,#gnb .sns li:nth-child(1) a:focus, #gnb .sns li:nth-child(2):hover a,#gnb .sns li:nth-child(2) a:focus, #gnb .sns li:nth-child(3):hover a,#gnb .sns li:nth-child(3) a:focus{background-position: -65px 0}
-#gnb .sns + p{padding: 20px 0;font-size: 40px;font-family: NanumSqB}
-#gnb p.address{font-size: 25px;padding-bottom: 20px}
+#gnb .sns li:nth-child(1):hover a,#gnb .sns li:nth-child(1) a:focus, #gnb .sns li:nth-child(2):hover a,#gnb .sns li:nth-child(2) a:focus, #gnb .sns li:nth-child(3):hover a,#gnb .sns li:nth-child(3) a:focus{background-position: -60px 0}
+#gnb .sns + p{padding: 10px 0;font-size: 35px;font-family: NanumSqB}
+#gnb p.address{font-size: 20px;padding-bottom: 15px}
 #gnb .foot p{font-size: 14px;padding-bottom: 5px}
 #gnb .foot p span{position: relative;padding: 0 16px}
 #gnb .foot p span:before, #gnb .foot p span:after{content: "";position: absolute;width: 1px; height: 12px;top: 2px;background: #fff}
@@ -58,10 +58,10 @@
 
 #container{height: 100%}
 #container .cntwrap{height: 100%;overflow: hidden}
-#container section{float: left;background: no-repeat 50% 50%}
+#container section{float: left;background: no-repeat 50% 50%;background-size: cover}
 #container section .cnt_tit{font-family: NanumSqB;font-size: 40px;padding-top: 175px;text-align: center}
 #container #content1{background-image: url("../images/index/main_bg.jpg")}
-#container #content1 .bg2{background: url("../images/index/main_bg_logo.jpg") no-repeat 50% 50%;-webkit-animation: fadeIn 4s ease 0s 1 normal;-moz-animation: fadeIn 4s ease 0s 1 normal;-o-animation: fadeIn 4s ease 0s 1 normal;animation: fadeIn 4s ease 0s 1 normal}
+#container #content1 .bg2{background: url("../images/index/main_bg_logo.jpg") no-repeat 50% 50%;background-size: cover;-webkit-animation: fadeIn 4s ease 0s 1 normal;-moz-animation: fadeIn 4s ease 0s 1 normal;-o-animation: fadeIn 4s ease 0s 1 normal;animation: fadeIn 4s ease 0s 1 normal}
 
 #container #content2{background-image: url("../images/index/lesson_bg.jpg")}
 #content2 h2{color: #fff}
@@ -124,22 +124,25 @@
     to {opacity: 1;filter: Alpha(opacity=100)}
 }
 
+
+@media screen and (max-width: 1023px) {
+    .area{width: 100%}
+}
+
 /* 모바일 767이하 */
 @media screen and (max-width: 767px) {
- .area{width: 100%}
 
  #header .logo, .btn_gnb .mbtn_open, #gnb .mbtn_close{display: block}
  .head_top .btn_gnb .pcbtn_open,#gnb .gnb_open + img, #gnb .foot,#gnb .pcbtn_close{display: none;}
 
  #header .head_top .btn_gnb{position: fixed;top: 25px;right: 18px;z-index: 700}
- .head_top .btn_gnb button{width: 45px; height: 40px;background: url("../images/index/m_gnb_btn.png") no-repeat 100% 50%;}
+ .head_top .btn_gnb button{width: 45px; height: 40px;background: url("../images/common/m_gnb_btn.png") no-repeat 100% 50%;}
  #gnb .area > a{display: block;padding-top: 24px}
  #gnb .gnb_open{position: absolute;top: 120px;left: 50%;width: 200px;margin-left: -100px;padding-top: 0}
  #gnb > .area > .gnb_open > li{float: none;width: 200px}
  #gnb .area > * {opacity: 0;filter: Alpha(opacity=0);transition: all 1s}
  #gnb > .area > .gnb_open > li > a{display: block;width: 100%;height: 55px;line-height: 55px;font-size: 20px}
- #gnb .gnb_open li ul{display: none;padding: 3px 0;width: 200px;margin: 0 auto}
- #gnb .gnb_open li:hover ul{display: block;height: 100%;border-top: 1px solid #fff;border-bottom: 1px solid #fff;}
+ #gnb .gnb_open li ul{display: none;padding: 3px 0;width: 200px;margin: 0 auto;border-top: 1px solid #fff;border-bottom: 1px solid #fff;}
  #gnb .gnb_open li ul li a{height: 30px;line-height: 30px;left: 30px;font-size: 16px}
  #gnb .sns{margin-top: 440px;height: 40px;text-align: center}
  #gnb .sns li + li{padding-left: 20px}
@@ -154,13 +157,12 @@
  .swiper-pagination-bullet{margin: 0 15px;}
  
  
- #indiIcon{position: fixed;bottom: 65px;left: 50%;margin-left: -140px;z-index: 400} */
+ #indiIcon{position: fixed;bottom: 65px;left: 50%;margin-left: -140px;z-index: 400}
 
  /* 
-.swiper-pagination-bullets div span{display: block;-webkit-transition: all .6s;-moz-transition: all .6s;-o-transition: all .6s;transition: all .6s}
 .swiper-pagination-bullets div .indic_icon{height: 24px;background: url("../images/index/indic_float.png") no-repeat 50% 50%;-webkit-transition: all .6s;-moz-transition: all .6s;-o-transition: all .6s;transition: all .6s}
 .swiper-pagination-bullets div .indic_txt{text-align: center;height: 15px;line-height: 15px;font-size: 12px;padding-top: 3px;opacity: 0;filter: Alpha(opacity=0)}
 .swiper-pagination-bullets .swiper-pagination-bullet-active .indic_icon{opacity: 0;filter: Alpha(opacity=0);background-position-y: 20px}
-.swiper-pagination-bullets .swiper-pagination-bullet-active .indic_txt{opacity: 1;filter: Alpha(opacity=100)}
-
+.swiper-pagination-bullets .swiper-pagination-bullet-active .indic_txt{opacity: 1;filter: Alpha(opacity=100)} 
+*/
 }
