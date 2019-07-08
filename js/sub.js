@@ -1,13 +1,14 @@
 $(document).ready(function () {
-    //네비게이션
-    var $header = $('#header');
     
+    var $header = $('#header');
     var dep1 = $('body').data('dep-one') -1;
     var dep2 = $('body').data('dep-two') -1;
     //console.log(dep1, dep2);
-    var $lesson = $('#lesson');   
+    var $lesson = $('#lesson');
+    var winWid = $(window).width();
     var $first;
     var $last;
+    //console.log(winWid);
 
     //네비게이션_pc
     var $pcheader = $header.find('.pcheader');
@@ -16,11 +17,12 @@ $(document).ready(function () {
 
     $gnbDep2.hide();
 
-    $pcheader.on('mouseenter focusin', function() {
+    $header.on('mouseenter focusin', function() {
         $first = $pcheader.find('[data-link="first"]');
         $last = $pcheader.find('[data-link="last"]');
 
-        $(this).addClass('on');    
+        if (winWid > 767) $(this).addClass('on');
+          
         $gnbDep2.slideDown();
         
         focusControl ()
@@ -42,7 +44,7 @@ $(document).ready(function () {
     //네비게이션_모바일
     var $mheader = $header.find('.mheader');
     var $mgnb = $mheader.find('#mgnb');
-    
+      
     $mheader.find('.mbtn_open').on('click', function (e) {
         e.preventDefault(); 
         $first = $mgnb.find('[data-link="first"]');
@@ -83,7 +85,7 @@ $(document).ready(function () {
         var $txtBox = $lesson.find('.cntwrap > div').eq(tgIdx).find('.detail');
         var txtBoxT = $txtBox.position().top;
         var footerT = detailH+300
-        console.log(txtBoxT, footerT);
+        //console.log(txtBoxT, footerT);
 
         var $stepEle = $lesson.find('.cntwrap > div').eq(tgIdx).find('.detail_pic > div');
         //console.log($stepEle.length);
@@ -97,6 +99,7 @@ $(document).ready(function () {
         $lesson.find('.btnwrap ul li').addClass('show');
 
         $lesson.find('.cntwrap > div').eq(tgIdx).addClass('show').siblings().removeClass('show').find('.sub_tit').removeClass('active');
+
         setTimeout(function () {
             $lesson.find('.cntwrap > div').eq(tgIdx).find('.sub_tit').addClass('active');
         }, 800);
@@ -106,8 +109,19 @@ $(document).ready(function () {
             tg.parent().removeAttr('style');
         }, 1350)
 
-        $lesson.find('.cntwrap > div').eq(tgIdx).find('.txt_box').css({height: detailH})   //padding-top: 100px 제외
-
+        
+        if (winWid > 767) {
+            $lesson.find('.cntwrap > div').eq(tgIdx).find('.txt_box').css({height: detailH});   //padding-top: 100px 제외
+            $('#footer').css({display: 'block',marginTop: detailH+300});
+        }
+        else {
+            var mpicH = $lesson.find('.cntwrap > div').eq(tgIdx).find('.detail_txt').height();
+            //console.log(winWid, detailH, mpicH);
+            $lesson.find('.cntwrap > div').eq(tgIdx).find('.detail_pic').css({top: mpicH})
+            $('#footer').css({display: 'block',marginTop: detailH+mpicH+150})
+            $lesson.find('.cntwrap > div').eq(tgIdx).find('.btm_btn').css({marginTop: detailH})
+        }
+        
         $(window).on('scroll', function() {
             var scrollT = $(this).scrollTop();
             //console.log(scrollT);
@@ -115,14 +129,13 @@ $(document).ready(function () {
             //if (scrollT < txtBoxT)
         });
 
-        $('#footer').css({display: 'block',marginTop: detailH+300});
 
     });
 
     $lesson.find('.cntwrap .sub_cnt .detail .btm_btn li a').on('click', function (e) {
 		e.preventDefault();
 		var changeIdx = $(this).parent().index();
-		console.log(changeIdx);
+		//console.log(changeIdx);
         $('html, body').stop().animate({scrollTop: 0});
 		$lesson.find('.cntwrap .sub_cnt.show').removeClass('show');
 		$lesson.find('.btnwrap ul li').removeClass('show');
