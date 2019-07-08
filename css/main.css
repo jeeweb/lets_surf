@@ -80,7 +80,7 @@
 #content2 .pclesson .advanced .brief{margin-left: -123px;margin-top: 150px}
 #content2 .pclesson .package .brief{margin-left: 245px;margin-top:-60px}
 #content2 .pclesson .season .brief{margin-left: 330px;margin-top:300px}
-#content2 .pclesson div .brief strong{font-size: 22px;font-family: NanumSqB;}
+#content2 .pclesson div .brief strong{font-size: 22px;}
 #content2 .pclesson div .brief p{padding-top: 20px;line-height: 1.5}
 
 #container #content3{position: relative;background-image: url("../images/index/facility_bg.jpg")}
@@ -90,7 +90,7 @@
 #content3 .facility .gh_img{top: 0; left: 0;width: 445px;height: 606px;background: url("../images/index/facility_guesthouse1.png") no-repeat 0 0}
 #content3 .facility .shop_img{bottom: 0; right: 0;width: 604px;height: 456px;background: url("../images/index/facility_shop1.png") no-repeat 0 100%}
 #content3 .summary{position: absolute;top:130px;width: 376px;background: rgba(22, 69, 86, 0.7);border: 1px solid #164556;text-align: center;padding: 30px 0}
-#content3 .summary .sum_txt strong{font-size: 22px;font-family: NanumSqB;}
+#content3 .summary .sum_txt strong{font-size: 22px;}
 #content3 .summary .sum_txt p{padding-top: 20px;line-height: 1.5}
 #content3 .summary .sum_txt a{position: relative;display: inline-block;height: 15px;line-height: 15px;font-size: 12px;padding-right: 18px;margin: 15px 0 }
 #content3 .summary .sum_txt a:after{content: "";position: absolute;right: 0;top: 1px;width: 13px;height: 13px;background: url("../images/index/btn_arrow.png") no-repeat 0 0}
@@ -103,7 +103,7 @@
 
 #container #content4{position: relative;background-image: url("../images/index/info_bg.jpg");overflow: hidden}
 #content4 .info_txt{position: absolute;left: 55%;top: 20%}
-#content4 .info_txt strong{display: inline-block;padding: 40px 0 0 20px; font-size: 22px;font-family: NanumSqB}
+#content4 .info_txt strong{display: inline-block;padding: 40px 0 0 20px; font-size: 22px}
 #content4 .info_txt div{position: relative;padding-top: 30px;}
 /* #content4 .info_txt .phone > *, #content4 .info_txt .address > *,#content4 .info_txt .bus > *,{float: left} */
 #content4 .info_txt div i{position: absolute;font-size: 25px;padding-right: 15px}
