@@ -1,51 +1,73 @@
 $(document).ready(function () {
     //네비게이션
     var $header = $('#header');
-    var $gnb = $('#gnb > ul');
-    var $gnbDep2 = $('#header .area').find('.dep2');
+    
     var dep1 = $('body').data('dep-one') -1;
     var dep2 = $('body').data('dep-two') -1;
     //console.log(dep1, dep2);
-    var $lesson = $('#lesson');        
+    var $lesson = $('#lesson');   
+    var $first;
+    var $last;
+
+    //네비게이션_pc
+    var $pcheader = $header.find('.pcheader');
+    var $gnb = $('#gnb > ul');
+    var $gnbDep2 = $pcheader.find('.dep2');
 
     $gnbDep2.hide();
 
-    $header.on('mouseenter focusin', function() {
+    $pcheader.on('mouseenter focusin', function() {
+        $first = $pcheader.find('[data-link="first"]');
+        $last = $pcheader.find('[data-link="last"]');
+
         $(this).addClass('on');    
         $gnbDep2.slideDown();
         
+        focusControl ()
+
         $gnb.find('> li').on('mouseenter focusin', function() {
             $(this).addClass('on').siblings().removeClass('on');    
         })
+
+        $pcheader.find('[data-link="first"] [data-link="last"]').on('blur', function () {
+            setTimeout(function () {
+                if (!$pcheader.find('a').is(':focus')) gnbReturn();
+            }, 10)
+        });
     })
         
-    $('#header').on('mouseleave', gnbReturn);
-
-    function gnbReturn() {
-        $gnbDep2.slideUp();
-        $gnb.find('> li.on').removeClass('on');
-        if (dep1 >= 0) $gnb.children().eq(dep1).addClass('pick').find('> div > ul > li').eq(dep2).addClass('pick');
-        $header.removeClass('on')
-        //dep2 배경 사라지는 속도 제어 
-    }
+    $pcheader.on('mouseleave', gnbReturn);
     gnbReturn();
-
-    $('#header').find('[data-link="first"] [data-link="last"]').on('blur', function () {
-        setTimeout(function () {
-            if (!$('#header').find('a').is(':focus')) gnbReturn();
-        }, 10)
-    });
-    
-    //포커스가 네비게이션에서 나가면 dep2 사라지게
-  
+ 
     //네비게이션_모바일
-    var $first;
-    var $last;
-    $header.find('.mbtn_open').on('click', function (e) {
+    var $mheader = $header.find('.mheader');
+    var $mgnb = $mheader.find('#mgnb');
+    
+    $mheader.find('.mbtn_open').on('click', function (e) {
         e.preventDefault(); 
-        $first = $header.find('[data-link="first"]');
-        $last = $header.find('[data-link="last"]');
-        $gnb.css({display: 'block'}).next('.sns').css({display: 'block'}).next('.mbtn_close').css({display: 'block'});
+        $first = $mgnb.find('[data-link="first"]');
+        $last = $mgnb.find('[data-link="last"]');
+        $mgnb.stop().slideDown(function () {
+            $first.focus();
+            $mgnb.find('> *').each(function (idx) {
+                setTimeout(function() {
+                    $mgnb.find('> *').eq(idx).css({opacity: 1, filter: 'Alpha(opacity=100)'})
+                }, 300*(idx+1))
+            })
+        });
+
+        focusControl ()
+
+        $mgnb.find('.gnb_open li a').on('click', function (e) {
+            $(this).next().toggle().parent().siblings().children('div').hide();
+        });
+
+        $mgnb.find('.mbtn_close').on('click', function (e) {
+            e.preventDefault();
+            $mgnb.stop().slideUp(500, function() {
+                $gnb.find('> *').css({opacity: 0, filter: 'Alpha(opacity=0'});
+            });
+        })
     })
 
     $lesson.find('.cntwrap .sub_cnt .btm_btn').each(function (idx) {
@@ -97,19 +119,40 @@ $(document).ready(function () {
 
     });
 
-
-
-
     $lesson.find('.cntwrap .sub_cnt .detail .btm_btn li a').on('click', function (e) {
 		e.preventDefault();
 		var changeIdx = $(this).parent().index();
 		console.log(changeIdx);
-
+        $('html, body').stop().animate({scrollTop: 0});
 		$lesson.find('.cntwrap .sub_cnt.show').removeClass('show');
 		$lesson.find('.btnwrap ul li').removeClass('show');
 
 		setTimeout(function () {
 			$lesson.find('.btnwrap ul li').eq(changeIdx).children().click();
 		}, 1500);
-	});
+    });
+    
+    function focusControl () {
+        $first.on('keydown', function (e) {
+            //console.log(e.keyCode);
+            if (e.keyCode == 9 && e.shiftKey) {
+                e.preventDefault();
+                $last.focus();
+            }
+        });
+        $last.on('keydown', function (e) {
+            if (e.keycode == 9 && !e.shiftKey) {
+                e.preventDefault();
+                $first.focus();
+            }
+        });
+    }
+
+    function gnbReturn() {
+        $gnbDep2.slideUp();
+        $gnb.find('> li.on').removeClass('on');
+        if (dep1 >= 0) $gnb.children().eq(dep1).addClass('pick').find('> div > ul > li').eq(dep2).addClass('pick');
+        $header.removeClass('on')
+        //dep2 배경 사라지는 속도 제어 
+    }
 })
