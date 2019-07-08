@@ -168,6 +168,35 @@ section{position: relative;padding-top: 80px}
     #lesson .btnwrap ul .btn_package a{transform: translateY(-50%)}
     #lesson .btnwrap ul .btn_package a{transform: translateY(-75%)}
 
+    #lesson div .sub_bg .sub_tit{top: calc(50vh - 30px - 95px);margin-top: 0;width: 100%}
+    #lesson .btnwrap ul .btn_basic a .sub_tit, #lesson .cntwrap #subCnt1 .sub_bg .sub_tit{transform: translateY(calc((100vh - 190px) / 4 * -1.5))}
+    #lesson .btnwrap ul .btn_advanced a .sub_tit, #lesson .cntwrap #subCnt2 .sub_bg .sub_tit{transform: translateY(calc((100vh - 190px) / 4 * -0.5))}
+    #lesson .btnwrap ul .btn_season a .sub_tit, #lesson .cntwrap #subCnt3 .sub_bg .sub_tit{transform: translateY(calc((100vh - 190px) / 4 * 0.5))}
+    #lesson .btnwrap ul .btn_season a .sub_tit, #lesson .cntwrap #subCnt4 .sub_bg .sub_tit{transform: translateY(calc((100vh - 190px) / 4 * 1.5))}
+    /* 
+    #lesson .btnwrap ul .btn_basic a .sub_tit{transform: translateX(0%)}
+#lesson .btnwrap ul .btn_advanced a .sub_tit{transform: translateX(100%)}
+#lesson .btnwrap ul .btn_package a .sub_tit{transform: translateX(200%)}
+#lesson .btnwrap ul .btn_season a .sub_tit{transform: translateX(300%)}
+    #lesson div .sub_bg{position: relative;background: no-repeat 50% 50%;background-size: cover;text-align: center}
+#lesson div .sub_basic{background-image: url("../images/lesson/basic_bg.jpg")}
+#lesson div .sub_advanced{background-image: url("../images/lesson/advanced_bg.jpg")}
+#lesson div .sub_package{background-image: url("../images/lesson/package_bg.jpg")}
+#lesson div .sub_season{background-image: url("../images/lesson/season_bg.jpg")}
+#lesson div .sub_bg:before{content: "";position: absolute;top: 0; left: 0;width: 100%;height: 100%;background: rgba(22, 69, 86, 0.5)}
+#lesson div .sub_bg .sub_tit h3{font-size: 1.5rem;padding-bottom: 13px}
+
+#lesson .cntwrap .sub_cnt .sub_bg{height: 100vh}
+#lesson .cntwrap #subCnt1 .sub_bg .sub_tit{left: 0%;}
+#lesson .cntwrap #subCnt2 .sub_bg .sub_tit{left: 25%;}
+#lesson .cntwrap #subCnt3 .sub_bg .sub_tit{left: 50%;}
+#lesson .cntwrap #subCnt4 .sub_bg .sub_tit{left: 75%;}
+#lesson .cntwrap .sub_cnt.show .sub_bg .sub_tit.active{left: 37.5% !important}
+
+#lesson .btnwrap{position: relative;z-index: 500;}
+/* #lesson .btnwrap ul, #lesson .btnwrap ul li{height: 100%} */
+#lesson .btnwrap ul li{float: left;width: 25%;overflow: hidden;transition: transform 0.5s}/* PC : translateY(-100%),  Mobile : translateX(-100%)*/
+    */
 
 }
 
