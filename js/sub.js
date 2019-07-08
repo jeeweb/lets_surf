@@ -145,6 +145,90 @@ $(document).ready(function () {
 		}, 1500);
     });
     
+    //#calendar
+    var $calendar = $('#calendar');
+    var now = new Date();
+    var yy = now.getFullYear();
+    var mm = now.getMonth();
+    var dd = now.getDate();
+    //console.log(now, yy, mm, dd);
+
+    makeCalendar (yy, mm);
+
+    function makeCalendar (year, month) {
+        //console.log(year, month)
+        $calendar.find('.yymm .cal_tit, table').remove();
+
+        var startDate = new Date (year, month, 1);
+        var startDay = startDate.getDay();
+        var last = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) last[1] = 29;
+        var lastDate = last[month];
+        //console.log(startDay, lastDate);
+        var calTit = '<h3 class="cal_tit"><span class="tit_mm">' + (month+1) + '</span>월 <span class="tit_yy">' + year + '</span></h3>'
+        //console.log(calTit);
+        var row = Math.ceil((startDay+lastDate)/7)
+        //console.log(row);
+
+        var tbl = '';
+        tbl += '<table>';
+        tbl += '<caption class="blind">' + year + '년 ' + (month+1) + '월</caption>';
+        tbl += '<thead>';
+        tbl += '<tr>';
+        tbl += '<th scope="col">일</th>';
+        tbl += '<th scope="col">월</th>';
+        tbl += '<th scope="col">화</th>';
+        tbl += '<th scope="col">수</th>';
+        tbl += '<th scope="col">목</th>';
+        tbl += '<th scope="col">금</th>';
+        tbl += '<th scope="col">토</th>';
+        tbl += '</tr>';
+        tbl += '</thead>';
+        tbl += '<tbody>';
+        var num = 1;
+
+        for (var i=1; i<=row; i++) {
+            tbl += '<tr>'
+                for (var j=1; j<=7; j++) {
+                    if ((i == 1 && j <=startDay) || (num > lastDate)) {
+                        tbl += '<td class="null">&nbsp;</td>';
+                    }
+                    else {
+                        tbl += '<td class="d' + num + '"><a href="">' + num + '</a></td>';
+                        num++
+                    }
+                }
+            tbl += '<tr>';
+        }
+        tbl += '</tbody>';
+        tbl += '</table>';
+
+        $calendar.find('.yymm').prepend(calTit).after(tbl);
+
+        if (yy == year & mm == month) $calendar.find('table tbody tr td.d' + dd).addClass('today');
+
+    }
+
+    $calendar.find('.yymm .btn button').on('click', function () {
+        var idx = $(this).index();
+        idx == 0? changeMonth(-1) : changeMonth(1)
+    })
+
+    function changeMonth (control) {
+        var y2 = parseInt($calendar.find('.tit_yy').text());
+        var m2 = parseInt($calendar.find('.tit_mm').text()-1);
+        
+        m2 += control;
+        if (m2 == -1) {
+            y2 -= 1;
+            m2 = 11;
+        } else if (m2 ==12) {
+            y2 += 1;
+            m2 = 0;
+        }
+        makeCalendar(y2, m2);
+    }
+
     function focusControl () {
         $first.on('keydown', function (e) {
             //console.log(e.keyCode);
@@ -168,4 +252,7 @@ $(document).ready(function () {
         $header.removeClass('on')
         //dep2 배경 사라지는 속도 제어 
     }
+
+
+
 })
