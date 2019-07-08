@@ -30,18 +30,18 @@
 
 section{position: relative;}
 
-/* footer 위치 지정필요 #cntwrap이 position:absolute를 가져서 footer가 위로 올라와있는 상황 */
-#footer{display: none;height: 250px;width: 100%;padding: 40px 0;;text-align: center;background: #164556}
+#footer{display: none;height: 250px;width: 100%;padding: 40px 0;text-align: center;background: #164556}
 #footer .sns{width: 165px;height: 45px;margin: 0 auto 15px}
-#footer .sns li{padding-top: 0}
+#footer .sns li{padding-top: 0;float: left}
+#footer .sns li+li{padding-left: 15px}
 #footer img + p{font-size: 25px;padding: 15px 0 8px}
 #footer .address{padding-bottom: 15px}
 #footer .copyright{font-size: 14px;}
 #footer .copyright p{padding-bottom: 5px}
-#footer .copyright p span{position: relative;padding: 0 16px}
-#footer .copyright p span:before,#footer .copyright p span:after{content: "";position: absolute;width: 1px; height: 12px;top: 2px;background: #fff}
-#footer .copyright p span:before{left: 6px}
-#footer .copyright p span:after{right: 7px}
+#footer .copyright p span.line{position: relative;padding: 0 16px}
+#footer .copyright p span.line:before,#footer .copyright p span.line:after{content: "";position: absolute;width: 1px; height: 12px;top: 2px;background: #fff}
+#footer .copyright p span.line:before{left: 6px}
+#footer .copyright p span.line:after{right: 7px}
 
 /* lesson.html */
 #lesson div .sub_bg{position: relative;background: no-repeat 50% 50%;background-size: cover;text-align: center}
@@ -87,7 +87,7 @@ section{position: relative;}
 
 #lesson .cntwrap .sub_cnt .detail{height: 100%}
 #lesson .cntwrap .sub_cnt .detail .detail_pic{float: left;width: 50%}
-#lesson .cntwrap .sub_cnt .detail .detail_pic > div{position: relative;background: no-repeat 50% 50%;background-size: cover;margin-bottom: 70px}
+#lesson .cntwrap .sub_cnt .detail .detail_pic > div{position: relative;background: no-repeat 50% 100%;background-size: cover;margin-bottom: 70px}
 #lesson .cntwrap #subCnt1 .detail .detail_pic .step1{height: 614px;background-image: url("../images/lesson/detail_basic1.jpg")}
 #lesson .cntwrap #subCnt1 .detail .detail_pic .step2{height: 505px;background-image: url("../images/lesson/detail_basic2.jpg")}
 #lesson .cntwrap #subCnt1 .detail .detail_pic .step3{height: 640px;background-image: url("../images/lesson/detail_basic3.jpg")}
@@ -110,7 +110,7 @@ section{position: relative;}
 #lesson .cntwrap .sub_cnt .detail .detail_txt{height: 100%}
 #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box{margin-left: 50%;width: 50%;padding: 100px 0 0 100px;background: #164556;line-height: 1.5;box-sizing: border-box;height: 100%}
 #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box .dt_tit{font-family: NanumSqB;font-size: 25px;margin-bottom: 75px}
-#lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box .dt_tit+p{width: 500px}
+#lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box .dt_tit+p,#lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box div{width: 500px}
 #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box ul{position: absolute;top: 107px; left: 70%;}
 #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box ul li{float: left;font-size: 18px}
 #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box ul li + li{padding-left:15px}
@@ -138,6 +138,12 @@ section{position: relative;}
     to {background-position-x: 0%}
 }
 
+@keyframes fadeOut {
+    from {opacity: 1;filter: Alpha(opacity=100)}
+    to {opacity: 0;filter: Alpha(opacity=0)}
+}
+
+
 @media screen and (max-width: 1023px) {
     .area{width: 100%}
 }
@@ -153,7 +159,7 @@ section{position: relative;}
     #header .mheader .mhead_top h2{position: absolute;font-size: 20px;top: 30px;left: 50%;}/* margin-left값 제목길이/2로 조정 */
     #header .mheader .mhead_top .mbtn_open{display: block;position: absolute;width: 35px; height: 30px;top: 10px; right: 18px;background: url("../images/common/m_gnb_btn.png") no-repeat 100% 50%;background-size: cover;z-index: 700;-webkit-animation: waveMove 4s linear 0s infinite normal;-moz-animation: waveMove 4s linear 0s infinite normal;-o-animation: waveMove 4s linear 0s infinite normal;animation: waveMove 4s linear 0s infinite normal}
 
-    #header .mheader #mgnb{display: none;position: fixed;top: 0; left: 0; width: 100%;height: 100%;background: #164556;text-align: center}
+    #header .mheader #mgnb{display: none;position: fixed;top: 0; left: 0; width: 100%;height: 100%;background: #164556;text-align: center;z-index: 800}
     #header .mheader #mgnb > a{display: block;padding-top: 20px}
     #header .mheader #mgnb .gnb_open{position: absolute;top: 90px;left: 50%;width: 200px;margin-left: -100px;}
     #header .mheader #mgnb > .gnb_open > li{position: relative;width: 200px;}
@@ -168,9 +174,19 @@ section{position: relative;}
     .sns li:nth-child(1):hover a, .sns li:nth-child(1) a:focus, .sns li:nth-child(2):hover a, .sns li:nth-child(2) a:focus, .sns li:nth-child(3):hover a, .sns li:nth-child(3) a:focus{background-position: -40px 0 }
     #header .mheader #mgnb .sns + p{font-size: 26px;padding: 20px 0 5px}
     #header .mheader #mgnb .address{font-size: 16px;padding-bottom: 0}
-
     #header .mbtn_close{position: absolute;top: 27px;right: 20px;width: 35px;height: 35px;background: url("../images/index/btn_close.png") no-repeat 50% 50%; background-size: cover}
     
+    #footer{display: none;height: 215px;width: 100%;padding: 30px 0;text-align: center;background: #164556}
+    #footer img{width: 50%;height: auto}
+    #footer img + p{font-size: 20px;padding: 15px 0 8px}
+    #footer .copyright{font-size: 12px;}
+    #footer .copyright p span.mhide{font-size: 0;line-height: 0;overflow: hidden;text-indent: -9999px;}
+    #footer .copyright p span.line{padding: 0 10px}
+    #footer .copyright p span.line:before{left: 1px}
+    #footer .copyright p span.line:after{right: 2px} 
+
+
+/* lesson.html */
     #lesson{padding-top: 50px}
     #lesson div .sub_bg .sub_tit{top: calc(50vh - 30px);margin-top: 0;width: 100%}/* top: calc(50vh - 30px - 95px) */
     #lesson .btnwrap ul .btn_basic a .sub_tit, #lesson .cntwrap #subCnt1 .sub_bg .sub_tit{transform: translateY(calc(100vh / 4 * -1.5))}
@@ -187,12 +203,35 @@ section{position: relative;}
     #lesson .btnwrap ul .btn_package a{transform: translateY(-50%)}
     #lesson .btnwrap ul .btn_season a{transform: translateY(-75%)}
 
-    #lesson .cntwrap .sub_cnt .sub_bg{height: calc(100vh - 300px)}
+    #lesson .cntwrap .sub_cnt .sub_bg{height: 100vh}
     #lesson .cntwrap .sub_cnt.show .sub_bg .sub_tit.active{transform: translateY(0) !important;left: auto !important}
     #lesson .cntwrap #subCnt1 .sub_bg .sub_tit, #lesson .cntwrap #subCnt2 .sub_bg .sub_tit, #lesson .cntwrap #subCnt3 .sub_bg .sub_tit, #lesson .cntwrap #subCnt4 .sub_bg .sub_tit{left: 0}
 
-    #lesson .cntwrap .sub_cnt .detail{padding: 50px 0}
+    #lesson .cntwrap .sub_cnt .detail{position:relative;}
+    #lesson .cntwrap .sub_cnt .detail > div{width: 100%}
+    #lesson .cntwrap .sub_cnt .detail .detail_pic{float: none;position:absolute;left:0;width: 100%}/* top좌표값 스크립트로 detail_txt높이 적용 */
+    #lesson .cntwrap .sub_cnt .detail .detail_pic > div{margin-bottom: 300px;width: auto;height: 300px !important}
+    #lesson .cntwrap #subCnt3 .detail .detail_pic > div, #lesson .cntwrap #subCnt4 .detail .detail_pic > div{margin-bottom: 100px}
+    #lesson .cntwrap .sub_cnt .detail .detail_pic div > div{display: block;text-align: center;top: 300px;left: 0;padding: 30px;background: rgb(255, 255, 255)}
+    #lesson .cntwrap .sub_cnt .detail .detail_pic div > div strong + p{padding:10px 0}
+
+    #lesson .cntwrap .sub_cnt .detail .detail_txt{width: 100%;background: #164556;}
+    #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box{margin-left: 0;width: 100%;padding: 50px 18px 75px;line-height: 1.5;box-sizing:border-box;text-align: center;}
+    #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box .dt_tit + p, #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box div{width: 100%}
+    #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box .dt_tit{margin-bottom: 30px}
+    #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box ul{position: static;width: 164px;height: 25px;margin: 50px auto 0;}
+    #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box ul li + li{padding-left:30px}
+    #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box div{margin-top: 50px}
+    #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box div > p:nth-child(1){padding-bottom: 15px}
+    #lesson .cntwrap #subCnt3 .detail .detail_txt .txt_box div > p:nth-child(2){font-size: 15px}
+    #lesson .cntwrap .sub_cnt .detail .detail_txt .txt_box div > p span{font-size: 18px;padding-left: 30px}
    
+    #lesson .cntwrap .sub_cnt .detail .btm_btn{height: 150px;}
+    #lesson .cntwrap .sub_cnt .detail .btm_btn li{float: left;height: 150px;width: 33.333333333333%;}
+    #lesson .cntwrap .sub_cnt .detail .btm_btn li a{width: 100%;padding: 60px 0}
+    #lesson .cntwrap .sub_cnt .detail .btm_btn li a strong{font-size: 20px;}
+    #lesson .cntwrap .sub_cnt .detail .btm_btn li a p{padding-top: 0;font-size: 0;text-indent: -9999px}
+       
 }
 
 
