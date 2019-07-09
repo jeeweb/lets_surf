@@ -14,459 +14,471 @@
     <script src="../js/sub.js"></script>    
 </head>
 <body data-dep-one="1" data-dep-two="1">
-    <div id="skip">
-        <a href="#content">본문 바로가기</a>
-    </div>
-    <header id="header">
-        <div class="pcheader area p_r"><!-- pc -->
-            <h1 class="logo">
-                <a href="../index.html" data-link="first">
-                    <img src="../images/common/nav_logo.png" alt="렛츠서프" width="267" height="64">
-                </a>
-            </h1>
-            <nav id="gnb">
-                <h2 class="blind">주메뉴</h2>
-                <ul>
-                    <li>
-                        <a href="lesson.html">강습 안내</a>
-                    </li>
-                    <li>
-                        <a href="#">장비 렌탈</a>
-                    </li>
-                    <li>
-                        <a href="#">시설 안내</a>
-                        <div class="dep2">
-                            <ul>
-                                <li><a href="#">센터 안내</a></li>
-                                <li><a href="#">게스트하우스</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="../info/info.html">예약 및 위치</a>
-                    </li>
-                    <li>
-                        <a href="#">커뮤니티</a>
-                        <div class="dep2">
-                            <ul>
-                                <li><a href="#">문의하기</a></li>
-                                <li><a href="#">이용후기</a></li>
-                                <li><a href="#">포토갤러리</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-            <ul class="sns dep2">
-                <li><a href="#">카카오플러스 렛츠서프</a></li>
-                <li><a href="http://www.naver.com">네이버톡톡 렛츠서프</a></li>
-                <li><a href="http://www.instagram.com" data-link="last">인스타그램</a></li>
-            </ul>
+    <div id="wrap">
+        <div id="skip">
+            <a href="#cntLesson">본문 바로가기</a>
         </div>
-        <div class="mheader area p_r"><!-- 모바일 -->
-            <div class="mhead_top p_r">
+        <header id="header">
+            <div class="pcheader area p_r"><!-- pc -->
                 <h1 class="logo">
-                    <a href="../index.html">
+                    <a href="../index.html" data-link="first">
                         <img src="../images/common/nav_logo.png" alt="렛츠서프" width="267" height="64">
                     </a>
                 </h1>
-                <h2></h2>
-                <!-- section h2 스크립트로 가져오기, position: absolute -->
-                <button type="button" class="mbtn_open"><!-- 모바일 -->
-                    <span class="blind">주메뉴 열기</span>
-                </button>        
-            </div>
-            <nav id="mgnb">
-                <h2 class="blind">주메뉴</h2>
-                <a href="../index.html" data-link="first"><!-- 모바일 -->
-                    <img src="../images/common/m_index_logo.png" alt="렛츠서프" width="220" height="55">
-                </a>
-                <ul class="gnb_open">
-                    <li>
-                        <a href="lesson.html">강습 안내</a>
-                    </li>
-                    <li>
-                        <a href="#">장비 렌탈</a>
-                    </li>
-                    <li>
-                        <a href="#">시설 안내</a>
-                        <div>
-                            <ul>
-                                <li><a href="#">센터 안내</a></li>
-                                <li><a href="#">게스트하우스</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="../info/info.html">예약 및 위치</a>
-                    </li>
-                    <li>
-                        <a href="#">커뮤니티</a>
-                        <div>
-                            <ul>
-                                <li><a href="#">문의하기</a></li>
-                                <li><a href="#">이용후기</a></li>
-                                <li><a href="#">포토갤러리</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="sns">
+                <nav id="gnb">
+                    <h2 class="blind">주메뉴</h2>
+                    <ul>
+                        <li>
+                            <a href="lesson.html">강습 안내</a>
+                        </li>
+                        <li>
+                            <a href="#">장비 렌탈</a>
+                        </li>
+                        <li>
+                            <a href="#">시설 안내</a>
+                            <div class="dep2">
+                                <ul>
+                                    <li><a href="#">센터 안내</a></li>
+                                    <li><a href="#">게스트하우스</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="../info/info.html">예약 및 위치</a>
+                        </li>
+                        <li>
+                            <a href="#">커뮤니티</a>
+                            <div class="dep2">
+                                <ul>
+                                    <li><a href="#">문의하기</a></li>
+                                    <li><a href="#">이용후기</a></li>
+                                    <li><a href="#">포토갤러리</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <ul class="sns dep2">
                     <li><a href="#">카카오플러스 렛츠서프</a></li>
                     <li><a href="http://www.naver.com">네이버톡톡 렛츠서프</a></li>
-                    <li><a href="http://www.instagram.com">인스타그램</a></li>
+                    <li><a href="http://www.instagram.com" data-link="last">인스타그램</a></li>
                 </ul>
-                <p><span class="blind">전화번호</span>070-1234-5678</p>
-                <p class="address"><span class="blind">주소</span>강원도 양양군 현남면 인구 중앙길 93 렛츠서프</p>
-                <button type="button" class="mbtn_close" data-link="last">
-                    <span class="blind">주메뉴 닫기</span>                    
-                </button>
-            </nav>
-        </div>
-    </header>
-
-    <section id="cntLesson">
-        <h2 class="subtit">강습안내</h2>
-        <div id="lesson">
-            <div class="btnwrap clearfix">
-                <ul>
-                    <li class="btn_basic">
-                        <a href="#subCnt1" id="subBtn1" class="sub_bg sub_basic" aria-haspopup="dialog" title="대화상자">
+            </div>
+            <div class="mheader area p_r"><!-- 모바일 -->
+                <div class="mhead_top p_r">
+                    <h1 class="logo">
+                        <a href="../index.html">
+                            <img src="../images/common/nav_logo.png" alt="렛츠서프" width="267" height="64">
+                        </a>
+                    </h1>
+                    <button type="button" class="mbtn_open"><!-- 모바일 -->
+                        <span class="blind">주메뉴 열기</span>
+                    </button>        
+                </div>
+                <nav id="mgnb">
+                    <h2 class="blind">주메뉴</h2>
+                    <a href="../index.html" data-link="first"><!-- 모바일 -->
+                        <img src="../images/common/m_index_logo.png" alt="렛츠서프" width="220" height="55">
+                    </a>
+                    <ul class="gnb_open">
+                        <li>
+                            <a href="lesson.html">강습 안내</a>
+                        </li>
+                        <li>
+                            <a href="#">장비 렌탈</a>
+                        </li>
+                        <li>
+                            <a href="#">시설 안내</a>
+                            <div>
+                                <ul>
+                                    <li><a href="#">센터 안내</a></li>
+                                    <li><a href="#">게스트하우스</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="../info/info.html">예약 및 위치</a>
+                        </li>
+                        <li>
+                            <a href="#">커뮤니티</a>
+                            <div>
+                                <ul>
+                                    <li><a href="#">문의하기</a></li>
+                                    <li><a href="#">이용후기</a></li>
+                                    <li><a href="#">포토갤러리</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="sns">
+                        <li><a href="#">카카오플러스 렛츠서프</a></li>
+                        <li><a href="http://www.naver.com">네이버톡톡 렛츠서프</a></li>
+                        <li><a href="http://www.instagram.com">인스타그램</a></li>
+                    </ul>
+                    <p><span class="blind">전화번호</span>070-1234-5678</p>
+                    <p class="address"><span class="blind">주소</span>강원도 양양군 현남면 인구 중앙길 93 렛츠서프</p>
+                    <button type="button" class="mbtn_close" data-link="last">
+                        <span class="blind">주메뉴 닫기</span>                    
+                    </button>
+                </nav>
+            </div>
+        </header>
+    
+        <section id="cntLesson">
+            <h2 class="subtit">강습안내</h2>
+            <div id="lesson">
+                <div class="btnwrap clearfix">
+                    <ul>
+                        <li class="btn_basic">
+                            <a href="#subCnt1" id="subBtn1" class="sub_bg sub_basic" aria-haspopup="dialog" title="대화상자">
+                                <div class="sub_tit">
+                                    <h3>입문 과정</h3>
+                                    <p>서핑을 처음 접하는 입문자 대상</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="btn_advanced">
+                            <a href="#subCnt2" id="subBtn2" class="sub_bg sub_advanced" aria-haspopup="dialog" title="대화상자">
+                                <div class="sub_tit">
+                                    <h3>중급 과정</h3>
+                                    <p>자세교정 및 새로운 스킬업을 원하는 대상</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="btn_package">
+                            <a href="#subCnt3" id="subBtn3" class="sub_bg sub_package" aria-haspopup="dialog" title="대화상자">
+                                <div class="sub_tit">
+                                    <h3>패키지 상품</h3>
+                                    <p>여러 옵션을 함께 구매하는 대상</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="btn_season">
+                            <a href="#subCnt4" id="subBtn4"  class="sub_bg sub_season" aria-haspopup="dialog" title="대화상자">
+                                <div class="sub_tit">
+                                    <h3>시즌권</h3>
+                                    <p>장기이용의 계획이 있는 대상</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cntwrap">
+                    <div class="sub_cnt" id="subCnt1" role="dialog" aria-labelledby="tit1" aria-modal="true">
+                        <div class="sub_bg sub_basic">
                             <div class="sub_tit">
-                                <h3>입문 과정</h3>
+                                <h3 id="tit1">입문 과정</h3>
                                 <p>서핑을 처음 접하는 입문자 대상</p>
                             </div>
-                        </a>
-                    </li>
-                    <li class="btn_advanced">
-                        <a href="#subCnt2" id="subBtn2" class="sub_bg sub_advanced" aria-haspopup="dialog" title="대화상자">
+                            <a href="" class="scroll">Scroll Down</a>
+                        </div>
+                        <div class="detail clearfix">
+                            <div class="detailbox clearfix">
+                                <div class="detail_pic">
+                                    <div class="step1">
+                                        <div>
+                                            <strong>안전 / 이론 교육</strong>
+                                            <p>20분</p>
+                                            <p>수상 안전 사고 에방을 위한 안전 교육<br>서핑 예절 및 기본 룰에 관한 교육<br>장비 설명 및 렌탈 장비 관리 교육</p>
+                                        </div>
+                                    </div>
+                                    <div class="step2">
+                                        <div>
+                                            <strong>지상 교육</strong>
+                                            <p>20분</p>
+                                            <p>서프보드 올라가기 및 장비다루는 법<br>패들링 방법 기초 지상연습<br>스탠드업 기본 동작 및 자세 지상연습</p>
+                                        </div>
+                                    </div>
+                                    <div class="step3">
+                                        <div>
+                                            <strong>수상 교육</strong>
+                                            <p>50분</p>
+                                            <p>라인업까지 나가기<br> - 파도넘기, 보드위에 엎드리기, 보드위에 앉기<br>테이크오프/패들링 기본교육<br>거품파도에서 스탠드업 기본 자세 및 방법 실전교육<br>거품파도에서 자력으로 테이크오프 도전</p>
+                                        </div>
+                                    </div>
+                                    <div class="step4">
+                                        <div>
+                                            <strong>프리서핑</strong>
+                                            <p>120분</p>
+                                            <p>강사의 도움 없이 밀어타기 연습<br>또는 패들링 테이크오프 반복연습</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="detail_txt p_r">
+                                    <div class="txt_box area">
+                                        <p class="dt_tit">입문 과정</p>
+                                        <p>서핑에 처음 입문하시는 입문자분들을 대상으로 진행하는 강습입니다.<br>모든 강습비용에는 서프보드와 수트 렌탈비용이 포함되어 있습니다.<br>렛츠서프의 서프보드 및 수트 렌탈은 시간제한이 없으므로 <br>레슨이 끝난 후 자유롭게 해가 질 때까지 서핑을 즐길 수 있습니다.<br>해경에서 지정한 시간인 일몰 후 30분까지만 바다에서 서핑이 가능합니다.<br>야간 서핑 절대 금지</p>
+                                        <ul>
+                                            <li>1일 과정</li>
+                                            <li>2일 과정</li>
+                                        </ul>
+                                        <div>
+                                            <p>그룹강습<span>1:8</span></p>
+                                            <p>렛츠서프에서는 한 강사님 당 강습생을 8명으로 제한하고 있습니다.<br>혼자 오셔도 다른 강습생들과 함께 강습을 받으실 수 있으니 걱정마세요.</p>
+                                            <p>1일 과정  80,000원  /  2일 과정 140,000원</p>
+                                        </div>
+                                        <div>
+                                            <p>개인 및 소수 강습<span>1:1 / 1:2</span></p>
+                                            <p>프라이빗하게 강습을 받기 원하시는 분들을 위한 개인 강습입니다.<br>강습은 원하시는 시간에 맞춰드립니다. (3인 이상 그룹 비용 별도 문의)<br>개인강습의 경우 강습생의 레벨에 맞춰 교육 내용이 변경될 수 있습니다.</p>
+                                            <p>1:1  1일 과정  140,000원  /  2일 과정  250,000원<br>1:2  1일 과정  100,000원 /  2일 과정 170,000원</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="btm_btn">
+                                <li>
+                                    <a href="">
+                                        <strong>입문 과정</strong>
+                                        <p>서핑을 처음 접하는 입문자 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>중급 과정</strong>
+                                        <p>자세교정 및 새로운 스킬업을 원하는 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>패키지 상품</strong>
+                                        <p>여러 옵션을 함께 구매하는 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>시즌권</strong>
+                                        <p>장기이용의 계획이 있는 대상</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sub_cnt" id="subCnt2" role="dialog" aria-labelledby="tit2" aria-modal="true">
+                        <div class="sub_bg sub_advanced">
                             <div class="sub_tit">
-                                <h3>중급 과정</h3>
+                                <h3 id="tit2">중급 과정</h3>
                                 <p>자세교정 및 새로운 스킬업을 원하는 대상</p>
                             </div>
-                        </a>
-                    </li>
-                    <li class="btn_package">
-                        <a href="#subCnt3" id="subBtn3" class="sub_bg sub_package" aria-haspopup="dialog" title="대화상자">
+                            <a href="" class="scroll">Scroll Down</a>
+                        </div>
+                        <div class="detail">
+                            <div class="detailbox clearfix">
+                                <div class="detail_pic">
+                                    <div class="step1">
+                                        <div>
+                                            <strong>이론 교육</strong>
+                                            <p>20분</p>
+                                            <p>수상 안전 사고 에방을 위한 안전 교육<br>서핑 예절 및 기본 룰에 관한 교육<br>장비 설명 및 렌탈 장비 관리 교육</p>
+                                        </div>
+                                    </div>
+                                    <div class="step2">
+                                        <div>
+                                            <strong>지상 교육</strong>
+                                            <p>20분</p>
+                                            <p>테이크오프를 위한 파도 타이밍교육<br>테이크오프를 위한 패들링 심화과정<br>스탠드업 기본 동작 복습 및 자세교정</p>
+                                        </div>
+                                    </div>
+                                    <div class="step3">
+                                        <div>
+                                            <strong>수상 교육</strong>
+                                            <p>50분</p>
+                                            <p>라인업 패들링진출<br>보드에 엎드리기, 앉기, 돌리기<br>강사의 도움을 받아 거품파도에서 보드 밀어타기 - 스탠드업<br>거품파도에서 자력 패들링으로 테이크오프 실전 - 스탠드업</p>
+                                        </div>
+                                    </div>
+                                    <div class="step4">
+                                        <div>
+                                            <strong>프리서핑</strong>
+                                            <p>120분</p>
+                                            <p>강사의 도움 없이 패들링으로 테이크오프 반복연습</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="detail_txt p_r">
+                                    <div class="txt_box area">
+                                        <p class="dt_tit">중급 과정</p>
+                                        <p>패들과 테이크오프, 시선처리 등 자세 교정을 중심으로 30분간 지상 교육이 이루어집니다.<br>수중교육에서는 강사와 함께 라인업에 나가 여러 가지 형태의 파도를 읽는 방법과 자신의 레벨에 맞는 파도 선별법 등을 익혀 파도 보는 눈을 키우고 사이드 라이딩 위주로 파도의 면에서 라이딩을 즐길 수 있도록<br> 도와드립니다.<br>개인강습의 경우 강습생의 눈높이에 맞추어 교육 내용을 추가 구성하며 개별적 자세교정을 해드립니다.<br>(당일 파도의 세기에 따라 강습 내용이 달라질 수 있습니다.)</p>
+                                        <ul>
+                                            <li>1일 과정</li>
+                                            <li>2일 과정</li>
+                                        </ul>
+                                        <div>
+                                            <p>그룹강습<span>1:8</span></p>
+                                            <p>렛츠서프에서는 한 강사님 당 강습생을 8명으로 제한하고 있습니다.<br>혼자 오셔도 다른 강습생들과 함께 강습을 받으실 수 있으니 걱정마세요.</p>
+                                            <p>1일 과정  80,000원  /  2일 과정 140,000원</p>
+                                        </div>
+                                        <div>
+                                            <p>개인 및 소수 강습<span>1:1 / 1:2</span></p>
+                                            <p>프라이빗하게 강습을 받기 원하시는 분들을 위한 개인 강습입니다.<br>강습은 원하시는 시간에 맞춰드립니다. (3인 이상 그룹 비용 별도 문의)<br>개인강습의 경우 강습생의 레벨에 맞춰 교육 내용이 변경될 수 있습니다.</p>
+                                            <p>1:1  1일 과정  150,000원  /  2일 과정  260,000원<br>1:2  1일 과정  110,000원 /  2일 과정 180,000원</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="btm_btn">
+                                <li>
+                                    <a href="">
+                                        <strong>입문 과정</strong>
+                                        <p>서핑을 처음 접하는 입문자 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>중급 과정</strong>
+                                        <p>자세교정 및 새로운 스킬업을 원하는 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>패키지 상품</strong>
+                                        <p>여러 옵션을 함께 구매하는 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>시즌권</strong>
+                                        <p>장기이용의 계획이 있는 대상</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sub_cnt" id="subCnt3" role="dialog" aria-labelledby="tit3" aria-modal="true">
+                        <div class="sub_bg sub_package">
                             <div class="sub_tit">
-                                <h3>패키지 상품</h3>
+                                <h3 id="tit3">패키지 상품</h3>
                                 <p>여러 옵션을 함께 구매하는 대상</p>
                             </div>
-                        </a>
-                    </li>
-                    <li class="btn_season">
-                        <a href="#subCnt4" id="subBtn4"  class="sub_bg sub_season" aria-haspopup="dialog" title="대화상자">
+                            <a href="" class="scroll">Scroll Down</a>
+                        </div>
+                        <div class="detail clearfix">
+                            <div class="detailbox clearfix">
+                                <div class="detail_pic">
+                                    <div class="step1"></div>
+                                    <div class="step2"></div>
+                                </div>
+                                <div class="detail_txt p_r">
+                                    <div class="txt_box area">
+                                        <p class="dt_tit">패키지 상품</p>
+                                        <p>서핑 뿐 아니라 숙박(게스트하우스)도 함께 구매 가능한 상품입니다.<br>패키지상품에는 서프보드와 수트 렌탈비용이 포함되어 있습니다.<br>매일 저녁에 바베큐파티가 예정되어 있습니다.<br>바베큐파티를 참석하지 않을 경우 1만원을 돌려드립니다.</p>
+                                        <div>
+                                            <p>1박2일A <span>(1인기준)</span></p>
+                                            <p>그룹강습1회 + 숙박 1박  110,000원<br>개인 및 소수강습(1:1) 1회 + 숙박 1박  170,000원<br>개인 및 소수강습(1:2) 1회 + 숙박 1박  130,000원</p>
+                                        </div>
+                                        <div>
+                                            <p>1박2일B<span>(1인기준)</span></p>
+                                            <p>그룹강습2회 + 숙박 1박  170,000원<br>개인 및 소수강습(1:1) 2회 + 숙박 1박  280,000원<br>개인 및 소수강습(1:2) 2회 + 숙박 1박  200,000원</p>
+                                        </div>
+                                        <div>
+                                            <p>2박3일<span>(1인기준)</span></p>
+                                            <p>그룹강습2회 + 숙박 2박  190,000원<br>개인 및 소수강습(1:1) 2회 + 숙박 2박  300,000원<br>개인 및 소수강습(1:2) 2회 + 숙박 2박  220,000원</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="btm_btn">
+                                <li>
+                                    <a href="">
+                                        <strong>입문 과정</strong>
+                                        <p>서핑을 처음 접하는 입문자 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>중급 과정</strong>
+                                        <p>자세교정 및 새로운 스킬업을 원하는 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>패키지 상품</strong>
+                                        <p>여러 옵션을 함께 구매하는 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>시즌권</strong>
+                                        <p>장기이용의 계획이 있는 대상</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sub_cnt" id="subCnt4" role="dialog" aria-labelledby="tit4" aria-modal="true">
+                        <div class="sub_bg sub_season">
                             <div class="sub_tit">
-                                <h3>시즌권</h3>
+                                <h3 id="tit4">시즌권</h3>
                                 <p>장기이용의 계획이 있는 대상</p>
                             </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="cntwrap">
-                <div class="sub_cnt" id="subCnt1" role="dialog" aria-labelledby="tit1" aria-modal="true">
-                    <div class="sub_bg sub_basic">
-                        <div class="sub_tit">
-                            <h3 id="tit1">입문 과정</h3>
-                            <p>서핑을 처음 접하는 입문자 대상</p>
+                            <a href="" class="scroll">Scroll Down</a>
                         </div>
-                    </div>
-                    <div class="detail">
-                        <div class="detail_pic">
-                            <div class="step1">
-                                <div>
-                                    <strong>안전 / 이론 교육</strong>
-                                    <p>20분</p>
-                                    <p>수상 안전 사고 에방을 위한 안전 교육<br>서핑 예절 및 기본 룰에 관한 교육<br>장비 설명 및 렌탈 장비 관리 교육</p>
+                        <div class="detail clearfix">
+                            <div class="detailbox clearfix">
+                                <div class="detail_pic">
+                                    <div class="step1"></div>
+                                    <div class="step2"></div>
+                                    <div class="step3"></div>
+                                </div>
+                                <div class="detail_txt p_r">
+                                    <div class="txt_box area">
+                                        <p class="dt_tit">시즌권</p>
+                                        <p>렛츠서프의 시즌권은 6개월 기간제이며,<br>성수기 기간 이용시에는 일주일전에 연락 주세요.</p>
+                                        <div>
+                                            <p>성수기 기준 <span>(6월 ~ 11월)</span></p>
+                                            <p>개인보드 보관 + 개인슈트  500,000원<br>소프트보드 렌탈 + 슈트 렌탈  500,000원<br>개인보드 보관 + 개인슈트 + 게스트하우스  700,000원<br>소프트보드 렌탈 + 슈트 렌탈 + 게스트하우스  700,000원</p>
+                                        </div>
+                                        <div>
+                                            <p>비수기 기준 <span>(12월 ~ 5월)</span></p>
+                                            <p>개인보드 보관 + 개인슈트  400,000원<br>소프트보드 렌탈 + 슈트 렌탈  400,000원<br>개인보드 보관 + 개인슈트 + 게스트하우스  600,000원<br>소프트보드 렌탈 + 슈트 렌탈 + 게스트하우스  600,000원</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="step2">
-                                <div>
-                                    <strong>지상 교육</strong>
-                                    <p>20분</p>
-                                    <p>서프보드 올라가기 및 장비다루는 법<br>패들링 방법 기초 지상연습<br>스탠드업 기본 동작 및 자세 지상연습</p>
-                                </div>
-                            </div>
-                            <div class="step3">
-                                <div>
-                                    <strong>수상 교육</strong>
-                                    <p>50분</p>
-                                    <p>라인업까지 나가기<br> - 파도넘기, 보드위에 엎드리기, 보드위에 앉기<br>테이크오프/패들링 기본교육<br>거품파도에서 스탠드업 기본 자세 및 방법 실전교육<br>거품파도에서 자력으로 테이크오프 도전</p>
-                                </div>
-                            </div>
-                            <div class="step4">
-                                <div>
-                                    <strong>프리서핑</strong>
-                                    <p>120분</p>
-                                    <p>강사의 도움 없이 밀어타기 연습<br>또는 패들링 테이크오프 반복연습</p>
-                                </div>
-                            </div>
+                            <ul class="btm_btn">
+                                <li>
+                                    <a href="">
+                                        <strong>입문 과정</strong>
+                                        <p>서핑을 처음 접하는 입문자 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>중급 과정</strong>
+                                        <p>자세교정 및 새로운 스킬업을 원하는 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>패키지 상품</strong>
+                                        <p>여러 옵션을 함께 구매하는 대상</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <strong>시즌권</strong>
+                                        <p>장기이용의 계획이 있는 대상</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="detail_txt p_r">
-                            <div class="txt_box area">
-                                <p class="dt_tit">입문 과정</p>
-                                <p>서핑에 처음 입문하시는 입문자분들을 대상으로 진행하는 강습입니다.<br>모든 강습비용에는 서프보드와 수트 렌탈비용이 포함되어 있습니다.<br>렛츠서프의 서프보드 및 수트 렌탈은 시간제한이 없으므로 <br>레슨이 끝난 후 자유롭게 해가 질 때까지 서핑을 즐길 수 있습니다.<br>해경에서 지정한 시간인 일몰 후 30분까지만 바다에서 서핑이 가능합니다.<br>야간 서핑 절대 금지</p>
-                                <ul>
-                                    <li>1일 과정</li>
-                                    <li>2일 과정</li>
-                                </ul>
-                                <div>
-                                    <p>그룹강습<span>1:8</span></p>
-                                    <p>렛츠서프에서는 한 강사님 당 강습생을 8명으로 제한하고 있습니다.<br>혼자 오셔도 다른 강습생들과 함께 강습을 받으실 수 있으니 걱정마세요.</p>
-                                    <p>1일 과정  80,000원  /  2일 과정 140,000원</p>
-                                </div>
-                                <div>
-                                    <p>개인 및 소수 강습<span>1:1 / 1:2</span></p>
-                                    <p>프라이빗하게 강습을 받기 원하시는 분들을 위한 개인 강습입니다.<br>강습은 원하시는 시간에 맞춰드립니다. (3인 이상 그룹 비용 별도 문의)<br>개인강습의 경우 강습생의 레벨에 맞춰 교육 내용이 변경될 수 있습니다.</p>
-                                    <p>1:1  1일 과정  140,000원  /  2일 과정  250,000원<br>1:2  1일 과정  100,000원 /  2일 과정 170,000원</p>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="btm_btn">
-                            <li>
-                                <a href="">
-                                    <strong>입문 과정</strong>
-                                    <p>서핑을 처음 접하는 입문자 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>중급 과정</strong>
-                                    <p>자세교정 및 새로운 스킬업을 원하는 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>패키지 상품</strong>
-                                    <p>여러 옵션을 함께 구매하는 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>시즌권</strong>
-                                    <p>장기이용의 계획이 있는 대상</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sub_cnt" id="subCnt2" role="dialog" aria-labelledby="tit2" aria-modal="true">
-                    <div class="sub_bg sub_advanced">
-                        <div class="sub_tit">
-                            <h3 id="tit2">중급 과정</h3>
-                            <p>자세교정 및 새로운 스킬업을 원하는 대상</p>
-                        </div>
-                    </div>
-                    <div class="detail">
-                        <div class="detail_pic">
-                            <div class="step1">
-                                <div>
-                                    <strong>이론 교육</strong>
-                                    <p>20분</p>
-                                    <p>수상 안전 사고 에방을 위한 안전 교육<br>서핑 예절 및 기본 룰에 관한 교육<br>장비 설명 및 렌탈 장비 관리 교육</p>
-                                </div>
-                            </div>
-                            <div class="step2">
-                                <div>
-                                    <strong>지상 교육</strong>
-                                    <p>20분</p>
-                                    <p>테이크오프를 위한 파도 타이밍교육<br>테이크오프를 위한 패들링 심화과정<br>스탠드업 기본 동작 복습 및 자세교정</p>
-                                </div>
-                            </div>
-                            <div class="step3">
-                                <div>
-                                    <strong>수상 교육</strong>
-                                    <p>50분</p>
-                                    <p>라인업 패들링진출<br>보드에 엎드리기, 앉기, 돌리기<br>강사의 도움을 받아 거품파도에서 보드 밀어타기 - 스탠드업<br>거품파도에서 자력 패들링으로 테이크오프 실전 - 스탠드업</p>
-                                </div>
-                            </div>
-                            <div class="step4">
-                                <div>
-                                    <strong>프리서핑</strong>
-                                    <p>120분</p>
-                                    <p>강사의 도움 없이 패들링으로 테이크오프 반복연습</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="detail_txt p_r">
-                            <div class="txt_box area">
-                                <p class="dt_tit">중급 과정</p>
-                                <p>패들과 테이크오프, 시선처리 등 자세 교정을 중심으로<br>30분간 지상 교육이 이루어집니다.<br>수중교육에서는 강사와 함께 라인업에 나가 여러 가지 형태의 파도를<br>읽는 방법과 자신의 레벨에 맞는 파도 선별법 등을 익혀 파도 보는 눈을<br> 키우고 사이드 라이딩 위주로 파도의 면에서 라이딩을 즐길 수 있도록<br> 도와드립니다.<br>개인강습의 경우 강습생의 눈높이에 맞추어 교육 내용을 추가 구성하며 <br>개별적 자세교정을 해드립니다.<br>(당일 파도의 세기에 따라 강습 내용이 달라질 수 있습니다.)</p>
-                                <ul>
-                                    <li>1일 과정</li>
-                                    <li>2일 과정</li>
-                                </ul>
-                                <div>
-                                    <p>그룹강습<span>1:8</span></p>
-                                    <p>렛츠서프에서는 한 강사님 당 강습생을 8명으로 제한하고 있습니다.<br>혼자 오셔도 다른 강습생들과 함께 강습을 받으실 수 있으니 걱정마세요.</p>
-                                    <p>1일 과정  80,000원  /  2일 과정 140,000원</p>
-                                </div>
-                                <div>
-                                    <p>개인 및 소수 강습<span>1:1 / 1:2</span></p>
-                                    <p>프라이빗하게 강습을 받기 원하시는 분들을 위한 개인 강습입니다.<br>강습은 원하시는 시간에 맞춰드립니다. (3인 이상 그룹 비용 별도 문의)<br>개인강습의 경우 강습생의 레벨에 맞춰 교육 내용이 변경될 수 있습니다.</p>
-                                    <p>1:1  1일 과정  150,000원  /  2일 과정  260,000원<br>1:2  1일 과정  110,000원 /  2일 과정 180,000원</p>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="btm_btn">
-                            <li>
-                                <a href="">
-                                    <strong>입문 과정</strong>
-                                    <p>서핑을 처음 접하는 입문자 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>중급 과정</strong>
-                                    <p>자세교정 및 새로운 스킬업을 원하는 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>패키지 상품</strong>
-                                    <p>여러 옵션을 함께 구매하는 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>시즌권</strong>
-                                    <p>장기이용의 계획이 있는 대상</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sub_cnt" id="subCnt3" role="dialog" aria-labelledby="tit3" aria-modal="true">
-                    <div class="sub_bg sub_package">
-                        <div class="sub_tit">
-                            <h3 id="tit3">패키지 상품</h3>
-                            <p>여러 옵션을 함께 구매하는 대상</p>
-                        </div>
-                    </div>
-                    <div class="detail">
-                        <div class="detail_pic">
-                            <div class="step1"></div>
-                            <div class="step2"></div>
-                        </div>
-                        <div class="detail_txt p_r">
-                            <div class="txt_box area">
-                                <p class="dt_tit">패키지 상품</p>
-                                <p>서핑 뿐 아니라 숙박(게스트하우스)도 함께 구매 가능한 상품입니다.<br>패키지상품에는 서프보드와 수트 렌탈비용이 포함되어 있습니다.<br>매일 저녁에 바베큐파티가 예정되어 있습니다.<br>바베큐파티를 참석하지 않을 경우 1만원을 돌려드립니다.</p>
-                                <div>
-                                    <p>1박2일A <span>(1인기준)</span></p>
-                                    <p>그룹강습1회 + 숙박 1박  110,000원<br>개인 및 소수강습(1:1) 1회 + 숙박 1박  170,000원<br>개인 및 소수강습(1:2) 1회 + 숙박 1박  130,000원</p>
-                                </div>
-                                <div>
-                                    <p>1박2일B<span>(1인기준)</span></p>
-                                    <p>그룹강습2회 + 숙박 1박  170,000원<br>개인 및 소수강습(1:1) 2회 + 숙박 1박  280,000원<br>개인 및 소수강습(1:2) 2회 + 숙박 1박  200,000원</p>
-                                </div>
-                                <div>
-                                    <p>2박3일<span>(1인기준)</span></p>
-                                    <p>그룹강습2회 + 숙박 2박  190,000원<br>개인 및 소수강습(1:1) 2회 + 숙박 2박  300,000원<br>개인 및 소수강습(1:2) 2회 + 숙박 2박  220,000원</p>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="btm_btn">
-                            <li>
-                                <a href="">
-                                    <strong>입문 과정</strong>
-                                    <p>서핑을 처음 접하는 입문자 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>중급 과정</strong>
-                                    <p>자세교정 및 새로운 스킬업을 원하는 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>패키지 상품</strong>
-                                    <p>여러 옵션을 함께 구매하는 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>시즌권</strong>
-                                    <p>장기이용의 계획이 있는 대상</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sub_cnt" id="subCnt4" role="dialog" aria-labelledby="tit4" aria-modal="true">
-                    <div class="sub_bg sub_season">
-                        <div class="sub_tit">
-                            <h3 id="tit4">시즌권</h3>
-                            <p>장기이용의 계획이 있는 대상</p>
-                        </div>
-                    </div>
-                    <div class="detail">
-                        <div class="detail_pic">
-                            <div class="step1"></div>
-                            <div class="step2"></div>
-                            <div class="step3"></div>
-                        </div>
-                        <div class="detail_txt p_r">
-                            <div class="txt_box area">
-                                <p class="dt_tit">시즌권</p>
-                                <p>렛츠서프의 시즌권은 6개월 기간제이며,<br>성수기 기간 이용시에는 일주일전에 연락 주세요.</p>
-                                <div>
-                                    <p>성수기 기준 <span>(6월 ~ 11월)</span></p>
-                                    <p>개인보드 보관 + 개인슈트  500,000원<br>소프트보드 렌탈 + 슈트 렌탈  500,000원<br>개인보드 보관 + 개인슈트 + 게스트하우스  700,000원<br>소프트보드 렌탈 + 슈트 렌탈 + 게스트하우스  700,000원</p>
-                                </div>
-                                <div>
-                                    <p>비수기 기준 <span>(12월 ~ 5월)</span></p>
-                                    <p>개인보드 보관 + 개인슈트  400,000원<br>소프트보드 렌탈 + 슈트 렌탈  400,000원<br>개인보드 보관 + 개인슈트 + 게스트하우스  600,000원<br>소프트보드 렌탈 + 슈트 렌탈 + 게스트하우스  600,000원</p>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="btm_btn">
-                            <li>
-                                <a href="">
-                                    <strong>입문 과정</strong>
-                                    <p>서핑을 처음 접하는 입문자 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>중급 과정</strong>
-                                    <p>자세교정 및 새로운 스킬업을 원하는 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>패키지 상품</strong>
-                                    <p>여러 옵션을 함께 구매하는 대상</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <strong>시즌권</strong>
-                                    <p>장기이용의 계획이 있는 대상</p>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <footer id="footer">
-        <ul class="sns">
-            <li><a href="#">카카오플러스 렛츠서프</a></li>
-            <li><a href="http://www.naver.com">네이버톡톡 렛츠서프</a></li>
-            <li><a href="http://www.instagram.com">인스타그램</a></li>
-        </ul>
-        <img src="../images/common/nav_logo.png" alt="렛츠서프" width="267" height="64">
-        <p><span class="blind">전화번호</span>070-1234-5678</p>
-        <p class="address"><span class="blind">주소</span>강원도 양양군 현남면 인구 중앙길 93 렛츠서프</p>
-        <div class="copyright">
-            <p>사업자등록번호 <span class="mhide">123-45-67890</span> <span class="line">통신판매업신고번호</span>   수상레저사업등록증</p>
-            <p>Copyright &copy; Lets Serf All Rights Reserved</p>
-        </div>
-    </footer>
+        </section>
+        
+        <footer id="footer">
+            <ul class="sns">
+                <li><a href="#">카카오플러스 렛츠서프</a></li>
+                <li><a href="http://www.naver.com">네이버톡톡 렛츠서프</a></li>
+                <li><a href="http://www.instagram.com">인스타그램</a></li>
+            </ul>
+            <img src="../images/common/nav_logo.png" alt="렛츠서프" width="267" height="64">
+            <p><span class="blind">전화번호</span>070-1234-5678</p>
+            <p class="address"><span class="blind">주소</span>강원도 양양군 현남면 인구 중앙길 93 렛츠서프</p>
+            <div class="copyright">
+                <p>사업자등록번호 <span class="mhide">123-45-67890</span> <span class="line">통신판매업신고번호</span>   수상레저사업등록증</p>
+                <p>Copyright &copy; Lets Serf All Rights Reserved</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
