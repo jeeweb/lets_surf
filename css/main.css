@@ -133,6 +133,14 @@
 
 @media screen and (max-width: 1024px) {
     .area{width: 100%}
+    
+    #gnb > .area > .gnb_open > li{width: calc(100vw / 5)}
+    #gnb > .area > .gnb_open > li > a{height: 80px;line-height: 80px;font-size: 30px;}
+    #gnb .gnb_open li ul li a{height: 60px;line-height: 60px;font-size: 20px}
+    #gnb .gnb_open + img{transform: scale(0.8);padding: 20px 0 10px}
+    #gnb .sns + p{font-size: 30px;padding: 10px 0 7px;}
+    #gnb p.address{font-size: 18px;padding-bottom: 12px}
+    
     #container section .cnt_tit{padding-top: 100px;}
     #content2 .pclesson{height: 600px}
     #content2 .pclesson div a img{transform: scale(0.8)}
@@ -173,8 +181,8 @@
  #header{position: relative;}
  #header .head_top{position: fixed;top: 0;left: 0; right: 0;height: 50px;}
  #header .head_top .logo{top: 9px;left: 18px}
-#header .logo a{width: 125px; height:32px}
-
+ #header .logo a{width: 125px; height:32px}
+ 
  #header .head_top .btn_gnb{top: 5px;right: 18px;}
  .head_top .btn_gnb button{width: 45px; height: 40px;background: url("../images/common/m_gnb_btn.png") no-repeat 100% 50%;}
  #gnb .area > a{display: block;padding-top: 24px}
