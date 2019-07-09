@@ -5,9 +5,11 @@ $(document).ready(function () {
     var dep2 = $('body').data('dep-two') -1;
     //console.log(dep1, dep2);
     var $lesson = $('#lesson');
-    var winWid = $(window).width();
     var $first;
     var $last;
+    var winWid;
+    var mobileSize = 767
+    var isMobile = $(window).width() <= mobileSize? true : false;
     //console.log(winWid);
 
     //네비게이션_pc
@@ -21,7 +23,7 @@ $(document).ready(function () {
         $first = $pcheader.find('[data-link="first"]');
         $last = $pcheader.find('[data-link="last"]');
 
-        if (winWid > 767) $(this).addClass('on');
+        if (winWid > mobileSize) $(this).addClass('on');
           
         $gnbDep2.slideDown();
         
@@ -44,11 +46,14 @@ $(document).ready(function () {
     //네비게이션_모바일
     var $mheader = $header.find('.mheader');
     var $mgnb = $mheader.find('#mgnb');
-      
+    
     $mheader.find('.mbtn_open').on('click', function (e) {
         e.preventDefault(); 
         $first = $mgnb.find('[data-link="first"]');
         $last = $mgnb.find('[data-link="last"]');
+
+        $('section').find('.subtit').css({opacity: 0, filter: 'Alpha(opacity=00)'});
+
         $mgnb.stop().slideDown(function () {
             $first.focus();
             $mgnb.find('> *').each(function (idx) {
@@ -69,7 +74,23 @@ $(document).ready(function () {
             $mgnb.stop().slideUp(500, function() {
                 $gnb.find('> *').css({opacity: 0, filter: 'Alpha(opacity=0'});
             });
+            $('section').find('.subtit').delay(500).animate({opacity: 1, filter: 'Alpha(opacity=100'});
         })
+    })
+
+    //Resize
+
+    $(window).on('resize', function () {
+        winWid = $(window).width();
+        
+        if ( winWid > mobileSize && isMobile == true ) {
+            $('#header *').removeAttr('style');
+            isMobile  = false;
+        }
+        else if ( winWid <= mobileSize && isMobile == false ) {
+            $('#header *').removeAttr('style');
+            isMobile  = true;
+        }
     })
 
     $lesson.find('.cntwrap .sub_cnt .btm_btn').each(function (idx) {
@@ -82,19 +103,16 @@ $(document).ready(function () {
         var tgIdx = $(this).parent().index();
         var tg = $(this);
         //console.log(tgIdx);
-        var $txtBox = $lesson.find('.cntwrap > div').eq(tgIdx).find('.detail');
-        var txtBoxT = $txtBox.position().top;
-        var footerT = detailH+300
-        //console.log(txtBoxT, footerT);
 
         var $stepEle = $lesson.find('.cntwrap > div').eq(tgIdx).find('.detail_pic > div');
         //console.log($stepEle.length);
+
         var detailH = 0;
         for (var i=0; i < $stepEle.length; i++) {
             detailH += $stepEle.eq(i).outerHeight(true);
             //console.log(detailH);
         }
-
+        
         $(this).parent().css({opacity: 0});
         $lesson.find('.btnwrap ul li').addClass('show');
 
@@ -109,27 +127,37 @@ $(document).ready(function () {
             tg.parent().removeAttr('style');
         }, 1350)
 
-        
-        if (winWid > 767) {
+        winWid = $(window).width();
+        if (winWid > mobileSize) {
             $lesson.find('.cntwrap > div').eq(tgIdx).find('.txt_box').css({height: detailH});   //padding-top: 100px 제외
+            console.log(detailH)
+            
+            $('#wrap').on('scroll', function () {
+                var scrollT = $(this).scrollTop();
+                var wrapH = $('#wrap').height();
+                console.log(wrapH, scrollT);
+                if (scrollT >= $(window).height()) {
+                    $('.detail_txt').css({position: 'fixed', top: 0, left: '50%'});
+                } else {
+                    $('.detail_txt').removeAttr('style');
+                }
+            });
+            
             $('#footer').css({display: 'block',marginTop: detailH+300});
         }
         else {
             var mpicH = $lesson.find('.cntwrap > div').eq(tgIdx).find('.detail_txt').height();
-            //console.log(winWid, detailH, mpicH);
+            console.log(winWid, detailH, mpicH);
             $lesson.find('.cntwrap > div').eq(tgIdx).find('.detail_pic').css({top: mpicH})
-            $('#footer').css({display: 'block',marginTop: detailH+mpicH+150})
+            $('#footer').css({display: 'block',marginTop: detailH+mpicH+150});
             $lesson.find('.cntwrap > div').eq(tgIdx).find('.btm_btn').css({marginTop: detailH})
-        }
-        
-        $(window).on('scroll', function() {
-            var scrollT = $(this).scrollTop();
-            //console.log(scrollT);
+        }        
+    });
 
-            //if (scrollT < txtBoxT)
-        });
-
-
+    $lesson.find('.cntwrap .sub_cnt .sub_bg .scroll').on('click', function (e) {
+        e.preventDefault();
+        console.log($(window).height());
+        $('#wrap').stop().animate({scrollTop: $(window).height()});
     });
 
     $lesson.find('.cntwrap .sub_cnt .detail .btm_btn li a').on('click', function (e) {
@@ -144,6 +172,20 @@ $(document).ready(function () {
 			$lesson.find('.btnwrap ul li').eq(changeIdx).children().click();
 		}, 1500);
     });
+
+    /* detail box 하단에 비어있는 높이를 인식하는 문제 (.btm_btn 이나 #footer의 마진값으로 추정)
+    $('#wrap').on('scroll', function () {
+        var scrollT = $(this).scrollTop();
+        var wrapH = $('#wrap').height();
+        console.log(wrapH, scrollT);
+        if (scrollT >= $(window).height()) {
+            $('.detail_txt').css({position: 'fixed', top: 0, left: '50%'});
+        } else {
+            $('.detail_txt').removeAttr('style');
+        }
+        //.detail_txt 높이값 다시 제어해주기!!!
+    }); 
+    */
     
     //#calendar
     var $calendar = $('#calendar');
@@ -206,7 +248,7 @@ $(document).ready(function () {
         $calendar.find('.yymm').prepend(calTit).after(tbl);
 
         if (yy == year & mm == month) $calendar.find('table tbody tr td.d' + dd).addClass('today');
-
+        if (yy == year & mm >= month) $calendar.find('table tbody tr td.d' + num).addClass('line');
     }
 
     $calendar.find('.yymm .btn button').on('click', function () {
@@ -252,7 +294,5 @@ $(document).ready(function () {
         $header.removeClass('on')
         //dep2 배경 사라지는 속도 제어 
     }
-
-
 
 })
