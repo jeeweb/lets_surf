@@ -128,9 +128,9 @@
     
     <section id="cntInfo">
         <div class="top_tit">
-            <h2>예약 및 위치</h2>
+            <h2 class="subtit">예약 및 위치</h2>
         </div>
-        <div class="reservation area clearfix">
+        <div class="reservation area clearfix p_r">
             <h3 class="blind">예약 날짜 및 강습선택</h3>
             <div id="calendar">
                 <div class="yymm">
@@ -176,6 +176,8 @@
                                 <option value="1박2일">1박2일</option>
                                 <option value="2박3일">2박3일</option>
                             </select>
+                        </li>
+                        <li>
                             <label for="numPl">인원 수</label>
                             <select name="numPl" id="numPl">
                                 <option value="1">1인</option>
@@ -187,25 +189,27 @@
                         <li>
                             <label for="guesthouse">게스트하우스</label>
                             <input type="checkbox" id="guesthouse" name="guesthouse" value="게스트하우스">
+                        </li>
+                        <li>
                             <label for="rental">장비 렌탈</label>
                             <input type="checkbox" id="rental" name="rental" value="장비렌탈">
                         </li>
                         <li>
                             <label for="request">기타 요청 사항</label>
-                            <textarea name="request" id="request" cols="30" rows="10"></textarea>
+                            <textarea name="request" id="request" cols="30" rows="7"></textarea>
                         </li>
                     </ul>
                     <div class="total">
                         <div></div>
                         <p>총 합계<span></span></p>
                     </div>
-                    <button type="submit">예약하기</button>
+                    <button type="submit">예약하기<span></span></button>
                 </form>
             </div>
         </div>
         <div class="location">
             <div class="map">
-                <iframe title="렛츠서프 위치" width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=ko&amp;coord=37.9728634,128.7591391&amp;q=강원도 양양군 현남면 인구 중앙길93&amp;ie=UTF8&amp;t=&amp;z=16&amp;iwloc=B&amp;output=embed"></iframe>
+                <iframe title="렛츠서프 위치" width="100%" height="100%" src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=ko&amp;coord=37.9728634,128.7591391&amp;q=강원도 양양군 현남면 인구 중앙길93&amp;ie=UTF8&amp;t=&amp;z=16&amp;iwloc=B&amp;output=embed"></iframe>
             </div>
             <div class="mapinfo">
                 <img src="../images/index/info_logo.png" alt="" width="321" height="76">
@@ -220,14 +224,14 @@
                 </div>
                 <div class="bus">
                     <i class="fas fa-bus-alt"></i>
-                    <p><span class="blind">대중교통 이용방법</span>주문진 고속버스터미널 - 322번 버스, 두창시변리 정류장 하차</p>
+                    <p><span class="blind">대중교통 이용방법</span>주문진 고속버스터미널 - 322번 버스, <span class="down">두창시변리 정류장 하차</span></p>
                 </div>
                 <div class="time">
                     <i class="fas fa-clock"></i>
                     <span class="blind">시간 안내</span>
-                    <p><span>이용시간</span>오전 8시 ~ 일몰 후 30분까지</p>
-                    <p><span>강습시간</span>오전10시  /  오후 1시  /  오후 3시 30분</p>
-                    <p>단체강습의 경우 전화상담을 통해 강습 시간 조정이 가능합니다.</p>
+                    <p><span class="down">이용시간</span>오전 8시 ~ 일몰 후 30분까지</p>
+                    <p><span class="down">강습시간</span>오전10시  /  오후 1시  /  오후 3시 30분</p>
+                    <p>단체강습의 경우 전화상담을 통해 <span class="down">강습 시간 조정이 가능합니다.</span></p>
                 </div>
             </div>
         </div>
