@@ -1,10 +1,18 @@
 @charset "utf-8";
 
+/* z-index
+#header 600
+#header .head_top .btn_gnb 700
+#gnb 800
+.swiper-pagination-bullets 400
+#indiIcon 400
+ */
+
 .area{width: 1200px;margin: 0 auto}
 
 #header{top: 0;left: 0;right: 0;z-index: 600}
 #header .logo{position: fixed;top: 20px;left: 18px}
-#header .logo a{display: block;width: 220px; height: 90px;background: url("../images/index/m_index_logo.png") no-repeat 0 0}
+#header .logo a{display: block;width: 220px; height: 90px;background: url("../images/common/m_index_logo.png") no-repeat 0 0;background-size: cover}
 
 #header .head_top .btn_gnb{position: fixed;top: 55px;right: 70px;z-index: 700}
 /* pc에서 숨길 컨텐츠 */
@@ -85,7 +93,7 @@
 
 #container #content3{position: relative;background-image: url("../images/index/facility_bg.jpg")}
 #content3 h2{color: #164556}
-#content3 .facility{margin: 0 auto;width: 795px;height: 606px;background: url("../images/index/facility_floor.png") no-repeat 50% 50%}
+#content3 .facility{margin: 0 auto;width: 795px;height: 606px;background: url("../images/index/facility_floor.png") no-repeat 50% 50%;background-size: cover}
 #content3 .facility > div{position: absolute;cursor: pointer}
 #content3 .facility .gh_img{top: 0; left: 0;width: 445px;height: 606px;background: url("../images/index/facility_guesthouse1.png") no-repeat 0 0}
 #content3 .facility .shop_img{bottom: 0; right: 0;width: 604px;height: 456px;background: url("../images/index/facility_shop1.png") no-repeat 0 100%}
@@ -123,8 +131,38 @@
 }
 
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
     .area{width: 100%}
+    #container section .cnt_tit{padding-top: 100px;}
+    #content2 .pclesson{height: 600px}
+    #content2 .pclesson div a img{transform: scale(0.8)}
+    #content2 .pclesson .basic a{margin-left: -500px;margin-top:10px}
+    #content2 .pclesson .advanced a{margin-left: -180px;margin-top: -40px}
+    #content2 .pclesson .package a{margin-left: 80px;margin-top:-80px}
+    #content2 .pclesson .season a{margin-left: 300px;margin-top:-170px}
+    #content2 .pclesson > .basic.show:before{width: 433px;margin-left: -415px;margin-top:-60px;-webkit-transform: rotate(103deg);-moz-transform: rotate(103deg);-o-transform: rotate(103deg);-ms-transform: rotate(103deg);transform: rotate(103deg)}
+    #content2 .pclesson > div.show:before{height: 0px}
+    #content2 .pclesson div .brief{padding: 20px 40px;}
+    #content2 .pclesson .basic .brief{margin-left: -480px;margin-top: 70px}
+    #content2 .pclesson .advanced .brief{margin-left: -200px;margin-top: 40px}
+    #content2 .pclesson .package .brief{margin-left: 100px;margin-top:0px}
+    #content2 .pclesson .season .brief{margin-left: 300px;margin-top:300px}
+    #content2 .pclesson div .brief strong{font-size: 20px;}
+    #content2 .pclesson div .brief p{padding-top: 16px;line-height: 1.5}
+    
+    #content3 .facility{transform: scale(0.8)}
+    #content3 .summary{width: 350px;padding: 20px 0}
+    #content3 .summary:before{height: 0}
+    #content3 .guesthouse{left: 50%;margin-left: 100px}
+    #content3 .shop{right: 50%;margin-right: 100px}
+    #content3 .summary .sum_txt p{padding-top: 10px;}
+    #content3 .summary .sum_txt a{margin: 10px 0}
+    #content3 .summary img + img {padding-top: 5px}
+    
+    #content4 .map svg{transform: scale(0.9);margin: -150px 0 0 -150px}
+    #content4 .info_txt{left: 50%;top: 15%}
+    #content4 .info_txt div p{height: 25px;line-height: 25px;padding-left: 50px;font-size: 16px}
+
 }
 
 /* 모바일 767이하 */
@@ -132,8 +170,12 @@
 
  #header .logo, .btn_gnb .mbtn_open, #gnb .mbtn_close{display: block}
  .head_top .btn_gnb .pcbtn_open,#gnb .gnb_open + img, #gnb .foot,#gnb .pcbtn_close{display: none;}
+ #header{position: relative;}
+ #header .head_top{position: fixed;top: 0;left: 0; right: 0;height: 50px;}
+ #header .head_top .logo{top: 9px;left: 18px}
+#header .logo a{width: 125px; height:32px}
 
- #header .head_top .btn_gnb{position: fixed;top: 25px;right: 18px;z-index: 700}
+ #header .head_top .btn_gnb{top: 5px;right: 18px;}
  .head_top .btn_gnb button{width: 45px; height: 40px;background: url("../images/common/m_gnb_btn.png") no-repeat 100% 50%;}
  #gnb .area > a{display: block;padding-top: 24px}
  #gnb .gnb_open{position: absolute;top: 120px;left: 50%;width: 200px;margin-left: -100px;padding-top: 0}
@@ -155,7 +197,15 @@
  .swiper-pagination-bullet{margin: 0 15px;}
  
  
- #indiIcon{position: fixed;bottom: 65px;left: 50%;margin-left: -140px;z-index: 400}
+ #indiIcon{bottom: 65px;margin-left: -140px}
+ 
+ #container section{position: relative}
+ #container section .cnt_tit{position: absolute;color: #fff !important;font-size: 16px !important;font-family: NanumSqB;line-height: 50px;top: 0; text-indent: 0 !important;left:50%;margin-left: -15px;padding-top: 0;z-index: 800;}
+
+ #container #content2 .cnt_tit{padding-top: 0}
+ #content2 .pclesson{display: none}
+ #content2 .mlesson{display: block}
+ #content2 .mlesson{background: rgba(22, 69, 86, 0.7);border: 1px solid #fff;text-align: center;padding: 30px 50px;margin-top: 80px;}
 
  /* 
 .swiper-pagination-bullets div .indic_icon{height: 24px;background: url("../images/index/indic_float.png") no-repeat 50% 50%;-webkit-transition: all .6s;-moz-transition: all .6s;-o-transition: all .6s;transition: all .6s}
