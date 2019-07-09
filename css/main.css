@@ -213,7 +213,10 @@
  #container #content2 .cnt_tit{padding-top: 0}
  #content2 .pclesson{display: none}
  #content2 .mlesson{display: block}
- #content2 .mlesson{background: rgba(22, 69, 86, 0.7);border: 1px solid #fff;text-align: center;padding: 30px 50px;margin-top: 80px;}
+ #content2 .mlesson{background: rgba(22, 69, 86, 0.7);border: 1px solid #fff;text-align: center;padding: 30px 50px;margin-top: 80px;box-sizing: border-box}
+ #content2 .mlesson ul li{height: 50px;}
+ #content2 .mlesson ul li a{display: block;height: 50px;line-height: 50px}
+ #content2 .mlesson ul li p{display: none}
 
  /* 
 .swiper-pagination-bullets div .indic_icon{height: 24px;background: url("../images/index/indic_float.png") no-repeat 50% 50%;-webkit-transition: all .6s;-moz-transition: all .6s;-o-transition: all .6s;transition: all .6s}
