@@ -41,7 +41,31 @@ $(document).ready(function () {
     })
         
     $pcheader.on('mouseleave', gnbReturn);
+
+    function gnbReturn() {
+        $gnbDep2.slideUp();
+        $gnb.find('> li.on').removeClass('on');
+        if (dep1 >= 0) $gnb.children().eq(dep1).addClass('pick').find('> div > ul > li').eq(dep2).addClass('pick');
+        $header.removeClass('on')
+        //dep2 배경 사라지는 속도 제어 
+    }
     gnbReturn();
+
+    function focusControl () {
+        $first.on('keydown', function (e) {
+            //console.log(e.keyCode);
+            if (e.keyCode == 9 && e.shiftKey) {
+                e.preventDefault();
+                $last.focus();
+            }
+        });
+        $last.on('keydown', function (e) {
+            if (e.keycode == 9 && !e.shiftKey) {
+                e.preventDefault();
+                $first.focus();
+            }
+        });
+    }
  
     //네비게이션_모바일
     var $mheader = $header.find('.mheader');
@@ -78,9 +102,8 @@ $(document).ready(function () {
         })
     })
 
-    //Resize
-
-    $(window).on('resize', function () {
+    //Resize, load
+    $(window).on('resize load', function () {
         winWid = $(window).width();
         
         if ( winWid > mobileSize && isMobile == true ) {
@@ -93,6 +116,7 @@ $(document).ready(function () {
         }
     })
 
+    //lesson.html
     $lesson.find('.cntwrap .sub_cnt .btm_btn').each(function (idx) {
         $(this).children().eq(idx).css({display: 'none'});
     })
@@ -183,11 +207,10 @@ $(document).ready(function () {
         } else {
             $('.detail_txt').removeAttr('style');
         }
-        //.detail_txt 높이값 다시 제어해주기!!!
     }); 
     */
     
-    //#calendar
+    //info.html > #calendar
     var $calendar = $('#calendar');
     var now = new Date();
     var yy = now.getFullYear();
@@ -235,8 +258,14 @@ $(document).ready(function () {
                     if ((i == 1 && j <=startDay) || (num > lastDate)) {
                         tbl += '<td class="null">&nbsp;</td>';
                     }
-                    else {
-                        tbl += '<td class="d' + num + '"><a href="">' + num + '</a></td>';
+                    else {                        
+                        if (yy > year ||(yy == year &&  mm > month)) {
+                            tbl += '<td class="nochoice d' + num + '">' + num + '</td>';
+                        } else if (yy == year && mm == month && num < dd) {
+                            tbl += '<td class="nochoice d' + num + '">'+num+'</td>';
+                        } else {
+                            tbl += '<td class="d' + num + '"><a href="">' + num + '</a></td>';
+                        }
                         num++
                     }
                 }
@@ -247,8 +276,7 @@ $(document).ready(function () {
 
         $calendar.find('.yymm').prepend(calTit).after(tbl);
 
-        if (yy == year & mm == month) $calendar.find('table tbody tr td.d' + dd).addClass('today');
-        if (yy == year & mm >= month) $calendar.find('table tbody tr td.d' + num).addClass('line');
+        if (yy == year && mm == month) $calendar.find('table tbody tr td.d' + dd).addClass('today');
     }
 
     $calendar.find('.yymm .btn button').on('click', function () {
@@ -271,28 +299,67 @@ $(document).ready(function () {
         makeCalendar(y2, m2);
     }
 
-    function focusControl () {
-        $first.on('keydown', function (e) {
-            //console.log(e.keyCode);
-            if (e.keyCode == 9 && e.shiftKey) {
-                e.preventDefault();
-                $last.focus();
+    //info.html > #select
+    var typeArr=new Array();
+    typeArr[0]=["입문 과정","그룹 강습","70000"];
+	typeArr[1]=["입문 과정","개인 및 소수 강습","130000"];
+	typeArr[2]=["중급 과정","그룹 강습","70000"];
+	typeArr[3]=["중급 과정","개인 및 소수 강습","130000"];	
+	typeArr[4]=["패키지 상품","1박2일A","100000"];
+	typeArr[5]=["패키지 상품","1박2일B","160000"];
+	typeArr[6]=["패키지 상품","2박3일","180000"];
+	typeArr[7]=["시즌권","개인장비","500000"];
+	typeArr[8]=["시즌권","장비렌탈","500000"];
+	typeArr[9]=["시즌권","개인장비+게스트하우스","700000"];
+	typeArr[10]=["시즌권","장비렌탈+게스트하우스","700000"];
+	console.log(typeArr);
+
+    $('#selection #course').on('change', function () {
+        var changeVal = $(this).val();
+        console.log(changeVal);
+
+        $('#selection #cosOpt').empty();
+
+        for (var i=0; i<typeArr.length; i++) {
+            var cos1Txt=typeArr[i][0];
+            if (changeVal == cos1Txt) {
+                var cos2Txt=typeArr[i][1];
+                var cos3Txt=typeArr[i][2];
+                var opt='<option value="' + cos2Txt + '"data-price="'+ cos3Txt +'">' + cos2Txt + "</option>"
+                $('#selection #cosOpt').append(opt);
+            };
+        };
+    });
+
+    choiceSum ();
+
+    function choiceSum () {
+        var add = 0;
+        var resultTxt = '';
+
+        $('#selection .choice').each(function () {
+            var num = $(this).prop('selectedIndex');
+            
+            if (num >= 0) {
+                add += parseInt( $(this).children().eq(num).data('price'));
+                resultTxt += $(this).val() + ' ';
+                console.log('select : ', num, parseInt( $(this).children().eq(num).data('price')), add, resultTxt);
+            } else {
+                if ( $(this).prop('checked')) {
+                    add += parseInt( $(this).data('price'));
+                    resultTxt += $(this).val() + ' ';
+                    console.log('checkbox : ', num, $(this).data('price'), add, resultTxt);
+                }
             }
         });
-        $last.on('keydown', function (e) {
-            if (e.keycode == 9 && !e.shiftKey) {
-                e.preventDefault();
-                $first.focus();
-            }
-        });
+        $('#selection .total .choice_txt').text(resultTxt);
+
+        var regexp = /\B(?=(\d{3})+(?!\d))/g;
+        add = add.toString().replace(regexp, ',');
+        
+        $('#selection .total span').text(add + ' 원');
     }
 
-    function gnbReturn() {
-        $gnbDep2.slideUp();
-        $gnb.find('> li.on').removeClass('on');
-        if (dep1 >= 0) $gnb.children().eq(dep1).addClass('pick').find('> div > ul > li').eq(dep2).addClass('pick');
-        $header.removeClass('on')
-        //dep2 배경 사라지는 속도 제어 
-    }
+    $('#selection .choice').on('change', choiceSum);
 
 })
