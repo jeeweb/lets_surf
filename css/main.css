@@ -110,6 +110,7 @@
 #content3 .shop:before{transform: rotate(50deg);width: 480px;top: 183px;left: 50%;margin-left: 103px;}
 
 #container #content4{position: relative;background-image: url("../images/index/info_bg.jpg");overflow: hidden}
+#container #content4 .cnt_tit{text-indent: -9999px;font-size: 0;line-height: 0;padding-top: 0}
 #content4 .info_txt{position: absolute;left: 55%;top: 20%}
 #content4 .info_txt strong{display: inline-block;padding: 40px 0 0 20px; font-size: 22px}
 #content4 .info_txt div{position: relative;padding-top: 30px;}
@@ -141,6 +142,11 @@
     #gnb .sns + p{font-size: 30px;padding: 10px 0 7px;}
     #gnb p.address{font-size: 18px;padding-bottom: 12px}
     
+    .swiper-pagination-bullets{height: 80px}
+    .swiper-pagination-bullet{width: 52px;height: 45px;display: inline-block;margin: 0 60px;opacity: 1;filter: Alpha(opacity=100)}
+    .swiper-pagination-bullets div .indic_txt{font-size: 13px;padding-top: 5px;opacity: 1;filter: Alpha(opacity=100)}
+    #indiIcon{bottom: 60px;}
+
     #container section .cnt_tit{padding-top: 100px;}
     #content2 .pclesson{height: 600px}
     #content2 .pclesson div a img{transform: scale(0.8)}
@@ -180,11 +186,11 @@
  .head_top .btn_gnb .pcbtn_open,#gnb .gnb_open + img, #gnb .foot,#gnb .pcbtn_close{display: none;}
  #header{position: relative;}
  #header .head_top{position: fixed;top: 0;left: 0; right: 0;height: 50px;}
- #header .head_top .logo{top: 9px;left: 18px}
- #header .logo a{width: 125px; height:32px}
+ #header .head_top .logo{top: 14px;left: 18px}
+ #header .logo a{width: 100px; height:25px}
  
  #header .head_top .btn_gnb{top: 5px;right: 18px;}
- .head_top .btn_gnb button{width: 45px; height: 40px;background: url("../images/common/m_gnb_btn.png") no-repeat 100% 50%;}
+ .head_top .btn_gnb button{width: 40px; height: 40px;background: url("../images/common/m_gnb_btn.png") no-repeat 100% 50%;-webkit-animation: waveMove 4s linear 0s infinite normal;-moz-animation: waveMove 4s linear 0s infinite normal;-o-animation: waveMove 4s linear 0s infinite normal;animation: waveMove 4s linear 0s infinite normal}
  #gnb .area > a{display: block;padding-top: 24px}
  #gnb .gnb_open{position: absolute;top: 120px;left: 50%;width: 200px;margin-left: -100px;padding-top: 0}
  #gnb > .area > .gnb_open > li{float: none;width: 200px}
@@ -199,29 +205,51 @@
  #gnb .sns + p{font-size: 26px;padding: 10px 0 5px}
  #gnb p.address{font-size: 16px;padding-bottom: 0}
 
- #header #gnb .mbtn_close{position: absolute;top: 27px; right: 20px;width: 35px; height: 35px;background: url("../images/index/btn_close.png") no-repeat 50% 0;background-size: cover}
+ #header #gnb .mbtn_close{position: absolute;top: 20px; right: 20px;width: 35px; height: 35px;background: url("../images/index/btn_close.png") no-repeat 50% 0;background-size: cover}
 
  .swiper-pagination-bullets{height: 80px;}
  .swiper-pagination-bullet{margin: 0 15px;}
- 
- 
- #indiIcon{bottom: 65px;margin-left: -140px}
+ #indiIcon{bottom: 59px;margin-left: -145px}
  
  #container section{position: relative}
- #container section .cnt_tit{position: absolute;color: #fff !important;font-size: 16px !important;font-family: NanumSqB;line-height: 50px;top: 0; text-indent: 0 !important;left:50%;margin-left: -15px;padding-top: 0;z-index: 800;}
+ #container section .cnt_tit{position: absolute;color: #fff !important;font-size: 16px !important;font-family: NanumSqB;line-height: 50px;top: 3px; text-indent: 0 !important;left:50%;margin-left: -30px;padding-top: 0;z-index: 800;}
+
+ #container #content1 .bg2{background-image: url("../images/index/main_bg_logo2.jpg")}
 
  #container #content2 .cnt_tit{padding-top: 0}
  #content2 .pclesson{display: none}
- #content2 .mlesson{display: block}
- #content2 .mlesson{background: rgba(22, 69, 86, 0.7);border: 1px solid #fff;text-align: center;padding: 30px 50px;margin-top: 80px;box-sizing: border-box}
- #content2 .mlesson ul li{height: 50px;}
- #content2 .mlesson ul li a{display: block;height: 50px;line-height: 50px}
- #content2 .mlesson ul li p{display: none}
+ #content2 .mlesson{display: block;width: 80%;background: rgba(22, 69, 86, 0.7);border: 1px solid #fff;text-align: center;padding: 20px 30px;margin: 80px auto 0;box-sizing: border-box}
+ #content2 .mlesson ul li a{display: block;height: 50px;line-height: 50px;font-size: 22px;}
+ #content2 .mlesson ul li + li a{padding-top: 10px}
+ #content2 .mlesson ul li p{display: none;line-height: 1.5;padding: 10px 0;border-top: 1px solid #fff;;border-bottom: 1px solid #fff;}
+ #content2 .mlesson .btn{width: 100%;height: 54px;padding: 15px 0 0 ;margin-top: 15px}
+ #content2 .mlesson .btn .btn_more{float: left;display: block;width: 48%;height:50px;border: 2px solid #fff;line-height: 50px;font-size: 14px}
+ #content2 .mlesson .btn a:first-child{border-right: none}
+ /* #content2 .mlesson .btn a+a{margin-left: 12px} */
+ #content2 .mlesson .btn .btn_more .arrow{position: relative;bottom: -2px;left: 2px;display: inline-block;background: url("../images/index/btn_arrow.png") no-repeat 0 100%; width: 16px;height: 16px}
 
- /* 
-.swiper-pagination-bullets div .indic_icon{height: 24px;background: url("../images/index/indic_float.png") no-repeat 50% 50%;-webkit-transition: all .6s;-moz-transition: all .6s;-o-transition: all .6s;transition: all .6s}
-.swiper-pagination-bullets div .indic_txt{text-align: center;height: 15px;line-height: 15px;font-size: 12px;padding-top: 3px;opacity: 0;filter: Alpha(opacity=0)}
-.swiper-pagination-bullets .swiper-pagination-bullet-active .indic_icon{opacity: 0;filter: Alpha(opacity=0);background-position-y: 20px}
-.swiper-pagination-bullets .swiper-pagination-bullet-active .indic_txt{opacity: 1;filter: Alpha(opacity=100)} 
-*/
+ #content3 .facility{transform: scale(0.6)}
+ #content3 .facility{left: -180px;bottom: -100px}
+ #content3 .facility > div{transform: scale(0.9)}
+ #content3 .summary{width: 95%;top: 80px}
+ #content3 .guesthouse{left: 0px;margin-left: 2.5%}
+ #content3 .shop{right: 0px;margin-right: 2.5%}
+ #content3 .summary > img{float: left;width: auto;margin-left: 12px}
+ #content3 .guesthouse > img{height: 105px}
+ #content3 .shop > img{height: 110px;}
+ #content3 .summary img + img {padding-top: 0px}
+ #content3 .summary .sum_txt a{margin: 20px 0;font-size: 16px;}
+
+ #container #content4 .cnt_tit{line-height: 50px}
+ #content4 .map{display: none}
+ #content4 .info_txt{text-align: center;position: static;margin-top: 80px}
+ #content4 .info_txt img{width: 200px;height: auto}
+ #content4 .info_txt strong{display: block;padding: 10px 0 0; font-size: 22px}
+ #content4 .info_txt div{padding-top: 15px;}
+ #content4 .info_txt div p{height: 20px;line-height: 20px;padding-left: 0px;font-size: 14px}
+ #content4 .info_txt .bus p,#content4 .info_txt .time p{height: 40px}
+ #content4 .info_txt div i{position: static;display: block;font-size: 20px;padding-right: 0px;padding-bottom: 5px}
+ #content4 .info_txt div .down{display: block} 
+ #content4 .info_txt .time p span{font-family: NanumSqB;padding-right: 10px}
+
 }

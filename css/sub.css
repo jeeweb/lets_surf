@@ -149,9 +149,10 @@ section#cntLesson + #footer{display: none}
 /* info.html */
 #cntInfo{padding-top: 80px}
 #cntInfo .top_tit{height: 500px;background: url("../images/info/top_bg.jpg") no-repeat 50% 50%;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover}
-#cntInfo .top_tit h2{font-size: 50px; color: #164556;text-align: center;padding-top: 200px}
+#cntInfo .top_tit:after{content: "";display: block;background: rgba(255, 255, 255,0.5);height: 250px;margin-top: -158px}
+#cntInfo .top_tit h2{font-size: 50px; color: #164556;text-align: center;padding-top: 195px}
 #cntInfo .reservation{color: #164556;margin: 100px auto 400px}
-#cntInfo .reservation #calendar{float: left;width: 420px;margin-left: 100px}
+#cntInfo .reservation #calendar{float: left;width: 434px;margin-left: 100px}
 #cntInfo .reservation #calendar .cal_tit{color: #164556;font-size: 30px}
 #cntInfo .reservation #calendar .yymm{position: relative;height: 30px;line-height: 30px;text-align: center;margin-bottom: 20px}
 #cntInfo .reservation #calendar .yymm .btn, #cntInfo .reservation #calendar .yymm .btn button{position: absolute}
@@ -164,29 +165,32 @@ section#cntLesson + #footer{display: none}
 #calendar table tr th, #calendar table tr td{padding: 20px;font-size: 18px}
 #calendar table tr th{background: #164556;color: #fff}
 #calendar table tr td.null{background: #ddd}
-#calendar table tr td.line{color: #999;text-decoration: line-through}
+#calendar table tr td.nochoice{color: #999;background: #f8f8f8;text-decoration: line-through}
 #calendar table tr td.today{background: #164556;color: #fff;font-family: NanumSqB}
 
-#cntInfo .reservation #select{float: right;}
-#cntInfo .reservation #select ul{width: 430px;}
-#cntInfo .reservation #select ul li{margin-bottom: 30px}
-#cntInfo .reservation #select ul li label{display: block;padding-bottom: 10px;font-family: NanumSqB;font-size: 20px}
-#cntInfo .reservation #select ul li select{width: 200px;height: 35px;border-left: none;border-right: none}
-#cntInfo .reservation #select ul li #csOpt, #cntInfo .reservation #select ul li:nth-child(3),#cntInfo .reservation #select ul li:nth-child(5){margin-left: 20px} 
-#cntInfo .reservation #select ul li:nth-child(2), #cntInfo .reservation #select ul li:nth-child(3),#cntInfo .reservation #select ul li:nth-child(4),#cntInfo .reservation #select ul li:nth-child(5){width: 200px;display: inline-block}
-#cntInfo .reservation #select ul li:nth-child(4) label,#cntInfo .reservation #select ul li:nth-child(5) label{display: inline-block;padding-bottom: 0}
-#cntInfo .reservation #select ul li input{width: 20px;height: 20px;vertical-align: middle}
-#cntInfo .reservation #select ul li textarea{width: 420px}
+#cntInfo .reservation #select{float: right;margin-right: 100px}
+#cntInfo .reservation #select .select_form{width: 434px;}
+#cntInfo .reservation #select .select_form > div{margin-bottom: 30px}
+#cntInfo .reservation #select .select_form > div label{display: block;padding-bottom: 10px;font-family: NanumSqB;font-size: 20px}
+#cntInfo .reservation #select .select_form > div > div{width: 200px}
+#cntInfo .reservation #select .select_form .row2 > div, #cntInfo .reservation #select .select_form .row3 > div{float: left}
+#cntInfo .reservation #select div select{width: 200px;height: 35px;border-left: none;border-right: none}
+#cntInfo .reservation #select .select_form .row1 #cosOpt, #cntInfo .reservation #select .select_form .row2 div:last-child,#cntInfo .reservation #select .select_form .row3 div:last-child{margin-left: 24px} 
+#cntInfo .reservation #select .select_form .row3 label{display: inline-block;padding-bottom: 0}
+#cntInfo .reservation #select div input{width: 20px;height: 20px;vertical-align: middle}
+#cntInfo .reservation #select div textarea{width: 420px}
 #cntInfo .reservation #select .total,#cntInfo .reservation #select button{position: absolute;left: 100px;width: 1000px}
 #cntInfo .reservation #select .total{height: 110px;bottom: -110px;border-top: 1px solid #164556;}
 #cntInfo .reservation #select .total > * {float: left}
-#cntInfo .reservation #select .total > div{height: 110px;width: 600px}
-#cntInfo .reservation #select .total > p{font-size: 25px;line-height: 110px;padding-left: 80px}
+#cntInfo .reservation #select .total .choice_txt{height: 110px;width: 500px;font-size: 20px;padding: 35px 30px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box}
+#cntInfo .reservation #select .total > p{font-size: 25px;line-height: 110px;padding-left: 70px;font-family: NanumSqB}
+#cntInfo .reservation #select .total > p > span{padding-left: 50px;font-size: 28px}
 #cntInfo .reservation #select button{bottom: -190px;height: 80px;background: #164556;color: #fff;font-family: NanumSqB;font-size: 24px}
 #cntInfo .reservation #select button span{display: inline-block;width: 20px;height: 20px;padding-left: 15px;background: url("../images/info/btn_reservation.png") no-repeat 100% 100%;vertical-align: middle}
 
-#cntInfo .location{background: #164556;height: 600px}
+#cntInfo .location{background: #164556;height: 600px;}
 #cntInfo .location > div{float: left;width: 50%;height: 600px;}
+#cntInfo .location .map iframe{border: none}
 #cntInfo .location .mapinfo{padding: 110px 0 0 60px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 #cntInfo .location .mapinfo strong{display: inline-block;font-size: 22px;padding: 40px 0 0 20px}
 #cntInfo .location .mapinfo div{position: relative;padding-top: 30px;}
@@ -194,7 +198,7 @@ section#cntLesson + #footer{display: none}
 #cntInfo .location .mapinfo p{height: 25px;line-height: 25px;padding-left: 50px;font-size: 18px}
 #cntInfo .location .mapinfo p + p{padding-top: 10px}
 #cntInfo .location .mapinfo .time p span{font-family: NanumSqB;padding-right: 10px}
-
+#cntInfo .btm_bg{height: 250px;background: url("../images/info/btm_bg.jpg") no-repeat 50% 50%;background-size: cover;}
 
 
 @keyframes waveMove {
@@ -223,14 +227,13 @@ section#cntLesson + #footer{display: none}
 
     /* info.html */
     #cntInfo .reservation #calendar{float: none;margin: 0 auto 50px}
-    #cntInfo .reservation #select{float: none;margin-left: 0}
-    #cntInfo .reservation #select ul{margin: 0 auto}
-    #cntInfo .reservation #select ul li{text-align: center}
+    #cntInfo .reservation #select{float: none;margin: 0 auto 50px}
+    #cntInfo .reservation #select .select_form{margin: 0 auto}
+    #cntInfo .reservation #select .select_form div{text-align: center}
     #cntInfo .reservation #select .total,#cntInfo .reservation #select button{left: 0;width: 100%}
     #cntInfo .reservation #select .total{height: 150px;bottom: -200px;}
-    #cntInfo .reservation #select .total > * {float: none}
-    #cntInfo .reservation #select .total > div{height: 80px;width: 100%}
-    #cntInfo .reservation #select .total > p{font-size: 20px;line-height: 50px;padding-left: 200px}
+    #cntInfo .reservation #select .total > .choice_txt{height: 100%;width: 60%}
+    #cntInfo .reservation #select .total > p{padding-left: 0;line-height: 100px;width: 40%}
     #cntInfo .reservation #select button{bottom: -280px;font-size: 20px}
     #cntInfo .reservation #select button span{width: 18px;height: 18px;}
 
@@ -339,29 +342,22 @@ section#cntLesson + #footer{display: none}
     #cntInfo .reservation #calendar .cal_tit{font-size: 25px}
     #calendar table tr th, #calendar table tr td{padding: 13px;font-size: 16px}
     
-    #cntInfo .reservation #select ul{width: 100%;margin: 0 auto}
-    #cntInfo .reservation #select ul li select{width: 149px;height: 35px;border-left: none;border-right: none}
-    #cntInfo .reservation #select ul li:nth-child(2), #cntInfo .reservation #select ul li:nth-child(3),#cntInfo .reservation #select ul li:nth-child(4),#cntInfo .reservation #select ul li:nth-child(5){width: 149px;}
-    #cntInfo .reservation #select ul li:nth-child(2), #cntInfo .reservation #select ul li:nth-child(4){margin-left: 10px}
-    #cntInfo .reservation #select ul li textarea{width: 322px}
-    #cntInfo .reservation #select .total > p{padding-left: 50px}
-    
-/* 
-#cntInfo .reservation #select{float: none;margin-left: 0}
-    #cntInfo .reservation #select ul{margin: 0 auto}
-    #cntInfo .reservation #select ul li{text-align: center}
-#cntInfo .reservation #select .total{height: 150px;bottom: -200px;}
-    #cntInfo .reservation #select .total > * {float: none}
-    #cntInfo .reservation #select .total > div{height: 80px;width: 100%}
-    #cntInfo .reservation #select .total > p{font-size: 20px;line-height: 50px;padding-left: 200px}
+    #cntInfo .reservation #select .select_form{width: 100%;margin: 0 auto}
+    #cntInfo .reservation #select .select_form .row2, #cntInfo .reservation #select .select_form .row3{padding-left: 10px}
+    #cntInfo .reservation #select .select_form div select{width: 149px;height: 35px;border-left: none;border-right: none}
+    #cntInfo .reservation #select .select_form .row2 div,#cntInfo .reservation #select .select_form .row3 div{width: 149px;}
+    #cntInfo .reservation #select .select_form .row1 #cosOpt, #cntInfo .reservation #select .select_form .row2 div:last-child,#cntInfo .reservation #select .select_form .row3 div:last-child{margin-left: 20px}
+    #cntInfo .reservation #select .select_form .row4 textarea{width: 322px}
+    #cntInfo .reservation #select .total{height: 180px;bottom: -200px;}
+    #cntInfo .reservation #select .total > *{float: none}
+    #cntInfo .reservation #select .total > .choice_txt{height: 50%;width: 100%;padding: 30px 30px;}
+    #cntInfo .reservation #select .total > p{padding-left: 0;line-height: 70px;width: 100%;text-align: center}
     #cntInfo .reservation #select button{bottom: -280px;font-size: 20px}
-    #cntInfo .reservation #select button span{width: 18px;height: 18px;}
-*/
 
-    #cntInfo .location{background: #fff;height: 1100px}
+    #cntInfo .location{background: #fff;height: 1080px}
     #cntInfo .location > div{width: 100%;height: 400px}
     #cntInfo .location .map{padding-top: 0px}
-    #cntInfo .location .mapinfo{color: #164556;padding: 0; height: 700px}
+    #cntInfo .location .mapinfo{color: #164556;padding: 0; height: 680px}
     #cntInfo .location .mapinfo img{display: none}
     #cntInfo .location .mapinfo strong{padding: 40px 0 10px }
     #cntInfo .location .mapinfo i{position: static;display: block;font-size: 30px;padding-right: 0;padding-bottom: 10px}
@@ -371,7 +367,7 @@ section#cntLesson + #footer{display: none}
     #cntInfo .location .mapinfo div .down{display: block}
     #cntInfo .location .mapinfo .time p{height: 50px}
     #cntInfo .location .mapinfo .time p span{padding-right: 0}
-       
+    #cntInfo .btm_bg{height: 180px;}
 }
 
 
