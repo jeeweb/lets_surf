@@ -147,59 +147,63 @@
             </div>
             <div id="select">
                 <form action="reservation.html" id="selection">
-                    <ul>
-                        <li>
+                    <div class="select_form">
+                        <div class="row1">
                             <label for="course">강습 선택</label>
-                            <select name="course" id="course">
-                                <option value="입문">입문 과정</option>
-                                <option value="중급">중급 과정</option>
-                                <option value="패키지">패키지 상품</option>
-                                <option value="시즌권">시즌권</option>
+                            <select name="course" id="course" class="choice">
+                                <option value="입문 과정" data-price="0">입문 과정</option>
+                                <option value="중급 과정" data-price="0">중급 과정</option>
+                                <option value="패키지 상품" data-price="0">패키지 상품</option>
+                                <option value="시즌권" data-price="0">시즌권</option>
                             </select>
-                            <select name="csOpt" id="csOpt" title="선택한 강습에 따른 추가옵션 선택">
-                                <option value="그룹" class="opt1">그룹 강습</option>
-                                <option value="소수" class="opt1">개인 및 소수 강습</option>
-                                <option value="1박2일A" class="opt2">1박2일A</option>
+                            <select name="cosOpt" id="cosOpt" class="choice" title="선택한 강습에 따른 추가옵션 선택">
+                               <option value="그룹 강습" data-price="70000">그룹 강습</option>
+                               <option value="개인 및 소수 강습" data-price="130000">개인 및 소수 강습</option>
+                                <!-- <option value="1박2일A" class="opt2">1박2일A</option>
                                 <option value="1박2일B" class="opt2">1박2일B</option>
                                 <option value="2박3일" class="opt2">2박3일</option>
                                 <option value="개인장비" class="opt3">개인장비</option>
                                 <option value="장비렌탈" class="opt3">장비렌탈</option>
                                 <option value="개인장비숙박" class="opt3">개인장비+게스트하우스</option>
-                                <option value="장비렌탈숙박" class="opt3">장비렌탈+게스트하우스</option>
+                                <option value="장비렌탈숙박" class="opt3">장비렌탈+게스트하우스</option> -->
                             </select>
-                        </li>
-                        <li>
-                            <label for="days">기간</label>
-                            <select name="days" id="days">
-                                <option value="1일">1일</option>
-                                <option value="1박2일">1박2일</option>
-                                <option value="2박3일">2박3일</option>
-                            </select>
-                        </li>
-                        <li>
-                            <label for="numPl">인원 수</label>
-                            <select name="numPl" id="numPl">
-                                <option value="1">1인</option>
-                                <option value="2">2인</option>
-                                <option value="3">3인</option>
-                                <option value="more4">4인 이상</option>
-                            </select>
-                        </li>
-                        <li>
-                            <label for="guesthouse">게스트하우스</label>
-                            <input type="checkbox" id="guesthouse" name="guesthouse" value="게스트하우스">
-                        </li>
-                        <li>
-                            <label for="rental">장비 렌탈</label>
-                            <input type="checkbox" id="rental" name="rental" value="장비렌탈">
-                        </li>
-                        <li>
+                        </div>
+                        <div class="row2 clearfix">
+                            <div>
+                                <label for="days">기간</label>
+                                <select name="days" id="days" class="choice">
+                                    <option value="1일" data-price="0">1일</option>
+                                    <option value="1박2일" data-price="0">1박2일</option>
+                                    <option value="2박3일" data-price="0">2박3일</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="numPl">인원 수</label>
+                                <select name="numPl" id="numPl" class="choice">
+                                    <option value="1인" data-price="0">1인</option>
+                                    <option value="2인" data-price="0">2인</option>
+                                    <option value="3인" data-price="0">3인</option>
+                                    <option value="more4" data-price="0">4인 이상</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row3 clearfix">
+                            <div>
+                                <label for="guesthouse">게스트하우스</label>
+                                <input type="checkbox" id="guesthouse" class="choice" name="guesthouse" value="게스트하우스" data-price="30000">
+                            </div>
+                            <div>
+                                <label for="rental">장비 렌탈</label>
+                                <input type="checkbox" id="rental" class="choice" name="rental" value="장비렌탈" data-price="10000" checked>
+                            </div>
+                        </div>
+                        <div class="row4">
                             <label for="request">기타 요청 사항</label>
                             <textarea name="request" id="request" cols="30" rows="7"></textarea>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                     <div class="total">
-                        <div></div>
+                        <div class="choice_txt"></div>
                         <p>총 합계<span></span></p>
                     </div>
                     <button type="submit">예약하기<span></span></button>
@@ -234,6 +238,7 @@
                 </div>
             </div>
         </div>
+        <div class="btm_bg"></div>
     </section>
 
     <footer id="footer">
