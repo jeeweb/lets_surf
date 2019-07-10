@@ -18,7 +18,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.min.js"></script>
     <script>
         $(document).ready(function() {
-            
             //swiper_PC
             var swiper = new Swiper('.swiper-container', {
                 pagination: {
@@ -32,8 +31,19 @@
 
             var indicTxt = ['Main', '강습 안내', '시설 안내', '위치안내'];
             var tgIdx = 0;
+            var tabletSize = 1024;
             var mobileSize = 767;
             var isMobile = $(window).width() <= mobileSize? true : false;
+
+            var $btnGnb = $('#header .head_top .btn_gnb');
+            var $gnb = $('#gnb');
+            var $cntwrap = $('#container .cntwrap');
+            var $pcLesson = $('#container #content2 .pclesson');
+            var $mLesson = $('#container #content2 .mlesson');
+            var $facility = $('#container #content3 .facility');            
+            var total = $cntwrap.children('section').size();
+            var winWid;
+            var timerResize = 0;
             
             $('.swiper-pagination .swiper-pagination-bullet .indic_txt').each(function (idx) {
 				$(this).text(indicTxt[idx]);
@@ -46,54 +56,63 @@
             });
 
             $('.swiper-pagination > div').on('mouseleave blur', function() {
-                if ($(this).hasClass('swiper-pagination-bullet-active')) $(this).find('.indic_txt').css({opacity: 1,filter: 'Alpha(opacity=100)'});
-                else $(this).find('.indic_txt').css({opacity: 0,filter: 'Alpha(opacity=0)'});
+                if (winWid > tabletSize) {
+                    if ($(this).hasClass('swiper-pagination-bullet-active')) $(this).find('.indic_txt').css({opacity: 1,filter: 'Alpha(opacity=100)'});
+                    else $(this).find('.indic_txt').css({opacity: 0,filter: 'Alpha(opacity=0)'});
+                } else {
+                    $(this).find('.indic_txt').css({opacity: 1,filter: 'Alpha(opacity=100)'})
+                }
             });
 
             $('.swiper-pagination .swiper-pagination-bullet').on('click', function () {
+                winWid = $(this).width();
                 tgIdx = $(this).index();
-                if ($(window).width() > mobileSize && isMobile == false) $('#indiIcon').stop().animate({marginLeft: -283+tgIdx*174});
-                else if ($(window).width() > mobileSize && isMobile == true) $('#indiIcon').stop().animate({marginLeft: -140+tgIdx*60});
+                //console.log(winWid, mobileSize, tgIdx);
+
+                if (winWid > mobileSize) $('#indiIcon').stop().animate({marginLeft: -283+tgIdx*174});
+                else if (winWid <= mobileSize) $('#indiIcon').stop().animate({marginLeft: -145+tgIdx*81});
             });
 
             swiper.on('slideChange', function () {
                 var choiceNum = $('.swiper-pagination-bullet-active').index();
                 //console.log(choiceNum);
-                $('#indiIcon').stop().animate({marginLeft: -283+choiceNum*174});
+                if (winWid > mobileSize) $('#indiIcon').stop().animate({marginLeft: -283+tgIdx*174});
+                else if (winWid <= mobileSize) $('#indiIcon').stop().animate({marginLeft: -145+tgIdx*81});
             }); 
-
-            /* //swiper_모바일
-                #indiCon 움직임 제어
-                slideChange 제어
-                .swiper-pagination .indic_txt 계속 보이게
-             */
-
-            var $btnGnb = $('#header .head_top .btn_gnb');
-            var $gnb = $('#gnb');
-            var $cntwrap = $('#container .cntwrap');
-            var $pcLesson = $('#container #content2 .pclesson');
-            var $facility = $('#container #content3 .facility');            
-            var total = $cntwrap.children('section').size();
-            var windowWid;
-            var timerResize = 0;
-
             
             $(window).on('resize', function () {
                 clearTimeout(timerResize);
                 setTimeout (function () {
-                    windowWid = $(this).width();
-                    //console.log(windowWid);
-                    $cntwrap.css({width: windowWid*total, height: $(window).height()}).children('section').css({width: windowWid, height: $(window).height()}).children('.bg2').css({width: windowWid, height: $(window).height()});                    
-                    $cntwrap.stop().animate({marginLeft: tgIdx*windowWid*-1});
+                    winWid = $(this).width();
+                    //console.log(winWid);
+                    $cntwrap.css({width: winWid*total, height: $(window).height()}).children('section').css({width: winWid, height: $(window).height()}).children('.bg2').css({width: winWid, height: $(window).height()});                    
+                    $cntwrap.stop().animate({marginLeft: tgIdx*winWid*-1});
                 }, 50)
+
+                if ( winWid > mobileSize && isMobile == true ) {
+                    $('#header *').removeAttr('style');
+                    isMobile  = false;
+                }
+                else  if ( winWid <= mobileSize && isMobile == false ) {
+                    $('#header *').removeAttr('style');
+                    isMobile  = true;
+                }
             });
             $(window).trigger('resize');
 
             //네비게이션_PC
+            var $first;
+            var $last;
+
             $btnGnb.children('.pcbtn_open').on('click', function (e) {
                 e.preventDefault();
+                $first = $gnb.find('.area > .gnb_open > li').first().children();/* '[data-link="firstPc"]' */
+                $last = $gnb.find('.pcbtn_close');/* '[data-link="lastPc"]' */
+                
+                $first.focus();
+
                 $gnb.css({display: 'block'}).find('.area').addClass('open');
-                //파도처럼 내려오기
+
                 $gnb.find('>.area > *').each(function (idx) {
                     if ( $(this).parent().hasClass('open') ) {
                         setTimeout(function() {
@@ -101,6 +120,7 @@
                         }, 300*(idx+1))
                     }                    
                 });
+                focusControl();
             });
 
             $gnb.find('.pcbtn_close').on('click', function (e) {
@@ -110,12 +130,14 @@
             });
 
             //네비게이션_모바일
-            var $first;
-            var $last;
+            
             $btnGnb.children('.mbtn_open').on('click', function (e) {
                 e.preventDefault();
-                $first = $gnb.find('[data-link="first"]');
-                $last = $gnb.find('[data-link="last"]')
+                $first = $gnb.find('.area > a');/* '[data-link="firstM"]' */
+                $last = $gnb.find('.mbtn_close');/* '[data-link="lastM"]' */
+
+                $first.focus();
+                
                 $gnb.css({display: 'block'}).find('.area').addClass('open');
 
                 $gnb.stop().slideDown(function () {
@@ -142,7 +164,6 @@
                         $gnb.find('>.area > *').css({opacity: 0,filter: 'Alpha(opacity=0)'});
                     });
                 });
-
             });
 
             function focusControl () {
@@ -172,6 +193,11 @@
             $pcLesson.find('> div > a').on('mouseleave blur', function () {
                 $(this).parent().removeClass('show').children('.brief').slideUp();
             });
+
+            $mLesson.find('ul > li > a').on('click', function (e) {
+                e.preventDefault();
+                $(this).next().slideToggle().parent().siblings().children('p').slideUp();
+            })
 
             $facility.find('> .gh_img').on('mouseenter focusin', function () {
                 $facility.find('> .shop_img').css({backgroundImage: 'url("images/index/facility_shop2.png")'}).parents('#content3').find('.guesthouse').show();
@@ -214,12 +240,12 @@
         <nav id="gnb">
             <h2 class="blind">주메뉴 영역</h2>
             <div class="area">
-                <a href="index.html" data-link="first"><!-- 모바일 -->
+                <a href="index.html" data-link="firstM"><!-- 모바일 -->
                     <img src="images/common/m_index_logo.png" alt="렛츠서프" width="220" height="55">
                 </a>
                 <ul class="gnb_open clearfix">
                     <li>
-                        <a href="lesson/lesson.html">강습 안내</a>
+                        <a href="lesson/lesson.html" data-link="firstPc">강습 안내</a>
                     </li>
                     <li>
                         <a href="#">장비 렌탈</a>
@@ -256,10 +282,10 @@
                     <p>Copyright &copy; Lets Serf All Rights Reserved</p>
                 </div>
             </div>
-            <button type="button" class="mbtn_close" data-link="last"><!-- 모바일 -->
+            <button type="button" class="mbtn_close" data-link="lastM"><!-- 모바일 -->
                 <span class="blind">주메뉴 닫기</span>                    
             </button>
-            <button type="button" class="pcbtn_close"><!-- pc, tablet -->
+            <button type="button" class="pcbtn_close" data-link="lastPc"><!-- pc, tablet -->
                 <span class="blind">주메뉴 닫기</span>                    
             </button>
         </nav>
@@ -325,21 +351,23 @@
                         </li>
                         <li>
                             <a href="">패키지상품</a>
-                            <p>1박2일A<br>(강습1회 + 숙박 1박)<br>1박2일B<br>(강습2회 + 숙박 1박)<br>2박3일A<br>(강습2회 + 숙박 2박)</p>
+                            <p>1박2일A<br>(강습1회 + 숙박 1박)<br>1박2일B<br>(강습2회 + 숙박 1박)<br>2박3일<br>(강습2회 + 숙박 2박)</p>
                         </li>
                         <li>
                             <a href="">시즌권</a>
                             <p>6개월 기준<br>장비 렌탈<br>개인장비 보관<br>숙박 포함 가능</p>
                         </li>
                     </ul>
-                    <a href="lesson/lesson.html">
-                        강습 자세히보기
-                        <span class="arrow"></span>
-                    </a>
-                    <a href="lesson/info.html">
-                        예약하기
-                        <span class="arrow"></span>
-                    </a>
+                    <div class="btn">
+                        <a href="lesson/lesson.html" class="btn_more">
+                            자세히보기
+                            <span class="arrow"></span>
+                        </a>
+                        <a href="info/info.html" class="btn_more">
+                            예약하기
+                            <span class="arrow"></span>
+                        </a>
+                    </div>
                 </div>
             </section>
             <section id="content3" class="swiper-slide">
@@ -368,7 +396,7 @@
                 </div>
             </section>
             <section id="content4" class="swiper-slide">
-                <h2 class="blind">위치 안내</h2>
+                <h2 class="cnt_tit">위치 안내</h2>
                 <div class="map">
                     <svg version="1.1" id="mapImg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         width="955px" height="1040px" viewBox="0 0 955 1040" style="enable-background:new 0 0 955 1040;" xml:space="preserve">
@@ -462,14 +490,14 @@
                     </div>
                     <div class="bus">
                         <i class="fas fa-bus-alt"></i>
-                        <p><span class="blind">대중교통 이용방법</span>주문진 고속버스터미널 - 322번 버스, 두창시변리 정류장 하차</p>
+                        <p><span class="blind">대중교통 이용방법</span>주문진 고속버스터미널 - 322번 버스, <span class="down">두창시변리 정류장 하차</span></p>
                     </div>
                     <div class="time">
                         <i class="fas fa-clock"></i>
                         <span class="blind">시간 안내</span>
-                        <p><span>이용시간</span>오전 8시 ~ 일몰 후 30분까지</p>
-                        <p><span>강습시간</span>오전10시  /  오후 1시  /  오후 3시 30분</p>
-                        <p>단체강습의 경우 전화상담을 통해 강습 시간 조정이 가능합니다.</p>
+                        <p><span class="down">이용시간</span>오전 8시 ~ 일몰 후 30분까지</p>
+                        <p><span class="down">강습시간</span>오전10시  /  오후 1시  /  오후 3시 30분</p>
+                        <p>단체강습의 경우 전화상담을 통해 <span class="down">강습 시간 조정이 가능합니다.</span></p>
                     </div>
                 </div>
             </section>
