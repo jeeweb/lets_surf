@@ -76,9 +76,9 @@
 
             swiper.on('slideChange', function () {
                 var choiceNum = $('.swiper-pagination-bullet-active').index();
-                //console.log(choiceNum);
-                if (winWid > mobileSize) $('#indiIcon').stop().animate({marginLeft: -283+tgIdx*174});
-                else if (winWid <= mobileSize) $('#indiIcon').stop().animate({marginLeft: -145+tgIdx*81});
+                console.log(choiceNum);
+                if (winWid > mobileSize) $('#indiIcon').stop().animate({marginLeft: -283+choiceNum*174});
+                else if (winWid <= mobileSize) $('#indiIcon').stop().animate({marginLeft: -145+choiceNum*81});
             }); 
             
             $cntwrap.on('mousewheel DOMMouseScroll', function (e) {
