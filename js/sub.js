@@ -339,16 +339,18 @@ $(document).ready(function () {
 
         $('#selection .choice').each(function () {
             var num = $(this).prop('selectedIndex');
+            var numPl = parseInt($('#selection #numPl').val());
+            //console.log(numPl, typeof numPl)
             
             if (num >= 0) {
                 add += parseInt( $(this).children().eq(num).data('price'));
                 resultTxt += $(this).val() + ' ';
-                console.log('select : ', num, parseInt( $(this).children().eq(num).data('price')), add, resultTxt);
+                console.log('select : ', num, parseInt( $(this).children().eq(num).data('price')), add * numPl, resultTxt);
             } else {
                 if ( $(this).prop('checked')) {
                     add += parseInt( $(this).data('price'));
                     resultTxt += $(this).val() + ' ';
-                    console.log('checkbox : ', num, $(this).data('price'), add, resultTxt);
+                    console.log('checkbox : ', num, $(this).data('price'), add * numPl, resultTxt);
                 }
             }
         });
