@@ -129,7 +129,7 @@ section#cntLesson + #footer{display: none}
 #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box{padding: 100px 0 0 100px;background: #164556;line-height: 1.5;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing: border-box;height: 100%}
 #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box .dt_tit{font-family: NanumSqB;font-size: 25px;margin-bottom: 75px}
 #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box .dt_tit+p,#lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box div{width: 500px}
-#lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box ul{position: absolute;top: 107px; left: 70%;}
+#lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box ul{position: absolute;top: 107px; left: 50%;}
 #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box ul li{float: left;font-size: 18px}
 #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box ul li + li{padding-left:15px}
 #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box div{margin-top: 77px}
@@ -218,7 +218,11 @@ section#cntLesson + #footer{display: none}
 
     /* lesson.html */
     #lesson div .sub_bg .sub_tit h3+p{font-size: 0;text-indent: -9999px}
+    #lesson .cntwrap .sub_cnt .sub_bg .scroll{display: none}
     #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box{padding: 100px 0 0 50px;}
+    /* 
+#lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box{padding: 100px 0 0 100px;background: #164556;line-height: 1.5;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing: border-box;height: 100%}
+    */
     #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box .dt_tit+p,#lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box div{width: 400px;font-size: 14px}
     #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box ul{left: 50%;}
     #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box div{margin-top: 50px}
@@ -319,7 +323,7 @@ section#cntLesson + #footer{display: none}
 
     #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt{width: 100%;background: #164556;}
     #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box{margin-left: 0;width: 100%;padding: 50px 18px 75px;line-height: 1.5;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-align: center;}
-    #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box .dt_tit + p, #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box div{width: 100%;font-size: 16px}
+    #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box .dt_tit + p, #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box div{width: 100%;font-size: 15px}
     #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box .dt_tit{margin-bottom: 30px}
     #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box ul{position: static;width: 164px;height: 25px;margin: 50px auto 0;}
     #lesson .cntwrap .sub_cnt .detail .detailbox .detail_txt .txt_box ul li + li{padding-left:30px}
@@ -341,13 +345,14 @@ section#cntLesson + #footer{display: none}
     #cntInfo .reservation #calendar{width: 322px;}
     #cntInfo .reservation #calendar .cal_tit{font-size: 25px}
     #calendar table tr th, #calendar table tr td{padding: 13px;font-size: 16px}
-    
+  
     #cntInfo .reservation #select .select_form{width: 100%;margin: 0 auto}
-    #cntInfo .reservation #select .select_form .row2, #cntInfo .reservation #select .select_form .row3{padding-left: 10px}
+    #cntInfo .reservation #select .select_form .row2, #cntInfo .reservation #select .select_form .row3{width: 318px;margin: 0 auto 30px}
     #cntInfo .reservation #select .select_form div select{width: 149px;height: 35px;border-left: none;border-right: none}
     #cntInfo .reservation #select .select_form .row2 div,#cntInfo .reservation #select .select_form .row3 div{width: 149px;}
     #cntInfo .reservation #select .select_form .row1 #cosOpt, #cntInfo .reservation #select .select_form .row2 div:last-child,#cntInfo .reservation #select .select_form .row3 div:last-child{margin-left: 20px}
     #cntInfo .reservation #select .select_form .row4 textarea{width: 322px}
+
     #cntInfo .reservation #select .total{height: 180px;bottom: -200px;}
     #cntInfo .reservation #select .total > *{float: none}
     #cntInfo .reservation #select .total > .choice_txt{height: 50%;width: 100%;padding: 30px 30px;}
