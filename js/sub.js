@@ -336,30 +336,34 @@ $(document).ready(function () {
     function choiceSum () {
         var add = 0;
         var resultTxt = '';
+        var addTxt;
 
         $('#selection .choice').each(function () {
             var num = $(this).prop('selectedIndex');
             var numPl = parseInt($('#selection #numPl').val());
+            
             //console.log(numPl, typeof numPl)
             
             if (num >= 0) {
                 add += parseInt( $(this).children().eq(num).data('price'));
+                addTxt = add * numPl;
                 resultTxt += $(this).val() + ' ';
-                console.log('select : ', num, parseInt( $(this).children().eq(num).data('price')), add * numPl, resultTxt);
+                console.log('select : ', num, parseInt( $(this).children().eq(num).data('price')), add * numPl, addTxt, resultTxt);
             } else {
                 if ( $(this).prop('checked')) {
                     add += parseInt( $(this).data('price'));
+                    addTxt = add * numPl;
                     resultTxt += $(this).val() + ' ';
-                    console.log('checkbox : ', num, $(this).data('price'), add * numPl, resultTxt);
+                    console.log('checkbox : ', num, $(this).data('price'), add * numPl, addTxt, resultTxt);
                 }
             }
         });
         $('#selection .total .choice_txt').text(resultTxt);
 
         var regexp = /\B(?=(\d{3})+(?!\d))/g;
-        add = add.toString().replace(regexp, ',');
+        addTxt = addTxt.toString().replace(regexp, ',');
         
-        $('#selection .total span').text(add + ' 원');
+        $('#selection .total span').text(addTxt + ' 원');
     }
 
     $('#selection .choice').on('change', choiceSum);
