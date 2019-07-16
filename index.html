@@ -66,10 +66,9 @@
             });
 
             $('.swiper-pagination .swiper-pagination-bullet').on('click', function () {
-                winWid = $(this).width();
+                winWid = $(window).width();
                 tgIdx = $(this).index();
                 //console.log(winWid, mobileSize, tgIdx);
-
                 if (winWid > mobileSize) $('#indiIcon').stop().animate({marginLeft: -283+tgIdx*174});
                 else if (winWid <= mobileSize) $('#indiIcon').stop().animate({marginLeft: -145+tgIdx*81});
             });
