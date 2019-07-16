@@ -27,12 +27,11 @@
 #gnb .gnb_open{padding-top: 130px}
 #gnb > .area > .gnb_open > li{float: left;width: 240px}
 #gnb .area > * {opacity: 0;filter: Alpha(opacity=0);transition: all 1s}
-#gnb > .area > .gnb_open > li > a{display: block;width: 100%;}
-#gnb > .area > .gnb_open > li > a{height: 90px;line-height: 90px;font-size: 36px;}
+#gnb > .area > .gnb_open > li > a{display: block;width: 100%;height: 90px;line-height: 90px;font-size: 36px;}
 #gnb .gnb_open li ul li a{height: 63px;line-height: 63px;font-size: 25px}
 #gnb .gnb_open + img{padding: 40px 0 10px}
 #gnb .sns{height: 60px;text-align: center}
-#gnb .sns li{display: inline-block;text-indent: -9999px}
+#gnb .sns li{display: inline-block;text-indent: -9999px;overflow: hidden;}
 #gnb .sns li + li{padding-left: 50px}
 #gnb .sns li a{display: block;width: 60px; height: 60px;background: no-repeat 0 0;background-size: cover}
 #gnb .sns li:nth-child(1) a{background-image: url("../images/index/gnb_sns_kakao.png")}
@@ -93,11 +92,16 @@
 
 #container #content3{position: relative;background-image: url("../images/index/facility_bg.jpg")}
 #content3 h2{color: #164556}
-#content3 .facility{margin: 0 auto;width: 795px;height: 606px;background: url("../images/index/facility_floor.png") no-repeat 50% 50%;background-size: cover}
-#content3 .facility > div{position: absolute;cursor: pointer}
-#content3 .facility .gh_img{top: 0; left: 0;width: 445px;height: 606px;background: url("../images/index/facility_guesthouse1.png") no-repeat 0 0}
-#content3 .facility .shop_img{bottom: 0; right: 0;width: 604px;height: 456px;background: url("../images/index/facility_shop1.png") no-repeat 0 100%}
-#content3 .summary{position: absolute;top:130px;width: 376px;background: rgba(22, 69, 86, 0.7);border: 1px solid #164556;text-align: center;padding: 30px 0}
+#content3 #facility{position: relative;margin: 0 auto;width: 805px;height: 606px;background: url("../images/index/facility.png") no-repeat;background-size: cover}
+#content3 #facility.gh_bg{background-image: url("../images/index/facility_guesthouse.png")}
+#content3 #facility.shop_bg{background-image: url("../images/index/facility_shop.png")}
+#content3 #facility a{position: absolute;width: 25px;height: 25px;text-indent: -9999px;border-radius: 50%;background: #164556}
+#content3 #facility a:after{content: "";top: -10px;left: -10px;width: 45px;height: 45px;position: absolute;border-radius: 50%;background: rgba(22, 69, 86, 0.3);-webkit-animation: sizeChange 0.7s linear 0s infinite alternate;-moz-animation: sizeChange 0.7s linear 0s infinite alternate;-o-animation: sizeChange 0.7s linear 0s infinite alternate;animation: sizeChange 0.7s linear 0s infinite alternate}
+#content3 #facility.gh_bg a.shop_img:after,#content3 #facility.shop_bg a.gh_img:after{background-color: rgba(255,255,255,0.3)}
+#content3 #facility .gh_img{top: 57px; left: 280px}
+#content3 #facility .shop_img{top: 253px; left: 459px}
+
+#content3 .summary{display: none;position: absolute;top:130px;width: 376px;background: rgba(22, 69, 86, 0.7);border: 1px solid #164556;text-align: center;padding: 30px 0}
 #content3 .summary .sum_txt strong{font-size: 22px;}
 #content3 .summary .sum_txt p{padding-top: 20px;line-height: 1.5}
 #content3 .summary .sum_txt a{position: relative;display: inline-block;height: 15px;line-height: 15px;font-size: 12px;padding-right: 18px;margin: 15px 0 }
@@ -106,8 +110,8 @@
 #content3 .guesthouse{left: 50%;margin-left: 200px}
 #content3 .shop{right: 50%;margin-right: 200px}
 #content3 .summary:before{content: "";position: absolute;height: 1px;background: #164556;}
-#content3 .guesthouse:before{transform: rotate(150deg);width: 380px;top: 95px;right: 93%;}
-#content3 .shop:before{transform: rotate(50deg);width: 480px;top: 183px;left: 50%;margin-left: 103px;}
+#content3 .guesthouse:before{transform: rotate(-27deg);width: 350px;top: 0px;right: 100%;transform-origin: right;}
+#content3 .shop:before{transform: rotate(53deg);width: 455px;top: 0px;left: 73%;margin-left: 103px;transform-origin: left}
 
 #container #content4{position: relative;background-image: url("../images/index/info_bg.jpg");overflow: hidden}
 #container #content4 .cnt_tit{text-indent: -9999px;font-size: 0;line-height: 0;padding-top: 0}
@@ -131,6 +135,10 @@
     to {opacity: 1;filter: Alpha(opacity=100)}
 }
 
+@keyframes sizeChange {
+    from {transform: scale(1)}
+    to {transform: scale(0.8)}
+}
 
 @media screen and (max-width: 1024px) {
     .area{width: 100%}
@@ -143,7 +151,7 @@
     #gnb p.address{font-size: 18px;padding-bottom: 12px}
     
     .swiper-pagination-bullets{height: 80px}
-    .swiper-pagination-bullet{width: 52px;height: 45px;display: inline-block;margin: 0 60px;opacity: 1;filter: Alpha(opacity=100)}
+    .swiper-pagination-bullet{width: 52px;height: 45px;margin: 0 60px}
     .swiper-pagination-bullets div .indic_txt{font-size: 13px;padding-top: 5px;opacity: 1;filter: Alpha(opacity=100)}
     #indiIcon{bottom: 60px;}
 
@@ -195,10 +203,10 @@
  #gnb .gnb_open{position: absolute;top: 120px;left: 50%;width: 200px;margin-left: -100px;padding-top: 0}
  #gnb > .area > .gnb_open > li{float: none;width: 200px}
  #gnb .area > * {opacity: 0;filter: Alpha(opacity=0);transition: all 1s}
- #gnb > .area > .gnb_open > li > a{display: block;width: 100%;height: 55px;line-height: 55px;font-size: 20px}
+ #gnb > .area > .gnb_open > li > a{height: 55px;line-height: 55px;font-size: 20px}
  #gnb .gnb_open li ul{display: none;padding: 3px 0;width: 200px;margin: 0 auto;border-top: 1px solid #fff;border-bottom: 1px solid #fff;}
  #gnb .gnb_open li ul li a{height: 30px;line-height: 30px;left: 30px;font-size: 16px}
- #gnb .sns{margin-top: 440px;height: 40px;text-align: center}
+ #gnb .sns{margin-top: 440px;height: 40px;}
  #gnb .sns li + li{padding-left: 20px}
  #gnb .sns li a{width: 40px;height: 40px;background-size: cover}
  #gnb .sns li:nth-child(1):hover a,#gnb .sns li:nth-child(1) a:focus, #gnb .sns li:nth-child(2):hover a,#gnb .sns li:nth-child(2) a:focus, #gnb .sns li:nth-child(3):hover a,#gnb .sns li:nth-child(3) a:focus{background-position: -40px 0}
@@ -207,7 +215,6 @@
 
  #header #gnb .mbtn_close{position: absolute;top: 20px; right: 20px;width: 35px; height: 35px;background: url("../images/index/btn_close.png") no-repeat 50% 0;background-size: cover}
 
- .swiper-pagination-bullets{height: 80px;}
  .swiper-pagination-bullet{margin: 0 15px;}
  #indiIcon{bottom: 59px;margin-left: -145px}
  
