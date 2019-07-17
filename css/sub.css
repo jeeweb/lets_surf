@@ -190,7 +190,7 @@ section#cntLesson + #footer{display: none}
 
 #cntInfo .location{background: #164556;height: 600px;}
 #cntInfo .location > div{float: left;width: 50%;height: 600px;}
-#cntInfo .location .map iframe{border: none}
+#cntInfo .location .map iframe{border: none;width: 100%;height: 100%}
 #cntInfo .location .mapinfo{padding: 110px 0 0 60px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 #cntInfo .location .mapinfo strong{display: inline-block;font-size: 22px;padding: 40px 0 0 20px}
 #cntInfo .location .mapinfo div{position: relative;padding-top: 30px;}
