@@ -155,8 +155,6 @@
     .swiper-pagination-bullets div .indic_txt{font-size: 13px;padding-top: 5px;opacity: 1;filter: Alpha(opacity=100)}
     #indiIcon{bottom: 60px;}
 
-
-
     #container section .cnt_tit{padding-top: 100px;}
     #content2 .pclesson{height: 600px}
     #content2 .pclesson div a img{transform: scale(0.8)}
@@ -174,7 +172,8 @@
     #content2 .pclesson div .brief strong{font-size: 20px;}
     #content2 .pclesson div .brief p{padding-top: 16px;line-height: 1.5}
     
-    #content3 .facility{transform: scale(0.8)}
+    #content3 #facility{transform: scale(0.8)}
+    #content3 #facility .gh_img{left: 310px}
     #content3 .summary{width: 350px;padding: 20px 0}
     #content3 .summary:before{height: 0}
     #content3 .guesthouse{left: 50%;margin-left: 100px}
@@ -237,13 +236,15 @@
  /* #content2 .mlesson .btn a+a{margin-left: 12px} */
  #content2 .mlesson .btn .btn_more .arrow{position: relative;bottom: -2px;left: 2px;display: inline-block;background: url("../images/index/btn_arrow.png") no-repeat 0 100%; width: 16px;height: 16px}
 
- #content3 .facility{transform: scale(0.6)}
- #content3 .facility{left: -180px;bottom: -100px}
- #content3 .facility > div{transform: scale(0.9)}
+ #content3 #facility{transform: scale(0.5);margin-right: 0;left: -210px;top: 180px}
+ #content3 #facility .gh_img{top: 100px;left: 230px}
+ #content3 #facility .shop_img{top: 253px; right: 220px}
+ #content3 #facility a{width: 50px;height: 50px;}
+ #content3 #facility a:after{width: 70px;height: 70px;}
  #content3 .summary{width: 95%;top: 80px}
  #content3 .guesthouse{left: 0px;margin-left: 2.5%}
  #content3 .shop{right: 0px;margin-right: 2.5%}
- #content3 .summary > img{float: left;width: auto;margin-left: 12px}
+ #content3 .summary > img{float: left;width: auto;margin-left: 8px}
  #content3 .guesthouse > img{height: 105px}
  #content3 .shop > img{height: 110px;}
  #content3 .summary img + img {padding-top: 0px}
