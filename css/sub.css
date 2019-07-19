@@ -279,6 +279,7 @@ section#cntLesson + #footer{display: none}
     #header .mheader #mgnb .address{font-size: 16px;padding-bottom: 0}
     #header .mbtn_close{position: absolute;top: 27px;right: 20px;width: 35px;height: 35px;background: url("../images/index/btn_close.png") no-repeat 50% 50%; background-size: cover}
     
+    section{padding-top: 50px;}
     section .subtit{position: absolute;color: #fff !important;font-size: 16px !important;font-family: NanumSqB;line-height: 50px;top: 0; text-indent: 0 !important;left:50%;margin-left: -15px;z-index: 800;}
 
     #footer{height: 215px;width: 100%;padding: 30px 0;text-align: center;background: #164556}
@@ -292,7 +293,6 @@ section#cntLesson + #footer{display: none}
     
 
 /* lesson.html */
-    #lesson{padding-top: 50px}
     #lesson div .sub_bg .sub_tit{top: calc(50vh - 30px);margin-top: 0;width: 100%}/* top: calc(50vh - 30px - 95px) */
     #lesson .btnwrap ul .btn_basic a .sub_tit, #lesson .cntwrap #subCnt1 .sub_bg .sub_tit{transform: translateY(calc(100vh / 4 * -1.5))}
     #lesson .btnwrap ul .btn_advanced a .sub_tit, #lesson .cntwrap #subCnt2 .sub_bg .sub_tit{transform: translateY(calc(100vh / 4 * -0.5))}
@@ -338,7 +338,6 @@ section#cntLesson + #footer{display: none}
 
 
 /* info.html */
-    #cntInfo{padding-top: 50px}
     #cntInfo .top_tit{height: calc(100vh / 4);}
     #cntInfo .top_tit h2{font-size: inherit; padding-top: 0}
     #cntInfo .reservation{margin:50px auto 350px}
@@ -346,18 +345,17 @@ section#cntLesson + #footer{display: none}
     #cntInfo .reservation #calendar .cal_tit{font-size: 25px}
     #calendar table tr th, #calendar table tr td{padding: 13px;font-size: 16px}
   
-    #cntInfo .reservation #select .select_form{width: 100%;margin: 0 auto}
+    #cntInfo .reservation #select .select_form{width: 100%;}
     #cntInfo .reservation #select .select_form .row2, #cntInfo .reservation #select .select_form .row3{width: 318px;margin: 0 auto 30px}
     #cntInfo .reservation #select .select_form div select{width: 149px;height: 35px;border-left: none;border-right: none}
     #cntInfo .reservation #select .select_form .row2 div,#cntInfo .reservation #select .select_form .row3 div{width: 149px;}
     #cntInfo .reservation #select .select_form .row1 #cosOpt, #cntInfo .reservation #select .select_form .row2 div:last-child,#cntInfo .reservation #select .select_form .row3 div:last-child{margin-left: 20px}
     #cntInfo .reservation #select .select_form .row4 textarea{width: 322px}
 
-    #cntInfo .reservation #select .total{height: 180px;bottom: -200px;}
+    #cntInfo .reservation #select .total{height: 180px;}
     #cntInfo .reservation #select .total > *{float: none}
     #cntInfo .reservation #select .total > .choice_txt{height: 50%;width: 100%;padding: 30px 30px;}
-    #cntInfo .reservation #select .total > p{padding-left: 0;line-height: 70px;width: 100%;text-align: center}
-    #cntInfo .reservation #select button{bottom: -280px;font-size: 20px}
+    #cntInfo .reservation #select .total > p{line-height: 70px;width: 100%;text-align: center}
 
     #cntInfo .location{background: #fff;height: 1080px}
     #cntInfo .location > div{width: 100%;height: 400px}
@@ -365,15 +363,10 @@ section#cntLesson + #footer{display: none}
     #cntInfo .location .mapinfo{color: #164556;padding: 0; height: 680px}
     #cntInfo .location .mapinfo img{display: none}
     #cntInfo .location .mapinfo strong{padding: 40px 0 10px }
-    #cntInfo .location .mapinfo i{position: static;display: block;font-size: 30px;padding-right: 0;padding-bottom: 10px}
-    #cntInfo .location .mapinfo p{padding-left: 0px;}
-    #cntInfo .location .mapinfo div{position: relative;padding-top: 30px;}
     #cntInfo .location .mapinfo .bus{height: 90px}
     #cntInfo .location .mapinfo div .down{display: block}
     #cntInfo .location .mapinfo .time p{height: 50px}
     #cntInfo .location .mapinfo .time p span{padding-right: 0}
     #cntInfo .btm_bg{height: 180px;}
 }
-
-
 
